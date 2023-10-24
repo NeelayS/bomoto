@@ -6,10 +6,51 @@ import torch
 from bomoto.utils import get_vertices_per_edge
 
 
-def vertex_loss(
+def compute_v2v_error(
     estimated_vertices: torch.Tensor,
     target_vertices: torch.Tensor,
     reduction: str = "mean",
+    mask_vertices: list = None,
+):
+    """
+    Vertex to vertex error in meters.
+
+    Parameters
+    ----------
+    estimated_vertices: torch.Tensor
+        Estimated vertices, shape must be either (batch_size, n_vertices, 3) or (n_vertices, 3)
+    target_vertices: torch.Tensor
+        Target vertices, shape must be either (batch_size, n_vertices, 3) or (n_vertices, 3)
+    reduction: str
+        Reduction method. Either "mean" or "sum". Default: "mean"
+
+    Returns
+    -------
+    error: torch.Tensor
+        Error value
+    """
+
+    reduction = reduction.lower()
+    assert reduction in ("mean", "sum"), "Reduction must be either 'mean' or 'sum'"
+
+    error = torch.sqrt(torch.sum((estimated_vertices - target_vertices) ** 2, axis=-1))
+
+    if mask_vertices is not None:
+        error[:, mask_vertices] = 0
+
+    if reduction == "mean":
+        return torch.mean(error)
+
+    error = torch.sum(error, axis=-1)
+
+    return torch.mean(error)
+
+
+def compute_vertex_loss(
+    estimated_vertices: torch.Tensor,
+    target_vertices: torch.Tensor,
+    reduction: str = "mean",
+    vertices_mask: list = None,
 ):
     """
     Squared L2 loss between estimated and target vertices.
@@ -34,6 +75,9 @@ def vertex_loss(
 
     loss = torch.sum((estimated_vertices - target_vertices) ** 2, dim=-1)
 
+    if vertices_mask is not None:
+        loss[:, vertices_mask] = 0
+
     if reduction == "mean":
         return torch.mean(loss)
 
@@ -57,13 +101,14 @@ def _compute_edges(vertices, connections):
     return edges[:, :, 1] - edges[:, :, 0]
 
 
-def edge_loss(
+def compute_edge_loss(
     estimated_vertices: torch.Tensor,
     target_vertices: torch.Tensor,
     vertices_per_edge: torch.tensor = None,
     faces: Union[torch.Tensor, np.ndarray] = None,
     reduction: str = "mean",
     norm: str = "l1",
+    vertices_mask: list = None,
 ):
     """
     Edge loss between estimated and target vertices.
@@ -90,6 +135,9 @@ def edge_loss(
     norm = norm.lower()
     assert norm in ("l1", "l2"), "Norm must be either 'l1' or 'l2'"
 
+    if vertices_mask is not None:
+        vertices_mask = set(vertices_mask)
+
     if vertices_per_edge is None:
         assert (
             faces is not None
@@ -99,6 +147,17 @@ def edge_loss(
         else:
             n_vertices = target_vertices.shape[1]
         vertices_per_edge = get_vertices_per_edge(n_vertices, faces)
+
+        if vertices_mask is not None:
+            mask = torch.ones(vertices_per_edge.shape[0], dtype=torch.int64)
+
+            for i in range(vertices_per_edge.shape[0]):
+                if (
+                    vertices_per_edge[i, 0] in vertices_mask
+                    or vertices_per_edge[i, 1] in vertices_mask
+                ):
+                    mask[i] = 0
+
         vertices_per_edge = torch.tensor(
             vertices_per_edge, device=estimated_vertices.device
         )
@@ -107,6 +166,9 @@ def edge_loss(
     target_edges = _compute_edges(target_vertices, vertices_per_edge)
 
     loss = estimated_edges - target_edges
+
+    if vertices_mask is not None:
+        loss[:, mask] = 0
 
     if norm == "l2":
         loss = loss**2

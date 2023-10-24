@@ -4,7 +4,8 @@ import numpy as np
 import torch
 import trimesh
 
-from bomoto.body_models import check_body_model_type, perform_model_forward_pass
+from bomoto.body_models import (check_body_model_type,
+                                perform_model_forward_pass)
 
 
 class MeshDirDataset(torch.utils.data.Dataset):
