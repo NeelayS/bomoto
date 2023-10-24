@@ -167,7 +167,12 @@ class Engine:
             misc_args=misc_args,
         )
 
-        self.output_body_model_faces = self.output_body_model.faces.type(torch.long).to(
+        self.output_body_model_faces = self.output_body_model.faces
+        if not isinstance(self.output_body_model_faces, torch.Tensor):
+            self.output_body_model_faces = torch.tensor(
+                self.output_body_model_faces.astype(np.int64)
+            )
+        self.output_body_model_faces = self.output_body_model_faces.type(torch.long).to(
             self.device
         )
 
@@ -219,6 +224,7 @@ class Engine:
             self.dataset = dataset_class(
                 body_model=self.input_body_model,
                 body_model_type=self.cfg.input.body_model.type,
+                body_model_batch_size=self.cfg.batch_size,
                 npz_files_dir=self.cfg.input.data.npz_files_dir,
                 n_betas=self.cfg.input.body_model.n_betas,
                 device=self.device,
@@ -598,3 +604,15 @@ class Engine:
 # deform vertices
 # batch size check
 # last batch size take care of
+# if param dataset and cuda device are being used, dataloader n_workers must be 0
+
+# current failures: only when betas optimized only for first batch
+
+# vertices masking
+# any model to any model (deformation)
+# from params or meshes/scans
+# single beta or multiple betas
+# selection of params to optimize
+# SDF
+# betas to be optimized only for the first iteration or multiple times
+# documentation

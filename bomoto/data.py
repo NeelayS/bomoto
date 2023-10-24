@@ -115,9 +115,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         self.body_model = body_model.to(device)
         self.body_model_type = check_body_model_type(body_model_type)
         self.body_model_batch_size = body_model_batch_size
-        self.body_model_faces = torch.tensor(
-            self.body_model.faces, dtype=torch.long, device=device
-        )
+        self.body_model_faces = self.body_model.faces.type(torch.long).to(device)
         self.n_betas = n_betas
         self.device = device
 
@@ -127,7 +125,10 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
     def __getitem__(self, idx):
 
         npz_file_path = self.npz_file_paths[idx]
-        params = np.load(npz_file_path)
+        params = dict(np.load(npz_file_path))
+
+        for key in params.keys():
+            params[key] = torch.tensor(params[key]).to(self.device)
 
         vertices = perform_model_forward_pass(
             body_model_type=self.body_model_type,
@@ -138,8 +139,13 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
             device=self.device,
         )
 
+        if not isinstance(vertices, torch.Tensor):
+            vertices = torch.Tensor(vertices).type(torch.float32)
+        else:
+            vertices = vertices.type(torch.float32)
+
         return {
-            "vertices": torch.tensor(vertices, dtype=torch.float32),
+            "vertices": vertices,
             "faces": self.body_model_faces,
         }
 
