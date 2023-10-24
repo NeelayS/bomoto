@@ -6,21 +6,15 @@ import torch
 import trimesh
 from tqdm import tqdm
 
-from bomoto.body_models import (
-    get_body_model,
-    get_body_model_params_info,
-    instantiate_body_model,
-    perform_model_forward_pass,
-)
+from bomoto.body_models import (get_body_model, get_body_model_params_info,
+                                instantiate_body_model,
+                                perform_model_forward_pass)
 from bomoto.config import get_cfg
 from bomoto.data import get_dataset
-from bomoto.losses import compute_edge_loss, compute_v2v_error, compute_vertex_loss
-from bomoto.utils import (
-    deform_vertices,
-    read_deformation_matrix,
-    seed_everything,
-    validate_device,
-)
+from bomoto.losses import (compute_edge_loss, compute_v2v_error,
+                           compute_vertex_loss)
+from bomoto.utils import (deform_vertices, read_deformation_matrix,
+                          seed_everything, validate_device)
 
 
 class Engine:
@@ -437,7 +431,9 @@ class Engine:
 
         save_output_body_model_params = {}
         for param_name, param_value in self.output_body_model_params.items():
-            save_output_body_model_params[param_name] = param_value.detach().cpu().numpy()
+            save_output_body_model_params[param_name] = (
+                param_value.detach().cpu().numpy()
+            )
 
         np.savez(
             os.path.join(self.cfg.output.save_dir, "params", f"batch_{n_batch}.npz"),
