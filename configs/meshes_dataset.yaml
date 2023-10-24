@@ -1,0 +1,77 @@
+seed: 42
+device: "cuda:0"
+log_iterations_interval: 1
+
+batch_size: 2
+dataloader_n_workers: 1
+
+deformation_matrix_path: null
+vertices_mask_path: null
+
+optimization:
+
+  optimizer_params:
+    lr: 0.1
+    max_iter: 50
+    line_search_fn: strong_wolfe
+
+  edge_loss:
+    use: True
+    n_iters: 25
+    loss_reduction: mean
+    low_loss_threshold: 4.0e-12
+    low_loss_delta_threshold: 1.0e-15
+    n_consecutive_low_loss_delta_iters_threshold: 5
+    apply_rotation_angles_correction: True
+    gradient_clip: null # 1.0
+    params_regularization_weights: {} # {'global_orient': 1.0, 'pose': 1.0}  # null
+    params_regularization_iters: {} # {'global_orient': 10, 'pose': 10}  # null
+
+  global_position:
+    use: True
+    n_iters: 25
+    loss_reduction: mean
+    low_loss_threshold: 4.0e-10
+    low_loss_delta_threshold: 1.0e-12
+    n_consecutive_low_loss_delta_iters_threshold: 5
+    apply_rotation_angles_correction: True
+    gradient_clip: null # 1.0
+    params_regularization_weights: {} # {'global_orient': 1.0, 'trans': 1.0}  # null
+    params_regularization_iters: {} # {'global_orient': 10, 'trans': 10}  # null
+
+  vertex_loss:
+    n_iters: 1000
+    loss_reduction: mean
+    low_loss_threshold: 4.0e-12
+    low_loss_delta_threshold: 1.0e-15
+    n_consecutive_low_loss_delta_iters_threshold: 5
+    apply_rotation_angles_correction: True
+    gradient_clip: null # 1.0
+    params_regularization_weights: {} # {'global_orient': 1.0, 'pose': 1.0, 'trans': 10}  # null
+    params_regularization_iters: {} # {'global_orient': 10, 'pose': 10, 'trans': 10}  # null
+
+input:
+
+  data:
+
+    type: meshes
+    mesh_dir: <path_to_meshes>
+    mesh_format: obj # ply # [obj, ply]
+
+output:
+
+  body_model:
+    
+    type: supr
+    path: <path_to_supr_model>
+    gender: neutral
+    n_betas: 300
+    
+    misc_args: null
+
+  params_to_optimize: all
+  optimize_betas_only_for_first_batch: False
+  single_set_of_betas_per_batch: False
+
+  save_dir: ./results
+  save_meshes: True

@@ -41,6 +41,8 @@ def get_vertex_connectivity(n_vertices, faces):
 
     vpv = sp.csc_matrix((n_vertices, n_vertices))
 
+    faces = faces.cpu()
+
     for i in range(3):
 
         if faces.ndim == 3:

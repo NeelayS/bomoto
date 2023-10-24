@@ -6,15 +6,21 @@ import torch
 import trimesh
 from tqdm import tqdm
 
-from bomoto.body_models import (get_body_model, get_body_model_params_info,
-                                instantiate_body_model,
-                                perform_model_forward_pass)
-from bomoto.config import get_config
+from bomoto.body_models import (
+    get_body_model,
+    get_body_model_params_info,
+    instantiate_body_model,
+    perform_model_forward_pass,
+)
+from bomoto.config import get_cfg
 from bomoto.data import get_dataset
-from bomoto.losses import (compute_edge_loss, compute_v2v_error,
-                           compute_vertex_loss)
-from bomoto.utils import (deform_vertices, read_deformation_matrix,
-                          seed_everything, v2, validate_device)
+from bomoto.losses import compute_edge_loss, compute_v2v_error, compute_vertex_loss
+from bomoto.utils import (
+    deform_vertices,
+    read_deformation_matrix,
+    seed_everything,
+    validate_device,
+)
 
 
 class Engine:
@@ -28,7 +34,7 @@ class Engine:
         cfg_path: str,
     ):
 
-        self.cfg = get_config(cfg_path)
+        self.cfg = get_cfg(cfg_path)
 
         self._setup()
 
@@ -83,7 +89,7 @@ class Engine:
         betas_without_grad: bool = False,
     ):
 
-        if self.cfg.single_set_of_betas is True:
+        if self.cfg.output.single_set_of_betas_per_batch is True:
             self.output_body_model_params["betas"] = torch.zeros(
                 (1, self.cfg.output.body_model.n_betas),
                 dtype=torch.float32,
@@ -113,8 +119,8 @@ class Engine:
                 requires_grad=True,
             )
 
-        params_to_optimize = self.cfg.output.body_model.params_to_optimize
-        if params_to_optimize is not None:
+        params_to_optimize = self.cfg.output.params_to_optimize
+        if params_to_optimize is not None and params_to_optimize != "all":
 
             assert isinstance(
                 params_to_optimize, (tuple, list)
@@ -167,8 +173,8 @@ class Engine:
             misc_args=misc_args,
         )
 
-        self.output_body_model_faces = torch.tensor(
-            self.output_body_model.faces, dtype=torch.long, device=self.device
+        self.output_body_model_faces = self.output_body_model.faces.type(torch.long).to(
+            self.device
         )
 
     def _setup_model(
@@ -198,25 +204,28 @@ class Engine:
         self,
     ):
 
-        input_data_type, dataset_class, dataloader_batch_size = get_dataset(
+        dataset_info = get_dataset(
             input_data_type=self.cfg.input.data.type,
             dataloader_batch_size=self.cfg.batch_size,
         )
+        input_data_type = dataset_info["input_data_type"]
+        dataset_class = dataset_info["dataset"]
+        dataloader_batch_size = dataset_info["dataloader_batch_size"]
 
-        if input_data_type == "mesh_dir":
+        if input_data_type == "meshes":
             self.dataset = dataset_class(
                 mesh_dir=self.cfg.input.data.mesh_dir,
                 mesh_format=self.cfg.input.data.mesh_format,
             )
 
-        elif input_data_type == "npz_file":
+        elif input_data_type == "params":
             if self.input_body_model is None:
                 self._setup_input_body_model()
 
             self.dataset = dataset_class(
                 body_model=self.input_body_model,
                 body_model_type=self.cfg.input.body_model.type,
-                npz_file_dir=self.cfg.input.data.npz_file_dir,
+                npz_files_dir=self.cfg.input.data.npz_files_dir,
                 n_betas=self.cfg.input.body_model.n_betas,
                 device=self.device,
             )
@@ -225,7 +234,7 @@ class Engine:
             self.dataset,
             batch_size=dataloader_batch_size,
             shuffle=False,
-            num_workers=self.cfg.dataloader_num_workers,
+            num_workers=self.cfg.dataloader_n_workers,
         )
 
     def _get_params_to_optimize_for_optimization_stage(self, optimization_stage: str):
@@ -273,7 +282,7 @@ class Engine:
 
         optimizer = torch.optim.LBFGS(
             params=params_to_optimize_for_optimzation_stage,
-            **self.cfg.optimizer_params.to_dict(),
+            **self.cfg.optimization.optimizer_params.to_dict(),
         )
 
         return optimizer, params_to_optimize_for_optimzation_stage
@@ -291,13 +300,13 @@ class Engine:
 
         loss = loss_fn(estimated_vertices, target_vertices, **loss_fn_kwargs)
 
-        if self.cfg.output.param_regularization_weights is not None:
+        if params_regularization_weights is not None:
             assert isinstance(
-                self.cfg.output.param_regularization_weights, dict
-            ), "regularization_weights must be a dictionary containing (param_name, weight) pairs"
+                params_regularization_weights, dict
+            ), "params_regularization_weights must be a dictionary containing (param_name, weight) pairs"
             assert isinstance(
-                self.cfg.output.param_regularization_iters, dict
-            ), "regularization_iters must be a dictionary containing (param_name, iter) pairs"
+                params_regularization_iters, dict
+            ), "params_regularization_iters must be a dictionary containing (param_name, iter) pairs"
 
             for (
                 param_name,
@@ -426,9 +435,13 @@ class Engine:
 
     def _save_results(self, n_batch: int, output_vertices: torch.Tensor = None):
 
+        save_output_body_model_params = {}
+        for param_name, param_value in self.output_body_model_params.items():
+            save_output_body_model_params[param_name] = param_value.detach().cpu().numpy()
+
         np.savez(
             os.path.join(self.cfg.output.save_dir, "params", f"batch_{n_batch}.npz"),
-            **self.output_body_model_params,
+            **save_output_body_model_params,
         )
 
         if self.cfg.output.save_meshes is True:
@@ -452,8 +465,8 @@ class Engine:
 
             for n_sample in range(output_vertices.shape[0]):
                 output_mesh = trimesh.Trimesh(
-                    vertices=output_vertices[n_sample].detach().cpu().numpy(),
-                    faces=self.output_body_model_faces.detach().cpu().numpy(),
+                    vertices=output_vertices[n_sample],
+                    faces=faces,
                     process=False,
                 )
                 output_mesh.export(
@@ -494,64 +507,65 @@ class Engine:
                     vertices=target_vertices,
                 )
 
-            if self.cfg.edge_loss_optimization.use is True:
+            if self.cfg.optimization.edge_loss.use is True:
                 print("\nPerforming pose optimization using an edge loss\n")
                 self._optimize(
                     optimization_stage="edge_loss",
-                    n_iters=self.cfg.edge_loss_optimization.n_iters,
+                    n_iters=self.cfg.optimization.edge_loss.n_iters,
                     target_vertices=target_vertices,
                     loss_fn=compute_edge_loss,
                     loss_fn_kwargs={
                         "faces": self.output_body_model_faces,
                         "vertices_mask": self.vertices_mask,
+                        "reduction": self.cfg.optimization.edge_loss.loss_reduction,
                     },
-                    apply_rotation_angles_correction=self.cfg.output.apply_rotation_angles_correction,
-                    low_loss_threshold=self.cfg.edge_loss_optimization.low_loss_threshold,
-                    low_loss_delta_threshold=self.cfg.edge_loss_optimization.low_loss_delta_threshold,
-                    n_consecutive_low_loss_delta_iters_threshold=self.cfg.edge_loss_optimization.n_consecutive_low_loss_delta_iters_threshold,
-                    gradient_clip=self.cfg.edge_loss_optimization.gradient_clip,
-                    params_regularization_weights=self.cfg.output.param_regularization_weights.to_dict(),
-                    params_regularization_iters=self.cfg.output.param_regularization_iters.to_dict(),
+                    apply_rotation_angles_correction=self.cfg.optimization.edge_loss.apply_rotation_angles_correction,
+                    low_loss_threshold=self.cfg.optimization.edge_loss.low_loss_threshold,
+                    low_loss_delta_threshold=self.cfg.optimization.edge_loss.low_loss_delta_threshold,
+                    n_consecutive_low_loss_delta_iters_threshold=self.cfg.optimization.edge_loss.n_consecutive_low_loss_delta_iters_threshold,
+                    gradient_clip=self.cfg.optimization.edge_loss.gradient_clip,
+                    params_regularization_weights=self.cfg.optimization.edge_loss.params_regularization_weights.to_dict(),
+                    params_regularization_iters=self.cfg.optimization.edge_loss.params_regularization_iters.to_dict(),
                 )
 
-            if self.cfg.global_position_optimization.use is True:
+            if self.cfg.optimization.global_position.use is True:
                 print(
-                    "\nPerforming global translation and orientation using a vertex loss\n"
+                    "\nPerforming global translation and orientation optimization using a vertex loss\n"
                 )
                 self._optimize(
                     optimization_stage="global_position",
-                    n_iters=self.cfg.global_position_optimization.n_iters,
+                    n_iters=self.cfg.optimization.global_position.n_iters,
                     target_vertices=target_vertices,
                     loss_fn=compute_vertex_loss,
                     loss_fn_kwargs={
-                        "reduction": self.cfg.global_position_optimization.loss_reduction,
+                        "reduction": self.cfg.optimization.global_position.loss_reduction,
                     },
-                    apply_rotation_angles_correction=self.cfg.output.apply_rotation_angles_correction,
-                    low_loss_threshold=self.cfg.global_position_optimization.low_loss_threshold,
-                    low_loss_delta_threshold=self.cfg.global_position_optimization.low_loss_delta_threshold,
-                    n_consecutive_low_loss_delta_iters_threshold=self.cfg.global_position_optimization.n_consecutive_low_loss_delta_iters_threshold,
-                    gradient_clip=self.cfg.global_position_optimization.gradient_clip,
-                    params_regularization_weights=self.cfg.output.param_regularization_weights.to_dict(),
-                    params_regularization_iters=self.cfg.output.param_regularization_iters.to_dict(),
+                    apply_rotation_angles_correction=self.cfg.optimization.global_position.apply_rotation_angles_correction,
+                    low_loss_threshold=self.cfg.optimization.global_position.low_loss_threshold,
+                    low_loss_delta_threshold=self.cfg.optimization.global_position.low_loss_delta_threshold,
+                    n_consecutive_low_loss_delta_iters_threshold=self.cfg.optimization.global_position.n_consecutive_low_loss_delta_iters_threshold,
+                    gradient_clip=self.cfg.optimization.global_position.gradient_clip,
+                    params_regularization_weights=self.cfg.optimization.global_position.params_regularization_weights.to_dict(),
+                    params_regularization_iters=self.cfg.optimization.global_position.params_regularization_iters.to_dict(),
                 )
 
             print("\nOptimizing all parameters using a vertex loss\n")
             self._optimize(
                 optimization_stage="vertex_loss",
-                n_iters=self.cfg.vertex_loss_optimization.n_iters,
+                n_iters=self.cfg.optimization.vertex_loss.n_iters,
                 target_vertices=target_vertices,
                 loss_fn=compute_vertex_loss,
                 loss_fn_kwargs={
-                    "reduction": self.cfg.vertex_loss_optimization.loss_reduction,
+                    "reduction": self.cfg.optimization.vertex_loss.loss_reduction,
                     "vertices_mask": self.vertices_mask,
                 },
-                apply_rotation_angles_correction=self.cfg.output.apply_rotation_angles_correction,
-                low_loss_threshold=self.cfg.vertex_loss_optimization.low_loss_threshold,
-                low_loss_delta_threshold=self.cfg.vertex_loss_optimization.low_loss_delta_threshold,
-                n_consecutive_low_loss_delta_iters_threshold=self.cfg.vertex_loss_optimization.n_consecutive_low_loss_delta_iters_threshold,
-                gradient_clip=self.cfg.vertex_loss_optimization.gradient_clip,
-                params_regularization_weights=self.cfg.output.param_regularization_weights.to_dict(),
-                params_regularization_iters=self.cfg.output.param_regularization_iters.to_dict(),
+                apply_rotation_angles_correction=self.cfg.optimization.vertex_loss.apply_rotation_angles_correction,
+                low_loss_threshold=self.cfg.optimization.vertex_loss.low_loss_threshold,
+                low_loss_delta_threshold=self.cfg.optimization.vertex_loss.low_loss_delta_threshold,
+                n_consecutive_low_loss_delta_iters_threshold=self.cfg.optimization.vertex_loss.n_consecutive_low_loss_delta_iters_threshold,
+                gradient_clip=self.cfg.optimization.vertex_loss.gradient_clip,
+                params_regularization_weights=self.cfg.optimization.vertex_loss.params_regularization_weights.to_dict(),
+                params_regularization_iters=self.cfg.optimization.vertex_loss.params_regularization_iters.to_dict(),
             )
 
             final_estimated_vertices = perform_model_forward_pass(

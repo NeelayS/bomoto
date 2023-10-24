@@ -22,6 +22,11 @@ class CfgNode(_CfgNode):
         if cfg_node is None:
             cfg_node = self
 
+        if cfg_node is None:
+            return None
+        if isinstance(cfg_node, dict):
+            return cfg_node
+
         if not isinstance(cfg_node, CfgNode):
 
             if type(cfg_node) not in VALID_TYPES:

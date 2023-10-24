@@ -4,8 +4,7 @@ import numpy as np
 import torch
 import trimesh
 
-from bomoto.body_models import (check_body_model_type,
-                                perform_model_forward_pass)
+from bomoto.body_models import check_body_model_type, perform_model_forward_pass
 
 
 class MeshDirDataset(torch.utils.data.Dataset):
@@ -82,7 +81,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         A body model instance.
     body_model_type : str
         Type of body model. Can be either 'smpl', 'smplh', 'smplx' or 'supr'.
-    npz_file_dir : str
+    npz_files_dir : str
         Path to the directory containing the .npz files.
     n_betas : int
         Number of shape parameters.
@@ -95,19 +94,19 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         body_model: torch.nn.Module,
         body_model_type: str,
         body_model_batch_size: int,
-        npz_file_dir: str,
+        npz_files_dir: str,
         n_betas: int,
         device: torch.device = torch.device("cpu"),
     ):
         super().__init__()
 
-        assert isinstance(npz_file_dir, str), "npz_file_dir must be a string"
-        assert os.path.isdir(npz_file_dir), f"{npz_file_dir} is not a valid directory"
+        assert isinstance(npz_files_dir, str), "npz_files_dir must be a string"
+        assert os.path.isdir(npz_files_dir), f"{npz_files_dir} is not a valid directory"
 
         self.npz_file_paths = sorted(
             [
-                os.path.join(npz_file_dir, f)
-                for f in os.listdir(npz_file_dir)
+                os.path.join(npz_files_dir, f)
+                for f in os.listdir(npz_files_dir)
                 if f.endswith(".npz")
             ]
         )
@@ -149,17 +148,17 @@ def get_dataset(input_data_type: str, dataloader_batch_size: int):
     assert isinstance(input_data_type, str), "input_data_type must be a string"
     input_data_type = input_data_type.lower()
     assert input_data_type in [
-        "mesh_dir",
-        "npz_file",
-    ], "input_data_type must be either 'mesh_dir' or 'npz_file'"
+        "meshes",
+        "params",
+    ], "input_data_type must be either 'meshes' or 'params'"
 
     assert (
         type(dataloader_batch_size) == int
     ), "dataloader_batch_size must be an integer"
 
-    if input_data_type == "mesh_dir":
+    if input_data_type == "meshes":
         dataset = MeshDirDataset
-    elif input_data_type == "npz_file":
+    elif input_data_type == "params":
         dataset = NPZParamsFileDataset
         dataloader_batch_size = 1
 
