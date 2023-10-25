@@ -133,6 +133,10 @@ def perform_model_forward_pass(
         betas = betas.unsqueeze(0)
 
     if body_model_type == "smpl":
+
+        if params["body_pose"].shape[-1] == 72:
+            params["body_pose"] = params["body_pose"][..., 3:72]
+
         return body_model(
             betas=betas,
             body_pose=params["body_pose"],
@@ -141,6 +145,10 @@ def perform_model_forward_pass(
         ).vertices
 
     elif body_model_type == "smplh":
+
+        if params["pose"].shape[-1] == 156:
+            params["pose"] = params["pose"][..., 3:156]
+
         return body_model(
             betas=betas,
             transl=params["transl"],
@@ -151,6 +159,10 @@ def perform_model_forward_pass(
         ).vertices
 
     elif body_model_type == "smplx":
+
+        if params["pose"].shape[-1] == 165:
+            params["pose"] = params["pose"][..., 3:165]
+
         return body_model(
             betas=betas,
             transl=params["transl"],
