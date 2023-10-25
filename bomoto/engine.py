@@ -594,30 +594,3 @@ class Engine:
                 n_batch=n_batch,
                 output_vertices=final_estimated_vertices,
             )
-
-
-# During first iteration, check that the batch size obtained from datalaoader is
-# the same as the class batch size
-# if not, raise error
-# if NPZ file dataset is being used, the model batch size must
-# be equal to the number of frames in a file and the dataloader
-# batch size must be 1
-
-# betas optimzed only once per sequence
-# deform vertices
-# batch size check
-# last batch size take care of
-# if param dataset and cuda device are being used, dataloader n_workers must be 0
-
-# current failures: only when betas optimized only for first batch
-
-# vertices masking
-# any model to any model (deformation)
-# from params or meshes/scans
-# single beta or multiple betas
-# selection of params to optimize
-# SDF
-# betas to be optimized only for the first iteration or multiple times
-# documentation
-
-# Remove comments from everywhere

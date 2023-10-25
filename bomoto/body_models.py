@@ -129,6 +129,9 @@ def perform_model_forward_pass(
 
     betas = betas[..., :n_betas]
 
+    if len(betas.shape) == 1:
+            betas = betas.unsqueeze(0)
+
     if body_model_type == "smpl":
         return body_model(
             betas=betas,
@@ -166,41 +169,3 @@ def perform_model_forward_pass(
             pose=params["pose"],
             trans=params["trans"],
         )["vertices"]
-
-    # if body_model_type == "smpl":
-    #     return body_model(
-    #         betas=params["betas"][..., :n_betas],
-    #         body_pose=params["body_pose"],
-    #         transl=params["transl"],
-    #         global_orient=params["global_orient"],
-    #     ).vertices
-
-    # elif body_model_type == "smplh":
-    #     return body_model(
-    #         betas=params["betas"][..., :n_betas],
-    #         transl=params["transl"],
-    #         global_orient=params["global_orient"],
-    #         body_pose=params["pose"][..., :63],
-    #         left_hand_pose=params["pose"][..., 63:108],
-    #         right_hand_pose=params["pose"][..., 108:],
-    #     ).vertices
-
-    # elif body_model_type == "smplx":
-    #     return body_model(
-    #         betas=params["betas"][..., :n_betas],
-    #         transl=params["transl"],
-    #         global_orient=params["global_orient"],
-    #         body_pose=params["pose"][..., :63],
-    #         jaw_pose=params["pose"][..., 63:66],
-    #         leye_pose=params["pose"][..., 66:69],
-    #         reye_pose=params["pose"][..., 69:72],
-    #         left_hand_pose=params["pose"][..., 72:117],
-    #         right_hand_pose=params["pose"][..., 117:],
-    #     ).vertices
-
-    # elif body_model_type == "supr":
-    #     return body_model(
-    #         betas=params["betas"][..., :n_betas],
-    #         pose=params["pose"],
-    #         trans=params["trans"],
-    #     )["vertices"]
