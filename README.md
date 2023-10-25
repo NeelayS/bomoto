@@ -20,3 +20,11 @@ A toolkit for fitting body models to meshes and converting between body models
     ```
 
 ## Usage
+
+1. Depending on whether you input data is meshes or model parameter files, choose the appropriate config file from `configs/`.
+2. Edit it to suit your needs.
+3. Run the script:
+
+    ```bash
+    python run.py --cfg configs/<config_file>.yaml
+    ``
