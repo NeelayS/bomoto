@@ -150,7 +150,7 @@ class Engine:
             n_betas=self.cfg.input.body_model.n_betas,
             body_model_batch_size=self.cfg.batch_size,
             misc_args=misc_args,
-        )
+        ).eval()
 
     def _setup_output_body_model(
         self,

@@ -133,14 +133,15 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         for key in params.keys():
             params[key] = torch.tensor(params[key]).to(self.device)
 
-        vertices = perform_model_forward_pass(
-            body_model_type=self.body_model_type,
-            body_model=self.body_model,
-            params=params,
-            n_betas=self.n_betas,
-            batch_size=self.body_model_batch_size,
-            device=self.device,
-        )
+        with torch.no_grad():
+            vertices = perform_model_forward_pass(
+                body_model_type=self.body_model_type,
+                body_model=self.body_model,
+                params=params,
+                n_betas=self.n_betas,
+                batch_size=self.body_model_batch_size,
+                device=self.device,
+            )
 
         if not isinstance(vertices, torch.Tensor):
             vertices = torch.Tensor(vertices).type(torch.float32)
