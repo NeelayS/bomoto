@@ -9,7 +9,7 @@ from tqdm import tqdm
 from bomoto.body_models import (get_body_model, get_body_model_params_info,
                                 instantiate_body_model,
                                 perform_model_forward_pass)
-from bomoto.config import get_cfg
+from bomoto.config import CfgNode, get_cfg
 from bomoto.data import get_dataset
 from bomoto.losses import (compute_edge_loss, compute_v2v_error,
                            compute_vertex_loss)
@@ -25,10 +25,13 @@ class Engine:
 
     def __init__(
         self,
-        cfg_path: str,
+        cfg: Union[str, CfgNode],
     ):
 
-        self.cfg = get_cfg(cfg_path)
+        if isinstance(cfg, str):
+            self.cfg = get_cfg(cfg)
+        else:
+            self.cfg = cfg
 
         self._setup()
 
@@ -616,3 +619,5 @@ class Engine:
 # SDF
 # betas to be optimized only for the first iteration or multiple times
 # documentation
+
+# Remove comments from everywhere
