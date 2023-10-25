@@ -3,7 +3,7 @@ device: "cuda:0"
 log_iterations_interval: 1
 
 batch_size: 2
-dataloader_n_workers: 1
+dataloader_n_workers: 0
 
 deformation_matrix_path: null
 vertices_mask_path: null
