@@ -83,7 +83,7 @@ class Engine:
 
     def _init_params(
         self,
-        betas_without_grad: bool = False,
+        inherit_prev_betas_without_grad: bool = False,
     ):
 
         if self.cfg.output.single_set_of_betas_per_batch is True:
@@ -101,12 +101,17 @@ class Engine:
                 requires_grad=True,
             )
 
-        if betas_without_grad is True:
+        if inherit_prev_betas_without_grad is True:
             assert (
                 self.output_body_model_params["betas"] is not None
             ), "Betas must be optimized at least once"
 
-            self.output_body_model_params["betas"].requires_grad_(False)
+            self.output_body_model_params["betas"] = (
+                self.output_body_model_params["betas"]
+                .clone()
+                .detach()
+                .requires_grad_(False)
+            )
 
         for params_name, params_size in self.params_info.items():
             self.output_body_model_params[params_name] = torch.zeros(
@@ -489,7 +494,7 @@ class Engine:
 
             else:
                 if self.cfg.output.optimize_betas_only_for_first_batch is True:
-                    self._init_params(betas_without_grad=True)
+                    self._init_params(inherit_prev_betas_without_grad=True)
                 else:
                     self._init_params()
 
@@ -588,7 +593,7 @@ class Engine:
             print(
                 f"\nOptimization complete. Final v2v error: {final_v2v_error * 1000} mm"
             )
-            print("Saving results")
+            print("\nSaving results\n")
 
             self._save_results(
                 n_batch=n_batch,
