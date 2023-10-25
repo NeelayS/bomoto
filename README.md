@@ -27,4 +27,4 @@ A toolkit for fitting body models to meshes and converting between body models
 
     ```bash
     python run.py --cfg configs/<config_file>.yaml
-    ``
+    ```
