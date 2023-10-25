@@ -130,7 +130,7 @@ def perform_model_forward_pass(
     betas = betas[..., :n_betas]
 
     if len(betas.shape) == 1:
-            betas = betas.unsqueeze(0)
+        betas = betas.unsqueeze(0)
 
     if body_model_type == "smpl":
         return body_model(

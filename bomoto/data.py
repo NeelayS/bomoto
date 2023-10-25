@@ -91,13 +91,13 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
     """
 
     def __init__(
-            self,
-            body_model: torch.nn.Module,
-            body_model_type: str,
-            body_model_batch_size: int,
-            npz_files_dir: str,
-            n_betas: int,
-            device: torch.device = torch.device("cpu"),
+        self,
+        body_model: torch.nn.Module,
+        body_model_type: str,
+        body_model_batch_size: int,
+        npz_files_dir: str,
+        n_betas: int,
+        device: torch.device = torch.device("cpu"),
     ):
         super().__init__()
 
@@ -130,8 +130,19 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         npz_file_path = self.npz_file_paths[idx]
         params = dict(np.load(npz_file_path, allow_pickle=True))
 
-        types_to_convert = [np.float64, np.float32, np.float16, np.complex64, np.complex128, np.int64, np.int32,
-                            np.int16, np.int8, np.uint8, bool]
+        types_to_convert = [
+            np.float64,
+            np.float32,
+            np.float16,
+            np.complex64,
+            np.complex128,
+            np.int64,
+            np.int32,
+            np.int16,
+            np.int8,
+            np.uint8,
+            bool,
+        ]
 
         float_types = [np.float64, np.float32]
 
@@ -175,7 +186,7 @@ def get_dataset(input_data_type: str, dataloader_batch_size: int):
     ], "input_data_type must be either 'meshes' or 'params'"
 
     assert (
-            type(dataloader_batch_size) == int
+        type(dataloader_batch_size) == int
     ), "dataloader_batch_size must be an integer"
 
     if input_data_type == "meshes":
