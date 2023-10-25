@@ -117,7 +117,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         self.body_model_batch_size = body_model_batch_size
         self.body_model_faces = self.body_model.faces
         if not isinstance(self.body_model_faces, torch.Tensor):
-            self.body_model_faces = torch.tensor(self.body_model_faces)
+            self.body_model_faces = torch.tensor(self.body_model_faces.astype(np.int64))
         self.body_model_faces = self.body_model_faces.type(torch.long).to(device)
         self.n_betas = n_betas
         self.device = device
