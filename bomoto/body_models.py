@@ -38,10 +38,10 @@ def instantiate_body_model(
     gender: str,
     n_betas: int,
     body_model_batch_size: int,
-    misc_args: dict = {},
+    misc_args: dict = None,
     device: torch.device = torch.device("cpu"),
 ):
-
+    if misc_args is None: misc_args = {}
     body_model_type = check_body_model_type(body_model_type)
 
     assert isinstance(body_model_path, str), "body_model_path must be a string"

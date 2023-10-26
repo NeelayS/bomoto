@@ -24,8 +24,8 @@ class Engine:
     """
 
     def __init__(
-        self,
-        cfg: Union[str, CfgNode],
+            self,
+            cfg: Union[str, CfgNode],
     ):
 
         if isinstance(cfg, str):
@@ -66,7 +66,7 @@ class Engine:
         self.device = validate_device(self.cfg.device)
 
     def _setup_deformation(
-        self,
+            self,
     ):
         self.deformation_matrix = None
         if self.cfg.deformation_matrix_path is not None:
@@ -75,15 +75,15 @@ class Engine:
             )
 
     def _setup_vertex_masking(
-        self,
+            self,
     ):
         self.vertices_mask = None
         if self.cfg.vertices_mask_path is not None:
             self.vertices_mask = np.load(self.cfg.vertices_mask_path)
 
     def _init_params(
-        self,
-        inherit_prev_betas_without_grad: bool = False,
+            self,
+            inherit_prev_betas_without_grad: bool = False,
     ):
 
         if self.cfg.output.single_set_of_betas_per_batch is True:
@@ -103,7 +103,7 @@ class Engine:
 
         if inherit_prev_betas_without_grad is True:
             assert (
-                self.output_body_model_params["betas"] is not None
+                    self.output_body_model_params["betas"] is not None
             ), "Betas must be optimized at least once"
 
             self.output_body_model_params["betas"] = (
@@ -132,7 +132,7 @@ class Engine:
                     params_name, str
                 ), "params_to_optimize must be a list of strings"
                 assert (
-                    params_name in self.output_body_model_params.keys()
+                        params_name in self.output_body_model_params.keys()
                 ), f"{params_name} is not a valid parameter name"
 
             for params_name in self.output_body_model_params.keys():
@@ -140,7 +140,7 @@ class Engine:
                     self.output_body_model_params[params_name].requires_grad_(False)
 
     def _setup_input_body_model(
-        self,
+            self,
     ):
 
         if self.cfg.input.body_model.misc_args is None:
@@ -158,7 +158,7 @@ class Engine:
         ).eval()
 
     def _setup_output_body_model(
-        self,
+            self,
     ):
 
         if self.cfg.output.body_model.misc_args is None:
@@ -185,14 +185,15 @@ class Engine:
         )
 
     def _setup_model(
-        self,
-        body_model_type: str,
-        body_model_path: str,
-        gender: str,
-        n_betas: int,
-        body_model_batch_size: int,
-        misc_args: dict = {},
+            self,
+            body_model_type: str,
+            body_model_path: str,
+            gender: str,
+            n_betas: int,
+            body_model_batch_size: int,
+            misc_args: dict = None,
     ):
+        if misc_args is None: misc_args = {}
         body_model_class = get_body_model(body_model_type)
         body_model = instantiate_body_model(
             body_model_type=body_model_type,
@@ -208,7 +209,7 @@ class Engine:
         return body_model
 
     def setup_dataloader(
-        self,
+            self,
     ):
 
         dataset_info = get_dataset(
@@ -296,16 +297,17 @@ class Engine:
         return optimizer, params_to_optimize_for_optimzation_stage
 
     def _compute_loss(
-        self,
-        n_iter: int,
-        estimated_vertices: torch.Tensor,
-        target_vertices: torch.Tensor,
-        loss_fn: Callable,
-        loss_fn_kwargs: dict = {},
-        params_regularization_weights: Union[tuple, list] = None,
-        params_regularization_iters: Union[tuple, list] = None,
+            self,
+            n_iter: int,
+            estimated_vertices: torch.Tensor,
+            target_vertices: torch.Tensor,
+            loss_fn: Callable,
+            loss_fn_kwargs: dict = None,
+            params_regularization_weights: Union[tuple, list] = None,
+            params_regularization_iters: Union[tuple, list] = None,
     ):
 
+        if loss_fn_kwargs is None: loss_fn_kwargs = {}
         loss = loss_fn(estimated_vertices, target_vertices, **loss_fn_kwargs)
 
         if params_regularization_weights is not None:
@@ -317,8 +319,8 @@ class Engine:
             ), "params_regularization_iters must be a dictionary containing (param_name, iter) pairs"
 
             for (
-                param_name,
-                regularization_weight,
+                    param_name,
+                    regularization_weight,
             ) in params_regularization_weights.items():
                 if n_iter < params_regularization_iters[param_name]:
                     loss += regularization_weight * torch.mean(
@@ -328,21 +330,22 @@ class Engine:
         return loss
 
     def _optimize(
-        self,
-        optimization_stage: str,
-        n_iters: int,
-        target_vertices: torch.Tensor,
-        loss_fn: Callable,
-        loss_fn_kwargs: dict = {},
-        apply_rotation_angles_correction: bool = False,
-        low_loss_threshold: float = 2e-3,
-        low_loss_delta_threshold: float = 1e-6,
-        n_consecutive_low_loss_delta_iters_threshold: int = 5,
-        gradient_clip: float = None,
-        params_regularization_weights: Union[tuple, list] = None,
-        params_regularization_iters: Union[tuple, list] = None,
+            self,
+            optimization_stage: str,
+            n_iters: int,
+            target_vertices: torch.Tensor,
+            loss_fn: Callable,
+            loss_fn_kwargs: dict = None,
+            apply_rotation_angles_correction: bool = False,
+            low_loss_threshold: float = 2e-3,
+            low_loss_delta_threshold: float = 1e-6,
+            n_consecutive_low_loss_delta_iters_threshold: int = 5,
+            gradient_clip: float = None,
+            params_regularization_weights: Union[tuple, list] = None,
+            params_regularization_iters: Union[tuple, list] = None,
     ):
 
+        if loss_fn_kwargs is None: loss_fn_kwargs = {}
         optimizer, params_to_optimize_for_optimization_stage = self._setup_optimizer(
             optimization_stage=optimization_stage
         )
@@ -424,8 +427,8 @@ class Engine:
             last_k_losses.append(loss.item())
 
             if (
-                n_consecutive_low_loss_delta_iters
-                >= n_consecutive_low_loss_delta_iters_threshold
+                    n_consecutive_low_loss_delta_iters
+                    >= n_consecutive_low_loss_delta_iters_threshold
             ):
                 print(
                     f"Low loss delta threshold ({low_loss_delta_threshold}) for {n_consecutive_low_loss_delta_iters_threshold} consecutive iterations reached at iteration {n_iter + 1}. Stopping optimization."
@@ -434,7 +437,7 @@ class Engine:
                     f"Last {n_consecutive_low_loss_delta_iters_threshold} losses: {last_k_losses[1:]}"
                 )
                 print(
-                    f"Last {n_consecutive_low_loss_delta_iters_threshold} loss deltas: {[last_k_losses[i] - last_k_losses[i+1] for i in range(n_consecutive_low_loss_delta_iters_threshold)]}"
+                    f"Last {n_consecutive_low_loss_delta_iters_threshold} loss deltas: {[last_k_losses[i] - last_k_losses[i + 1] for i in range(n_consecutive_low_loss_delta_iters_threshold)]}"
                 )
                 print(f"Final loss: {loss.item()}")
                 break
@@ -456,7 +459,7 @@ class Engine:
 
         if self.cfg.output.save_meshes is True:
             assert (
-                output_vertices is not None
+                    output_vertices is not None
             ), "If output meshes are to be saved, output_vertices must be provided"
 
             output_vertices = output_vertices.detach().cpu().numpy()
@@ -484,7 +487,7 @@ class Engine:
                 )
 
     def run(
-        self,
+            self,
     ):
 
         for n_batch, input_data in enumerate(self.dataloader):

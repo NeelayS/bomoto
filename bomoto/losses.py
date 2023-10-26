@@ -10,7 +10,7 @@ def compute_v2v_error(
     estimated_vertices: torch.Tensor,
     target_vertices: torch.Tensor,
     reduction: str = "mean",
-    mask_vertices: list = None,
+    vertices_mask: list = None,
 ):
     """
     Vertex to vertex error in meters.
@@ -35,8 +35,8 @@ def compute_v2v_error(
 
     error = torch.sqrt(torch.sum((estimated_vertices - target_vertices) ** 2, axis=-1))
 
-    if mask_vertices is not None:
-        error[:, mask_vertices] = 0
+    if vertices_mask is not None:
+        error[:, vertices_mask] = 0
 
     if reduction == "mean":
         return torch.mean(error)
