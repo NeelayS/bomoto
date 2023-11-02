@@ -86,4 +86,4 @@ class BodyModel(ABC):
             raise ValueError(f"model_type must be a string, got {type(model_type)}")
         model_type = model_type.lower()
         model_type = ''.join([c for c in model_type.lower() if c.isalnum()])
-        return BodyModel.body_models[model_type](**kwargs)
+        return BodyModel.body_models[model_type](**kwargs).to(kwargs['device'])

@@ -7,6 +7,7 @@ dataloader_n_workers: 0
 
 deformation_matrix_path: null
 vertices_mask_path: null
+target_betas_fname: null
 
 optimization:
 
@@ -24,8 +25,8 @@ optimization:
     n_consecutive_low_loss_delta_iters_threshold: 5
     apply_rotation_angles_correction: True
     gradient_clip: null # 1.0
-    params_regularization_weights: {} # {'global_orient': 1.0, 'pose': 1.0}  # null
-    params_regularization_iters: {} # {'global_orient': 10, 'pose': 10}  # null
+    params_regularization_weights: { } # {'global_orient': 1.0, 'pose': 1.0}  # null
+    params_regularization_iters: { } # {'global_orient': 10, 'pose': 10}  # null
 
   global_position:
     use: True
@@ -36,8 +37,8 @@ optimization:
     n_consecutive_low_loss_delta_iters_threshold: 5
     apply_rotation_angles_correction: True
     gradient_clip: null # 1.0
-    params_regularization_weights: {} # {'global_orient': 1.0, 'trans': 1.0}  # null
-    params_regularization_iters: {} # {'global_orient': 10, 'trans': 10}  # null
+    params_regularization_weights: { } # {'global_orient': 1.0, 'trans': 1.0}  # null
+    params_regularization_iters: { } # {'global_orient': 10, 'trans': 10}  # null
 
   vertex_loss:
     n_iters: 1000
@@ -47,8 +48,8 @@ optimization:
     n_consecutive_low_loss_delta_iters_threshold: 5
     apply_rotation_angles_correction: True
     gradient_clip: null # 1.0
-    params_regularization_weights: {} # {'global_orient': 1.0, 'pose': 1.0, 'trans': 10}  # null
-    params_regularization_iters: {} # {'global_orient': 10, 'pose': 10, 'trans': 10}  # null
+    params_regularization_weights: { } # {'global_orient': 1.0, 'pose': 1.0, 'trans': 10}  # null
+    params_regularization_iters: { } # {'global_orient': 10, 'pose': 10, 'trans': 10}  # null
 
 input:
 
@@ -70,10 +71,10 @@ output:
 
   body_model:
     
-    type: supr
-    path: /home/gbecherini/data/body_models/supr/standard/supr_neutral.npy
+    type: smplh
+    path: /home/gbecherini/data/body_models/smplh/SMPLH_NEUTRAL.pkl
     gender: neutral
-    n_betas: 300
+    n_betas: 10
     
     misc_args: null
 
