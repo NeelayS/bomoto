@@ -76,7 +76,7 @@ class BodyModel(ABC):
         self.model = self.model.to(device)
         return self
 
-    def eval(self):
+    def eval(self) -> BodyModel:
         self.model = self.model.eval()
         return self
 

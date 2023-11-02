@@ -5,9 +5,7 @@ import torch
 import trimesh
 from .body_models import BodyModel, fix_params_keys
 
-
-# from bomoto.body_models import (check_body_model_type,
-#                                 perform_model_forward_pass)
+from . import numpy2torch_types_to_convert, numpy_float_types
 
 
 class MeshDirDataset(torch.utils.data.Dataset):
@@ -132,27 +130,11 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         npz_file_path = self.npz_file_paths[idx]
         params = dict(np.load(npz_file_path, allow_pickle=True))
 
-        types_to_convert = [
-            np.float64,
-            np.float32,
-            np.float16,
-            np.complex64,
-            np.complex128,
-            np.int64,
-            np.int32,
-            np.int16,
-            np.int8,
-            np.uint8,
-            bool,
-        ]
-
-        float_types = [np.float64, np.float32]
-
-        params = {k: v for k, v in params.items() if v.dtype in types_to_convert}
+        params = {k: v for k, v in params.items() if v.dtype in numpy2torch_types_to_convert}
 
         for key in params.keys():
             v = params[key]
-            if v.dtype in float_types:
+            if v.dtype in numpy_float_types:
                 v = v.astype(np.float32)
             params[key] = torch.tensor(v).to(self.device)
 
