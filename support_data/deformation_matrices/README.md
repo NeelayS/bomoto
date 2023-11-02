@@ -1,0 +1,1 @@
+Matrices downloaded from https://download.is.tue.mpg.de/download.php?domain=smplx&sfile=model_transfer.zip and converted to sparse COO format.
