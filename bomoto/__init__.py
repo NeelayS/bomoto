@@ -1,17 +1,17 @@
-import numpy as np
+from numpy import float64, float32, float16, complex64, complex128, int64, int32, int16, int8, uint8
 
 numpy2torch_types_to_convert = [
-    np.float64,
-    np.float32,
-    np.float16,
-    np.complex64,
-    np.complex128,
-    np.int64,
-    np.int32,
-    np.int16,
-    np.int8,
-    np.uint8,
+    float64,
+    float32,
+    float16,
+    complex64,
+    complex128,
+    int64,
+    int32,
+    int16,
+    int8,
+    uint8,
     bool
 ]
 
-numpy_float_types = [np.float64, np.float32]
+numpy_float_types = [float64, float32]
