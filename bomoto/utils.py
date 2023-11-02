@@ -17,7 +17,6 @@ def seed_everything(seed):
 
 
 def validate_device(device: str):
-
     try:
         device = torch.device(device)
         _ = torch.tensor([1.0]).to(device)
@@ -38,7 +37,6 @@ def _col(A):
 
 
 def get_vertex_connectivity(n_vertices, faces):
-
     vpv = sp.csc_matrix((n_vertices, n_vertices))
 
     faces = faces.cpu()
@@ -61,7 +59,6 @@ def get_vertex_connectivity(n_vertices, faces):
 
 
 def get_vertices_per_edge(n_vertices, faces):
-
     vc = sp.coo_matrix(get_vertex_connectivity(n_vertices, faces))
 
     vpe = np.hstack((_col(vc.row), _col(vc.col)))
@@ -75,7 +72,6 @@ def deform_vertices(deformation_matrix, vertices):
 
 
 def read_deformation_matrix(deformation_matrix_path, device=torch.device("cpu")):
-
     assert os.path.exists(deformation_matrix_path), (
         "Deformation matrix path does not exist:" f" {deformation_matrix_path}"
     )

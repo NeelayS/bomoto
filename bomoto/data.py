@@ -3,9 +3,11 @@ import os
 import numpy as np
 import torch
 import trimesh
+from .body_models import BodyModel, fix_params_keys
 
-from bomoto.body_models import (check_body_model_type,
-                                perform_model_forward_pass)
+
+# from bomoto.body_models import (check_body_model_type,
+#                                 perform_model_forward_pass)
 
 
 class MeshDirDataset(torch.utils.data.Dataset):
@@ -78,7 +80,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
 
     Parameters
     ----------
-    body_model : torch.nn.Module
+    body_model : BodyModel
         A body model instance.
     body_model_type : str
         Type of body model. Can be either 'smpl', 'smplh', 'smplx' or 'supr'.
@@ -91,13 +93,13 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
     """
 
     def __init__(
-        self,
-        body_model: torch.nn.Module,
-        body_model_type: str,
-        body_model_batch_size: int,
-        npz_files_dir: str,
-        n_betas: int,
-        device: torch.device = torch.device("cpu"),
+            self,
+            body_model: BodyModel,
+            # body_model_type: str,
+            body_model_batch_size: int,
+            npz_files_dir: str,
+            n_betas: int,
+            device: torch.device = torch.device("cpu"),
     ):
         super().__init__()
 
@@ -113,7 +115,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         )
 
         self.body_model = body_model.to(device)
-        self.body_model_type = check_body_model_type(body_model_type)
+        # self.body_model_type = check_body_model_type(body_model_type)
         self.body_model_batch_size = body_model_batch_size
         self.body_model_faces = self.body_model.faces
         if not isinstance(self.body_model_faces, torch.Tensor):
@@ -149,27 +151,15 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         params = {k: v for k, v in params.items() if v.dtype in types_to_convert}
 
         for key in params.keys():
-            # if isinstance(params[key], np.ndarray) and params[key].dtype in types_to_convert:
-            #     params[key] = torch.tensor(params[key]).to(self.device)
             v = params[key]
             if v.dtype in float_types:
                 v = v.astype(np.float32)
             params[key] = torch.tensor(v).to(self.device)
 
-        with torch.no_grad():
-            vertices = perform_model_forward_pass(
-                body_model_type=self.body_model_type,
-                body_model=self.body_model,
-                params=params,
-                n_betas=self.n_betas,
-                batch_size=self.body_model_batch_size,
-                device=self.device,
-            )
+        betas, pose, trans = fix_params_keys(self.body_model, params)
 
-        if not isinstance(vertices, torch.Tensor):
-            vertices = torch.Tensor(vertices).type(torch.float32)
-        else:
-            vertices = vertices.type(torch.float32)
+        with torch.no_grad():
+            vertices = self.body_model.forward(betas=betas, pose=pose, trans=trans)
 
         return {
             "vertices": vertices,
@@ -186,7 +176,7 @@ def get_dataset(input_data_type: str, dataloader_batch_size: int):
     ], "input_data_type must be either 'meshes' or 'params'"
 
     assert (
-        type(dataloader_batch_size) == int
+            type(dataloader_batch_size) == int
     ), "dataloader_batch_size must be an integer"
 
     if input_data_type == "meshes":

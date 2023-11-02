@@ -5,16 +5,18 @@ import numpy as np
 import torch
 import trimesh
 from tqdm import tqdm
+from .body_models import fix_params_keys
 
-from bomoto.body_models import (get_body_model, get_body_model_params_info,
-                                instantiate_body_model,
-                                perform_model_forward_pass)
+# from bomoto.body_models import (get_body_model, get_body_model_params_info,
+#                                 instantiate_body_model,
+#                                 perform_model_forward_pass)
 from bomoto.config import CfgNode, get_cfg
 from bomoto.data import get_dataset
 from bomoto.losses import (compute_edge_loss, compute_v2v_error,
                            compute_vertex_loss)
 from bomoto.utils import (deform_vertices, read_deformation_matrix,
                           seed_everything, validate_device)
+from bomoto.body_models import BodyModel
 
 
 class Engine:
@@ -51,7 +53,7 @@ class Engine:
 
         self._setup_output_body_model()
 
-        self.params_info = get_body_model_params_info(self.cfg.output.body_model.type)
+        self.params_info = BodyModel.body_models[self.cfg.output.body_model.type].get_body_model_params_info()
         self.output_body_model_params = {}
         self.output_body_model_params["betas"] = None
         for params_name in self.params_info.keys():
@@ -148,14 +150,14 @@ class Engine:
         else:
             misc_args = self.cfg.input.body_model.misc_args.to_dict()
 
-        self.input_body_model = self._setup_model(
-            body_model_type=self.cfg.input.body_model.type,
-            body_model_path=self.cfg.input.body_model.path,
-            gender=self.cfg.input.body_model.gender,
-            n_betas=self.cfg.input.body_model.n_betas,
-            body_model_batch_size=self.cfg.batch_size,
-            misc_args=misc_args,
-        ).eval()
+        self.input_body_model = BodyModel.instantiate(model_type=self.cfg.input.body_model.type,
+                                                      # kwargs
+                                                      model_path=self.cfg.input.body_model.path,
+                                                      gender=self.cfg.input.body_model.gender,
+                                                      n_betas=self.cfg.input.body_model.n_betas,
+                                                      batch_size=self.cfg.batch_size,
+                                                      device=self.device,
+                                                      misc_args=misc_args).eval()
 
     def _setup_output_body_model(
             self,
@@ -166,47 +168,38 @@ class Engine:
         else:
             misc_args = self.cfg.output.body_model.misc_args.to_dict()
 
-        self.output_body_model = self._setup_model(
-            body_model_type=self.cfg.output.body_model.type,
-            body_model_path=self.cfg.output.body_model.path,
-            gender=self.cfg.output.body_model.gender,
-            n_betas=self.cfg.output.body_model.n_betas,
-            body_model_batch_size=self.cfg.batch_size,
-            misc_args=misc_args,
-        )
+        self.output_body_model = BodyModel.instantiate(model_type=self.cfg.output.body_model.type,
+                                                       # kwargs
+                                                       model_path=self.cfg.output.body_model.path,
+                                                       gender=self.cfg.output.body_model.gender,
+                                                       n_betas=self.cfg.output.body_model.n_betas,
+                                                       batch_size=self.cfg.batch_size,
+                                                       device=self.device,
+                                                       misc_args=misc_args)
 
-        self.output_body_model_faces = self.output_body_model.faces
-        if not isinstance(self.output_body_model_faces, torch.Tensor):
-            self.output_body_model_faces = torch.tensor(
-                self.output_body_model_faces.astype(np.int64)
-            )
-        self.output_body_model_faces = self.output_body_model_faces.type(torch.long).to(
-            self.device
-        )
-
-    def _setup_model(
-            self,
-            body_model_type: str,
-            body_model_path: str,
-            gender: str,
-            n_betas: int,
-            body_model_batch_size: int,
-            misc_args: dict = None,
-    ):
-        if misc_args is None: misc_args = {}
-        body_model_class = get_body_model(body_model_type)
-        body_model = instantiate_body_model(
-            body_model_type=body_model_type,
-            body_model_class=body_model_class,
-            body_model_path=body_model_path,
-            gender=gender,
-            n_betas=n_betas,
-            body_model_batch_size=body_model_batch_size,
-            misc_args=misc_args,
-            device=self.device,
-        ).to(self.device)
-
-        return body_model
+    # def _setup_model(
+    #         self,
+    #         body_model_type: str,
+    #         body_model_path: str,
+    #         gender: str,
+    #         n_betas: int,
+    #         body_model_batch_size: int,
+    #         misc_args: dict = None,
+    # ):
+    #     if misc_args is None: misc_args = {}
+    #     body_model_class = get_body_model(body_model_type)
+    #     body_model = instantiate_body_model(
+    #         body_model_type=body_model_type,
+    #         body_model_class=body_model_class,
+    #         body_model_path=body_model_path,
+    #         gender=gender,
+    #         n_betas=n_betas,
+    #         body_model_batch_size=body_model_batch_size,
+    #         misc_args=misc_args,
+    #         device=self.device,
+    #     ).to(self.device)
+    #
+    #     return body_model
 
     def setup_dataloader(
             self,
@@ -232,7 +225,7 @@ class Engine:
 
             self.dataset = dataset_class(
                 body_model=self.input_body_model,
-                body_model_type=self.cfg.input.body_model.type,
+                # body_model_type=self.cfg.input.body_model.type,
                 body_model_batch_size=self.cfg.batch_size,
                 npz_files_dir=self.cfg.input.data.npz_files_dir,
                 n_betas=self.cfg.input.body_model.n_betas,
@@ -360,14 +353,17 @@ class Engine:
             def closure():
                 optimizer.zero_grad()
 
-                estimated_vertices = perform_model_forward_pass(
-                    body_model_type=self.cfg.output.body_model.type,
-                    body_model=self.output_body_model,
-                    params=self.output_body_model_params,
-                    n_betas=self.cfg.output.body_model.n_betas,
-                    batch_size=self.cfg.batch_size,
-                    device=self.device,
-                )
+                # estimated_vertices = perform_model_forward_pass(
+                #     body_model_type=self.cfg.output.body_model.type,
+                #     body_model=self.output_body_model,
+                #     params=self.output_body_model_params,
+                #     n_betas=self.cfg.output.body_model.n_betas,
+                #     batch_size=self.cfg.batch_size,
+                #     device=self.device,
+                # )
+
+                betas, pose, trans = fix_params_keys(self.output_body_model, self.output_body_model_params)
+                estimated_vertices = self.output_body_model.forward(betas=betas, pose=pose, trans=trans)
 
                 loss = self._compute_loss(
                     n_iter=n_iter,
@@ -463,7 +459,7 @@ class Engine:
             ), "If output meshes are to be saved, output_vertices must be provided"
 
             output_vertices = output_vertices.detach().cpu().numpy()
-            faces = self.output_body_model_faces.detach().cpu().numpy()
+            faces = self.output_body_model.faces.detach().cpu().numpy()
 
             batch_meshes_save_dir = os.path.join(
                 self.cfg.output.save_dir, "meshes", f"batch_{n_batch}"
@@ -528,7 +524,7 @@ class Engine:
                     target_vertices=target_vertices,
                     loss_fn=compute_edge_loss,
                     loss_fn_kwargs={
-                        "faces": self.output_body_model_faces,
+                        "faces": self.output_body_model.faces,
                         "vertices_mask": self.vertices_mask,
                         "reduction": self.cfg.optimization.edge_loss.loss_reduction,
                     },
@@ -581,14 +577,18 @@ class Engine:
                 params_regularization_iters=self.cfg.optimization.vertex_loss.params_regularization_iters.to_dict(),
             )
 
-            final_estimated_vertices = perform_model_forward_pass(
-                body_model_type=self.cfg.output.body_model.type,
-                body_model=self.output_body_model,
-                params=self.output_body_model_params,
-                n_betas=self.cfg.output.body_model.n_betas,
-                batch_size=self.cfg.batch_size,
-                device=self.device,
-            )
+            # final_estimated_vertices = perform_model_forward_pass(
+            #     body_model_type=self.cfg.output.body_model.type,
+            #     body_model=self.output_body_model,
+            #     params=self.output_body_model_params,
+            #     n_betas=self.cfg.output.body_model.n_betas,
+            #     batch_size=self.cfg.batch_size,
+            #     device=self.device,
+            # )
+
+            betas, pose, trans = fix_params_keys(self.output_body_model, self.output_body_model_params)
+            final_estimated_vertices = self.output_body_model.forward(betas=betas, pose=pose, trans=trans)
+
             final_v2v_error = compute_v2v_error(
                 final_estimated_vertices, target_vertices
             )
