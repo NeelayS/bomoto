@@ -80,21 +80,19 @@ class Engine:
         if self.cfg.vertices_mask_path is not None:
             self.vertices_mask = np.load(self.cfg.vertices_mask_path)
 
-    def _get_source_betas_override(self):
-        data = np.load(self.cfg.input.source_betas_override_path, allow_pickle=True)
-        if isinstance(data, Mapping):
-            return data['betas']
-        else:
-            return data
+    def _load_betas(self, source=False):
+        fname = self.cfg.input.source_betas_override_path if source else self.cfg.output.target_betas_path
+        if fname is None: return None
+        data = np.load(fname, allow_pickle=True)
+        betas = data['betas'] if isinstance(data, Mapping) else data
+        return torch.as_tensor(betas, dtype=torch.float32, device=self.device)
 
-    def _get_target_betas(self):
-        return np.load(self.cfg.output.target_betas_path)
-
-    def _get_source_vtemplate(self):
-        if self.cfg.input.source_vtemplate_path is None:
-            return None
-        with open(self.cfg.input.source_vtemplate_path, 'rb') as f:
-            ext = self.cfg.input.source_vtemplate_path.split('.')[-1]
+    def _load_vtemplate(self, source=False):
+        fname = self.cfg.input.source_vtemplate_path if source else self.cfg.output.target_vtemplate_path
+        if fname is None: return None
+        print(f"Loading {'source' if source else 'target'} vtemplate from {fname}")
+        with open(fname, 'rb') as f:
+            ext = fname.split('.')[-1]
             v_template = np.asarray(trimesh.load(f, file_type=ext, process=False).vertices).astype(np.float32)
         return v_template
 
@@ -102,9 +100,20 @@ class Engine:
             self,
             inherit_prev_betas_without_grad: bool = False,
     ):
-        if self.cfg.output.target_betas_path is not None:
-            self.output_body_model_params["betas"] = self._get_target_betas()
+        if self.cfg.output.target_betas_path is not None or self.cfg.output.target_vtemplate_path is not None:
+            if self.cfg.output.target_betas_path is not None:
+                print(f"Loaded target betas from {self.cfg.output.target_betas_path}")
+                self.output_body_model_params["betas"] = self._load_betas(source=False)
+            if self.cfg.output.target_vtemplate_path is not None:
+                print(f"Loaded target v_template from {self.cfg.output.target_vtemplate_path}")
+                self.output_body_model_params["betas"] = torch.zeros(
+                    (1, self.cfg.output.body_model.n_betas),
+                    dtype=torch.float32,
+                    device=self.device,
+                    requires_grad=True,
+                )
             inherit_prev_betas_without_grad = True
+            self.cfg.output.single_set_of_betas_per_batch = True
         else:
             if self.cfg.output.single_set_of_betas_per_batch is True:
                 self.output_body_model_params["betas"] = torch.zeros(
@@ -174,7 +183,7 @@ class Engine:
                                                       gender=self.cfg.input.body_model.gender,
                                                       n_betas=self.cfg.input.body_model.n_betas,
                                                       batch_size=self.cfg.batch_size,
-                                                      v_template=self._get_source_vtemplate(),
+                                                      v_template=self._load_vtemplate(source=True),
                                                       device=self.device,
                                                       misc_args=misc_args).eval()
 
@@ -193,6 +202,7 @@ class Engine:
                                                        gender=self.cfg.output.body_model.gender,
                                                        n_betas=self.cfg.output.body_model.n_betas,
                                                        batch_size=self.cfg.batch_size,
+                                                       v_template=self._load_vtemplate(source=False),
                                                        device=self.device,
                                                        misc_args=misc_args)
 
@@ -218,8 +228,7 @@ class Engine:
             if self.input_body_model is None:
                 self._setup_input_body_model()
 
-            source_betas_override = self._get_source_betas_override() \
-                if self.cfg.input.source_betas_override_path is not None else None
+            source_betas_override = self._load_betas(source=True)
 
             self.dataset = dataset_class(
                 body_model=self.input_body_model,

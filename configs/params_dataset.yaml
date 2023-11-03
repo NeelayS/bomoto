@@ -84,5 +84,8 @@ output:
   optimize_betas_only_for_first_batch: False
   single_set_of_betas_per_batch: True
 
+  target_betas_path: null
+  target_vtemplate_path: null
+
   save_dir: ./results
   save_meshes: True
