@@ -17,7 +17,7 @@ def find_param_key(params_dict, param_names):
     return res
 
 
-def fix_params_keys(body_model: BodyModel, params: dict):
+def get_model_params(body_model: BodyModel, params: dict):
     betas = find_param_key(params, betas_params_names)
 
     if betas is None:

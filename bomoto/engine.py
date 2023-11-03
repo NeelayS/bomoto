@@ -6,13 +6,14 @@ import torch
 import trimesh
 from tqdm import tqdm
 
-from .body_models import BodyModel, fix_params_keys
+from .body_models import BodyModel, get_model_params
 from .config import CfgNode, get_cfg
 from .data import get_dataset
 from .losses import (compute_edge_loss, compute_v2v_error,
                      compute_vertex_loss)
 from .utils import (deform_vertices, read_deformation_matrix,
                     seed_everything, validate_device)
+from typing import Mapping
 
 
 class Engine:
@@ -79,6 +80,13 @@ class Engine:
         if self.cfg.vertices_mask_path is not None:
             self.vertices_mask = np.load(self.cfg.vertices_mask_path)
 
+    def _get_source_betas_override(self):
+        data = np.load(self.cfg.input.source_betas_override_path, allow_pickle=True)
+        if isinstance(data, Mapping):
+            return data['betas']
+        else:
+            return data
+
     def _get_target_betas(self):
         return np.load(self.cfg.output.target_betas_path)
 
@@ -87,14 +95,13 @@ class Engine:
             return None
         with open(self.cfg.input.source_vtemplate_path, 'rb') as f:
             ext = self.cfg.input.source_vtemplate_path.split('.')[-1]
-            v_template = trimesh.load(f, file_type=ext, process=False).vertices
+            v_template = np.asarray(trimesh.load(f, file_type=ext, process=False).vertices).astype(np.float32)
         return v_template
 
     def _init_params(
             self,
             inherit_prev_betas_without_grad: bool = False,
     ):
-
         if self.cfg.output.target_betas_path is not None:
             self.output_body_model_params["betas"] = self._get_target_betas()
             inherit_prev_betas_without_grad = True
@@ -211,12 +218,16 @@ class Engine:
             if self.input_body_model is None:
                 self._setup_input_body_model()
 
+            source_betas_override = self._get_source_betas_override() \
+                if self.cfg.input.source_betas_override_path is not None else None
+
             self.dataset = dataset_class(
                 body_model=self.input_body_model,
                 # body_model_type=self.cfg.input.body_model.type,
                 body_model_batch_size=self.cfg.batch_size,
                 npz_files_dir=self.cfg.input.data.npz_files_dir,
                 n_betas=self.cfg.input.body_model.n_betas,
+                betas_override=source_betas_override,
                 device=self.device,
             )
 
@@ -341,7 +352,7 @@ class Engine:
             def closure():
                 optimizer.zero_grad()
 
-                betas, pose, trans = fix_params_keys(self.output_body_model, self.output_body_model_params)
+                betas, pose, trans = get_model_params(self.output_body_model, self.output_body_model_params)
                 estimated_vertices = self.output_body_model.forward(betas=betas, pose=pose, trans=trans)
 
                 loss = self._compute_loss(
@@ -565,7 +576,7 @@ class Engine:
             #     device=self.device,
             # )
 
-            betas, pose, trans = fix_params_keys(self.output_body_model, self.output_body_model_params)
+            betas, pose, trans = get_model_params(self.output_body_model, self.output_body_model_params)
             final_estimated_vertices = self.output_body_model.forward(betas=betas, pose=pose, trans=trans)
 
             final_v2v_error = compute_v2v_error(

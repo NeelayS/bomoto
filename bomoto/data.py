@@ -3,7 +3,7 @@ import os
 import numpy as np
 import torch
 import trimesh
-from .body_models import BodyModel, fix_params_keys
+from .body_models import BodyModel, get_model_params
 
 from . import numpy2torch_types_to_convert, numpy_float_types
 
@@ -94,6 +94,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
             body_model_batch_size: int,
             npz_files_dir: str,
             n_betas: int,
+            betas_override: np.ndarray = None,
             device: torch.device = torch.device("cpu"),
     ):
         super().__init__()
@@ -117,6 +118,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
             self.body_model_faces = torch.tensor(self.body_model_faces.astype(np.int64))
         self.body_model_faces = self.body_model_faces.type(torch.long).to(device)
         self.n_betas = n_betas
+        self.betas_override = betas_override
         self.device = device
 
     def __len__(self):
@@ -135,7 +137,10 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
                 v = v.astype(np.float32)
             params[key] = torch.tensor(v).to(self.device)
 
-        betas, pose, trans = fix_params_keys(self.body_model, params)
+        betas, pose, trans = get_model_params(self.body_model, params)
+
+        if self.betas_override is not None:
+            betas = torch.tensor(self.betas_override, dtype=torch.float32, device=self.device)
 
         with torch.no_grad():
             vertices = self.body_model.forward(betas=betas, pose=pose, trans=trans)
