@@ -5,18 +5,14 @@ import numpy as np
 import torch
 import trimesh
 from tqdm import tqdm
-from .body_models import fix_params_keys
 
-# from bomoto.body_models import (get_body_model, get_body_model_params_info,
-#                                 instantiate_body_model,
-#                                 perform_model_forward_pass)
-from bomoto.config import CfgNode, get_cfg
-from bomoto.data import get_dataset
-from bomoto.losses import (compute_edge_loss, compute_v2v_error,
-                           compute_vertex_loss)
-from bomoto.utils import (deform_vertices, read_deformation_matrix,
-                          seed_everything, validate_device)
-from bomoto.body_models import BodyModel
+from .body_models import BodyModel, fix_params_keys
+from .config import CfgNode, get_cfg
+from .data import get_dataset
+from .losses import (compute_edge_loss, compute_v2v_error,
+                     compute_vertex_loss)
+from .utils import (deform_vertices, read_deformation_matrix,
+                    seed_everything, validate_device)
 
 
 class Engine:
@@ -83,25 +79,32 @@ class Engine:
         if self.cfg.vertices_mask_path is not None:
             self.vertices_mask = np.load(self.cfg.vertices_mask_path)
 
+    def _get_target_betas(self):
+        return np.load(self.cfg.output.target_betas_path)
+
     def _init_params(
             self,
             inherit_prev_betas_without_grad: bool = False,
     ):
 
-        if self.cfg.output.single_set_of_betas_per_batch is True:
-            self.output_body_model_params["betas"] = torch.zeros(
-                (1, self.cfg.output.body_model.n_betas),
-                dtype=torch.float32,
-                device=self.device,
-                requires_grad=True,
-            )
+        if self.cfg.output.target_betas_path is not None:
+            self.output_body_model_params["betas"] = self._get_target_betas()
+            inherit_prev_betas_without_grad = True
         else:
-            self.output_body_model_params["betas"] = torch.zeros(
-                (self.cfg.batch_size, self.cfg.output.body_model.n_betas),
-                dtype=torch.float32,
-                device=self.device,
-                requires_grad=True,
-            )
+            if self.cfg.output.single_set_of_betas_per_batch is True:
+                self.output_body_model_params["betas"] = torch.zeros(
+                    (1, self.cfg.output.body_model.n_betas),
+                    dtype=torch.float32,
+                    device=self.device,
+                    requires_grad=True,
+                )
+            else:
+                self.output_body_model_params["betas"] = torch.zeros(
+                    (self.cfg.batch_size, self.cfg.output.body_model.n_betas),
+                    dtype=torch.float32,
+                    device=self.device,
+                    requires_grad=True,
+                )
 
         if inherit_prev_betas_without_grad is True:
             assert (
@@ -176,30 +179,6 @@ class Engine:
                                                        batch_size=self.cfg.batch_size,
                                                        device=self.device,
                                                        misc_args=misc_args)
-
-    # def _setup_model(
-    #         self,
-    #         body_model_type: str,
-    #         body_model_path: str,
-    #         gender: str,
-    #         n_betas: int,
-    #         body_model_batch_size: int,
-    #         misc_args: dict = None,
-    # ):
-    #     if misc_args is None: misc_args = {}
-    #     body_model_class = get_body_model(body_model_type)
-    #     body_model = instantiate_body_model(
-    #         body_model_type=body_model_type,
-    #         body_model_class=body_model_class,
-    #         body_model_path=body_model_path,
-    #         gender=gender,
-    #         n_betas=n_betas,
-    #         body_model_batch_size=body_model_batch_size,
-    #         misc_args=misc_args,
-    #         device=self.device,
-    #     ).to(self.device)
-    #
-    #     return body_model
 
     def setup_dataloader(
             self,
@@ -352,15 +331,6 @@ class Engine:
 
             def closure():
                 optimizer.zero_grad()
-
-                # estimated_vertices = perform_model_forward_pass(
-                #     body_model_type=self.cfg.output.body_model.type,
-                #     body_model=self.output_body_model,
-                #     params=self.output_body_model_params,
-                #     n_betas=self.cfg.output.body_model.n_betas,
-                #     batch_size=self.cfg.batch_size,
-                #     device=self.device,
-                # )
 
                 betas, pose, trans = fix_params_keys(self.output_body_model, self.output_body_model_params)
                 estimated_vertices = self.output_body_model.forward(betas=betas, pose=pose, trans=trans)

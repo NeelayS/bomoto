@@ -79,9 +79,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
     Parameters
     ----------
     body_model : BodyModel
-        A body model instance.
-    body_model_type : str
-        Type of body model. Can be either 'smpl', 'smplh', 'smplx' or 'supr'.
+        A body model wrapper instance.
     npz_files_dir : str
         Path to the directory containing the .npz files.
     n_betas : int
@@ -93,7 +91,6 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
     def __init__(
             self,
             body_model: BodyModel,
-            # body_model_type: str,
             body_model_batch_size: int,
             npz_files_dir: str,
             n_betas: int,

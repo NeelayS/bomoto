@@ -55,10 +55,11 @@ class BodyModel(ABC):
         if betas is None:
             betas = torch.zeros((self.batch_size, self.model.num_betas), device=self.device)
         else:
+            # if betas.shape[-1] != self.model.num_betas:
+            #     raise ValueError(f"betas must have shape (batch_size, {self.model.num_betas}), got {betas.shape}")
+            betas = betas[..., :self.model.num_betas]
             if betas.ndim == 1:
                 betas = betas[None, ...].repeat(self.batch_size, 1)
-            elif betas.shape[-1] != self.model.num_betas:
-                raise ValueError(f"betas must have shape (batch_size, {self.model.num_betas}), got {betas.shape}")
         if pose is None:
             pose = torch.zeros((self.batch_size, self.num_pose_params), device=self.device)
         if trans is None:
