@@ -18,6 +18,7 @@ class SMPLHWrapper(BodyModel):
                  flat_hand_mean: bool = True,
                  # use_pca: bool = False,
                  # num_pca_comps: int = 45,
+                 v_template=None,
                  **misc_args):
         body_model = SMPLH(model_path=model_path,
                            gender=gender,
@@ -27,6 +28,7 @@ class SMPLHWrapper(BodyModel):
                            num_pca_comps=45,
                            flat_hand_mean=flat_hand_mean,
                            device=device,
+                           v_template=v_template,
                            **misc_args)
         super().__init__(model=body_model)
 

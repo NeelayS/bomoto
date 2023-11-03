@@ -14,12 +14,14 @@ class SMPLWrapper(BodyModel):
                  n_betas: int,
                  batch_size: int,
                  device: Union[str, torch.device],
+                 v_template=None,
                  **misc_args):
         body_model = SMPL(model_path=model_path,
                           gender=gender,
                           num_betas=n_betas,
                           batch_size=batch_size,
                           device=device,
+                          v_template=v_template,
                           **misc_args)
         super().__init__(model=body_model)
 

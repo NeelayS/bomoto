@@ -17,6 +17,7 @@ class SMPLXWrapper(BodyModel):
                  flat_hand_mean: bool = True,
                  # use_pca: bool = False,
                  # num_pca_comps: int = 45,
+                 v_template=None,
                  **misc_args):
         body_model = SMPLX(model_path=model_path,
                            gender=gender,
@@ -26,6 +27,7 @@ class SMPLXWrapper(BodyModel):
                            flat_hand_mean=flat_hand_mean,
                            use_pca=False,
                            num_pca_comps=45,
+                           v_template=v_template,
                            **misc_args)
         super().__init__(model=body_model)
 

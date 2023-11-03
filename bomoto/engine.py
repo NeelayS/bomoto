@@ -82,6 +82,14 @@ class Engine:
     def _get_target_betas(self):
         return np.load(self.cfg.output.target_betas_path)
 
+    def _get_source_vtemplate(self):
+        if self.cfg.input.source_vtemplate_path is None:
+            return None
+        with open(self.cfg.input.source_vtemplate_path, 'rb') as f:
+            ext = self.cfg.input.source_vtemplate_path.split('.')[-1]
+            v_template = trimesh.load(f, file_type=ext, process=False).vertices
+        return v_template
+
     def _init_params(
             self,
             inherit_prev_betas_without_grad: bool = False,
@@ -159,6 +167,7 @@ class Engine:
                                                       gender=self.cfg.input.body_model.gender,
                                                       n_betas=self.cfg.input.body_model.n_betas,
                                                       batch_size=self.cfg.batch_size,
+                                                      v_template=self._get_source_vtemplate(),
                                                       device=self.device,
                                                       misc_args=misc_args).eval()
 

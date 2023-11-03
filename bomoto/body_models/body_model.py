@@ -43,9 +43,9 @@ class BodyModel(ABC):
     def batch_size(self) -> int:
         return self.model.batch_size
 
-    def set_v_template(self, v_template: torch.tensor):
-        # TODO: modify SUPR code to allow setting a v_template
-        raise NotImplementedError()
+    # def set_v_template(self, v_template: torch.tensor):
+    #     # TODO: modify SUPR code to allow setting a v_template
+    #     raise NotImplementedError()
 
     def _replace_none_params(self,
                              betas: Optional[torch.tensor] = None,

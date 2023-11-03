@@ -13,9 +13,11 @@ class SUPRWrapper(BodyModel):
     def __init__(self, model_path: str,
                  n_betas: int,
                  device: Union[str, torch.device],
+                 v_template=None,
                  **misc_args):
         body_model = SUPR(path_model=model_path,
                           num_betas=n_betas,
+                          v_template=v_template,
                           device=device)
         super().__init__(model=body_model)
 
