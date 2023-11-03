@@ -66,6 +66,9 @@ input:
     
     misc_args: null
 
+  source_betas_override_path: null
+  source_vtemplate_path: null
+
 output:
 
   body_model:
@@ -79,7 +82,7 @@ output:
 
   params_to_optimize: all
   optimize_betas_only_for_first_batch: False
-  single_set_of_betas_per_batch: False
+  single_set_of_betas_per_batch: True
 
   save_dir: ./results
   save_meshes: True
