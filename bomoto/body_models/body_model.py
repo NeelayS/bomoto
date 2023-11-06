@@ -47,30 +47,36 @@ class BodyModel(ABC):
     #     # TODO: modify SUPR code to allow setting a v_template
     #     raise NotImplementedError()
 
-    def _replace_none_params(self,
-                             betas: Optional[torch.tensor] = None,
-                             pose: Optional[torch.tensor] = None,
-                             trans: Optional[torch.tensor] = None):
+    def _preprocess_params(self,
+                           betas: Optional[torch.tensor] = None,
+                           pose: Optional[torch.tensor] = None,
+                           trans: Optional[torch.tensor] = None):
 
         if betas is None:
-            betas = torch.zeros((self.batch_size, self.model.num_betas), device=self.device)
+            betas = torch.zeros((self.batch_size, self.model.num_betas), dtype=torch.float32, device=self.device)
         else:
-            # if betas.shape[-1] != self.model.num_betas:
-            #     raise ValueError(f"betas must have shape (batch_size, {self.model.num_betas}), got {betas.shape}")
             betas = betas[..., :self.model.num_betas]
+            betas = torch.as_tensor(betas, dtype=torch.float32, device=self.device)
             if betas.ndim == 1:
                 betas = betas[None, ...].repeat(self.batch_size, 1)
+
         if pose is None:
-            pose = torch.zeros((self.batch_size, self.num_pose_params), device=self.device)
+            pose = torch.zeros((self.batch_size, self.num_pose_params), dtype=torch.float32, device=self.device)
+        else:
+            pose = torch.as_tensor(pose, dtype=torch.float32, device=self.device)
+
         if trans is None:
-            trans = torch.zeros((self.batch_size, 3), device=self.device)
+            trans = torch.zeros((self.batch_size, 3), dtype=torch.float32, device=self.device)
+        else:
+            trans = torch.as_tensor(trans, dtype=torch.float32, device=self.device)
+
         return betas, pose, trans
 
     @abstractmethod
     def forward(self,
-                betas: Optional[torch.tensor] = None,
-                pose: Optional[torch.tensor] = None,
-                trans: Optional[torch.tensor] = None):
+                betas: Union[torch.tensor, np.ndarray, None] = None,
+                pose: Union[torch.tensor, np.ndarray, None] = None,
+                trans: Union[torch.tensor, np.ndarray, None] = None):
         raise NotImplementedError()
 
     def to(self, device: Union[str, torch.device]) -> BodyModel:

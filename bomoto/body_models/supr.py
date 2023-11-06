@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 from functools import cached_property
-from typing import Union, Optional
+from typing import Union
 
+import numpy as np
 import torch
 
 from SUPR.supr.pytorch.supr import SUPR
@@ -42,10 +43,10 @@ class SUPRWrapper(BodyModel):
         return 1
 
     def forward(self,
-                betas: Optional[torch.tensor] = None,
-                pose: Optional[torch.tensor] = None,
-                trans: Optional[torch.tensor] = None):
-        betas, pose, trans = super()._replace_none_params(betas, pose, trans)
+                betas: Union[torch.tensor, np.ndarray, None] = None,
+                pose: Union[torch.tensor, np.ndarray, None] = None,
+                trans: Union[torch.tensor, np.ndarray, None] = None):
+        betas, pose, trans = super()._preprocess_params(betas, pose, trans)
         return self.model.forward(betas=betas,
                                   pose=pose,
                                   trans=trans)["vertices"]

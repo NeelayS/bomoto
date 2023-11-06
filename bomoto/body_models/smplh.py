@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 from functools import cached_property
-from typing import Union, Optional
+from typing import Union
 
+import numpy as np
 import torch
 from smplx import SMPLH
 
@@ -46,7 +47,7 @@ class SMPLHWrapper(BodyModel):
         return {"pose": 153, "global_orient": 3, "transl": 3}
 
     @staticmethod
-    def full_pose_to_parts(full_pose: torch.Tensor, hand_pca_comps: int = 45):
+    def full_pose_to_parts(full_pose: Union[torch.tensor, np.ndarray], hand_pca_comps: int = 45):
         # TODO: add possibility of using PCA hand components
         return {
             "global_orient": full_pose[:, :3],
@@ -56,10 +57,10 @@ class SMPLHWrapper(BodyModel):
         }
 
     def forward(self,
-                betas: Optional[torch.tensor] = None,
-                pose: Optional[torch.tensor] = None,
-                trans: Optional[torch.tensor] = None):
-        betas, pose, trans = super()._replace_none_params(betas, pose, trans)
+                betas: Union[torch.tensor, np.ndarray, None] = None,
+                pose: Union[torch.tensor, np.ndarray, None] = None,
+                trans: Union[torch.tensor, np.ndarray, None] = None):
+        betas, pose, trans = super()._preprocess_params(betas, pose, trans)
         return self.model.forward(betas=betas,
                                   transl=trans,
                                   **SMPLHWrapper.full_pose_to_parts(pose)).vertices
