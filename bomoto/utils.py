@@ -78,7 +78,10 @@ def read_deformation_matrix(deformation_matrix_path, device=torch.device("cpu"))
     with open(deformation_matrix_path, "rb") as f:
         def_transfer_setup = pickle.load(f, encoding="latin1")
 
-    if "mtx" in def_transfer_setup:
+    if isinstance(def_transfer_setup, sp.coo_matrix):
+        def_matrix = def_transfer_setup.todense()
+
+    elif "mtx" in def_transfer_setup:
         def_matrix = def_transfer_setup["mtx"]
 
         if hasattr(def_matrix, "todense"):
