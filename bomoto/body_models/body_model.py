@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from typing import Union, Optional
+from typing import Union, Optional, Tuple
 
 import numpy as np
 import torch
@@ -50,7 +50,7 @@ class BodyModel(ABC):
     def _preprocess_params(self,
                            betas: Optional[torch.tensor] = None,
                            pose: Optional[torch.tensor] = None,
-                           trans: Optional[torch.tensor] = None):
+                           trans: Optional[torch.tensor] = None) -> Tuple[torch.tensor, torch.tensor, torch.tensor]:
 
         if betas is None:
             betas = torch.zeros((self.batch_size, self.model.num_betas), dtype=torch.float32, device=self.device)
