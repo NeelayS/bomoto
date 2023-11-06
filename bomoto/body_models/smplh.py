@@ -29,6 +29,7 @@ class SMPLHWrapper(BodyModel):
                            flat_hand_mean=flat_hand_mean,
                            device=device,
                            v_template=v_template,
+                           ext=model_path.split('.')[-1].lower(),
                            **misc_args)
         super().__init__(model=body_model)
 
