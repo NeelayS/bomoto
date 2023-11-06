@@ -3,7 +3,7 @@ from .smpl import SMPLWrapper
 from .smplh import SMPLHWrapper
 from .smplx import SMPLXWrapper
 from .supr import SUPRWrapper
-from .utils import get_model_params
+from .utils import get_model_params, rotate_points_around_axis
 
 BodyModel.body_models = {'smpl': SMPLWrapper,
                          'smplh': SMPLHWrapper,
