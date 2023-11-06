@@ -56,7 +56,7 @@ class BodyModel(ABC):
             betas = torch.zeros((self.batch_size, self.model.num_betas), dtype=torch.float32, device=self.device)
         else:
             betas = betas[..., :self.model.num_betas]
-            betas = torch.as_tensor(betas, dtype=torch.float32, device=self.device)
+            betas = torch.as_tensor(betas, dtype=torch.float32, device=self.device).squeeze()
             if betas.ndim == 1:
                 betas = betas[None, ...].repeat(self.batch_size, 1)
 

@@ -12,5 +12,7 @@ cfg = get_cfg(args.cfg)
 engine = Engine(cfg)
 
 start_time = time.time()
+
 engine.run()
-print(time.time() - start_time)
+
+print("Total time:", time.time() - start_time)

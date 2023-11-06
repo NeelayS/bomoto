@@ -140,7 +140,7 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         betas, pose, trans = get_model_params(self.body_model, params)
 
         if self.betas_override is not None:
-            betas = torch.tensor(self.betas_override, dtype=torch.float32, device=self.device)
+            betas = torch.as_tensor(self.betas_override, dtype=torch.float32, device=self.device)
 
         with torch.no_grad():
             vertices = self.body_model.forward(betas=betas, pose=pose, trans=trans)
