@@ -15,3 +15,4 @@ numpy2torch_types_to_convert = [
 ]
 
 numpy_float_types = [float64, float32]
+

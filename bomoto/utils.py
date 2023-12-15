@@ -5,6 +5,7 @@ import numpy as np
 import scipy.sparse as sp
 import torch
 import torch.backends.cudnn as cudnn
+from . import numpy_float_types
 
 
 def seed_everything(seed):
@@ -102,3 +103,17 @@ def read_deformation_matrix(deformation_matrix_path, device=torch.device("cpu"))
     def_matrix = torch.tensor(def_matrix, device=device, dtype=torch.float32)
 
     return def_matrix
+
+
+def params2torch(params: dict, device='cpu'):
+    params = params.copy()
+    for key in params.keys():
+        v = params[key]
+        try:
+            dtype = v.dtype
+        except AttributeError:
+            continue
+        if dtype in numpy_float_types:
+            v = v.astype(np.float32)
+        params[key] = torch.as_tensor(v).to(device)
+    return params
