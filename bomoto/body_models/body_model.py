@@ -6,6 +6,7 @@ from typing import Union, Optional, Tuple
 import numpy as np
 import torch
 from functools import cached_property
+from ..utils import params2torch
 
 
 class BodyModel(ABC):
@@ -50,7 +51,8 @@ class BodyModel(ABC):
     def _preprocess_params(self,
                            betas: Optional[torch.tensor] = None,
                            pose: Optional[torch.tensor] = None,
-                           trans: Optional[torch.tensor] = None) -> Tuple[torch.tensor, torch.tensor, torch.tensor]:
+                           trans: Optional[torch.tensor] = None,
+                           **kwargs) -> Tuple[torch.tensor, torch.tensor, torch.tensor, dict]:
 
         if betas is None:
             betas = torch.zeros((self.batch_size, self.model.num_betas), dtype=torch.float32, device=self.device)
@@ -59,6 +61,8 @@ class BodyModel(ABC):
             betas = torch.as_tensor(betas, dtype=torch.float32, device=self.device).squeeze()
             if betas.ndim == 1:
                 betas = betas[None, ...].repeat(self.batch_size, 1)
+            # elif betas.shape[0] == 1:
+            #     betas = betas[None, ...].repeat(self.batch_size, 1)
 
         if pose is None:
             pose = torch.zeros((self.batch_size, self.num_pose_params), dtype=torch.float32, device=self.device)
@@ -70,13 +74,14 @@ class BodyModel(ABC):
         else:
             trans = torch.as_tensor(trans, dtype=torch.float32, device=self.device)
 
-        return betas, pose, trans
+        return betas, pose, trans, params2torch(kwargs, device=self.device)
 
     @abstractmethod
     def forward(self,
                 betas: Union[torch.tensor, np.ndarray, None] = None,
                 pose: Union[torch.tensor, np.ndarray, None] = None,
-                trans: Union[torch.tensor, np.ndarray, None] = None):
+                trans: Union[torch.tensor, np.ndarray, None] = None,
+                **kwargs):
         raise NotImplementedError()
 
     def to(self, device: Union[str, torch.device]) -> BodyModel:
