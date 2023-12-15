@@ -38,6 +38,7 @@ class SMPLXWrapper(BodyModel):
 
     @property
     def num_pose_params(self) -> int:
+        # return 168 if self.body_models.extra_root_joint_at_origin else 165
         return 165
 
     @staticmethod
@@ -59,8 +60,12 @@ class SMPLXWrapper(BodyModel):
     def forward(self,
                 betas: Union[torch.tensor, np.ndarray, None] = None,
                 pose: Union[torch.tensor, np.ndarray, None] = None,
-                trans: Union[torch.tensor, np.ndarray, None] = None):
-        betas, pose, trans = super()._preprocess_params(betas, pose, trans)
-        return self.model.forward(betas=betas,
-                                  transl=trans,
-                                  **SMPLXWrapper.full_pose_to_parts(pose)).vertices
+                trans: Union[torch.tensor, np.ndarray, None] = None,
+                return_full_model_output: bool = False,
+                **kwargs):
+        betas, pose, trans, kwargs = super()._preprocess_params(betas, pose, trans, **kwargs)
+        output = self.model.forward(betas=betas,
+                                    transl=trans,
+                                    **SMPLXWrapper.full_pose_to_parts(pose),
+                                    **kwargs)
+        return output.vertices if not return_full_model_output else output

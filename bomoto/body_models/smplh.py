@@ -59,8 +59,9 @@ class SMPLHWrapper(BodyModel):
     def forward(self,
                 betas: Union[torch.tensor, np.ndarray, None] = None,
                 pose: Union[torch.tensor, np.ndarray, None] = None,
-                trans: Union[torch.tensor, np.ndarray, None] = None):
-        betas, pose, trans = super()._preprocess_params(betas, pose, trans)
+                trans: Union[torch.tensor, np.ndarray, None] = None,
+                **kwargs):
+        betas, pose, trans, kwargs = super()._preprocess_params(betas, pose, trans, **kwargs)
         return self.model.forward(betas=betas,
                                   transl=trans,
                                   **SMPLHWrapper.full_pose_to_parts(pose)).vertices
