@@ -86,6 +86,7 @@ output:
 
   target_betas_path: null
   target_vtemplate_path: null
+  target_pose_path: null
 
   save_dir: ./results
   save_meshes: True

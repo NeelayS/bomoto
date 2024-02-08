@@ -2,7 +2,7 @@ seed: 42
 device: "cuda:0"
 log_iterations_interval: 1
 
-batch_size: 2
+batch_size: 1
 dataloader_n_workers: 1
 
 deformation_matrix_path: null

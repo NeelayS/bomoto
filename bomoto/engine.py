@@ -52,9 +52,9 @@ class Engine:
 
         self.params_info = BodyModel.body_models[self.cfg.output.body_model.type].get_body_model_params_info()
         self.output_body_model_params = {}
-        self.output_body_model_params["betas"] = None
-        for params_name in self.params_info.keys():
-            self.output_body_model_params[params_name] = None
+        # for params_name in self.params_info.keys():
+        # self.output_body_model_params["betas"] = None
+        #     self.output_body_model_params[params_name] = None
         self._init_params()
 
         self._setup_deformation()
@@ -96,10 +96,19 @@ class Engine:
             v_template = np.asarray(trimesh.load(f, file_type=ext, process=False).vertices).astype(np.float32)
         return v_template
 
+    def _load_pose(self):
+        fname = self.cfg.output.target_pose_path
+        if fname is None: return None
+        data = np.load(fname, allow_pickle=True)
+        pose = data['betas'] if isinstance(data, Mapping) else data
+        return torch.as_tensor(pose, dtype=torch.float32, device=self.device)
+
     def _init_params(
             self,
             inherit_prev_betas_without_grad: bool = False,
     ):
+
+        disable_params_optimization = []
         if self.cfg.output.target_betas_path is not None or self.cfg.output.target_vtemplate_path is not None:
             if self.cfg.output.target_betas_path is not None:
                 print(f"Loaded target betas from {self.cfg.output.target_betas_path}")
@@ -130,6 +139,12 @@ class Engine:
                     requires_grad=True,
                 )
 
+        if self.cfg.output.target_pose_path is not None:
+            target_pose = self._load_pose()
+            self.output_body_model_params["global_orient"] = target_pose[:, :3]
+            self.output_body_model_params["pose"] = target_pose[:, 3:]
+            disable_params_optimization = ['global_orient', 'pose']
+
         if inherit_prev_betas_without_grad is True:
             assert (
                     self.output_body_model_params["betas"] is not None
@@ -143,6 +158,7 @@ class Engine:
             )
 
         for params_name, params_size in self.params_info.items():
+            if params_name in disable_params_optimization: continue
             self.output_body_model_params[params_name] = torch.zeros(
                 (self.cfg.batch_size, params_size),
                 dtype=torch.float32,
