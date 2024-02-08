@@ -69,15 +69,15 @@ def rotate_points_around_axis(v: np.ndarray, deg: float, axis: Union[int, str]):
     if axis == 0:
         rot_mat = np.array([[1, 0, 0],
                             [0, np.cos(rot), -np.sin(rot)],
-                            [0, np.sin(rot), np.cos(rot)]])
+                            [0, np.sin(rot), np.cos(rot)]], dtype=np.float32)
     elif axis == 1:
         rot_mat = np.array([[np.cos(rot), 0, np.sin(rot)],
                             [0, 1, 0],
-                            [-np.sin(rot), 0, np.cos(rot)]])
+                            [-np.sin(rot), 0, np.cos(rot)]], dtype=np.float32)
     elif axis == 2:
         rot_mat = np.array([[np.cos(rot), -np.sin(rot), 0],
                             [np.sin(rot), np.cos(rot), 0],
-                            [0, 0, 1]])
+                            [0, 0, 1]], dtype=np.float32)
     else:
         raise ValueError("axis must be 0 (=x), 1 (=y) or 2 (=z)")
 
