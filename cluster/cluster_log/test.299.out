@@ -1,0 +1,4 @@
+Namespace(object_key=None, cluster_batch_size=56, cluster_start_idx=299, opts=[], cfg_id=0, cluster=False, bid=10, memory=64000, gpu_min_mem=12000, gpu_arch=['tesla', 'quadro', 'rtx'], num_cpus=8, input_dir='/is/cluster/sbhor/smpl_ground_truth_corr/', output_dir='/is/cluster/fast/sbhor/star_bedlam_bomoto/', cfg='/is/cluster/fast/sbhor/bomoto/configs/params_dataset.yaml')
+
+Starting the conversion process at location /is/cluster/fast/sbhor/star_bedlam_bomoto/conversion_log.log.
+running 56 files in the range 16744-16799

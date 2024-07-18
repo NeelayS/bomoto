@@ -1,0 +1,15 @@
+EXP_NAME = star_bomoto
+executable = /is/cluster/fast/sbhor/bomoto/cluster/cluster_run.sh
+arguments = $(Process) $(EXP_NAME)
+error = cluster_log/test.$(Process).err
+output = cluster_log/test.$(Process).out
+log = test.log
+request_cpus = 8
+request_memory = 128000
+request_gpus = 1
+requirements = (TARGET.CUDADeviceName == "NVIDIA A100-SXM4-80GB") || (TARGET.CUDADeviceName == "NVIDIA A100-SXM4-40GB")
+concurrency_limits=user.mytag:30
+getenv = True
++MaxRunningPrice = 100
++RunningPriceExceededAction = "restart"
+queue 1

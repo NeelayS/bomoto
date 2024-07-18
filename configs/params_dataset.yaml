@@ -2,7 +2,7 @@ seed: 42
 device: "cuda:0"
 log_iterations_interval: 1
 
-batch_size: 2
+batch_size: 240
 dataloader_n_workers: 0
 
 deformation_matrix_path: null
@@ -55,14 +55,14 @@ input:
   data:
 
     type: params
-    npz_files_dir: <path_to_npz_parameter_files>
+    npz_files_dir: /is/cluster/fast/sbhor/smpl_ground_truth_corr/female_25_it_4002/0000/
 
   body_model:
     
-    type: smplx
-    path: <path_to_smplx_model>
+    type: smpl
+    path: /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
     gender: neutral
-    n_betas: 10
+    n_betas: 11
     
     misc_args: null
 
@@ -73,15 +73,15 @@ output:
 
   body_model:
     
-    type: supr
-    path: <path_to_supr_model>
+    type: star
+    path: /is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz
     gender: neutral
-    n_betas: 300
+    n_betas: 11
     
     misc_args: null
 
   params_to_optimize: all
-  optimize_betas_only_for_first_batch: False
+  optimize_betas_only_for_first_batch: True
   single_set_of_betas_per_batch: True
 
   target_betas_path: null
@@ -89,4 +89,6 @@ output:
   target_pose_path: null
 
   save_dir: ./results
-  save_meshes: True
+  save_meshes: False
+  bedlam_data: True
+  

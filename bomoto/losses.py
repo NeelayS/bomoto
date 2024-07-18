@@ -35,15 +35,16 @@ def compute_v2v_error(
 
     error = torch.sqrt(torch.sum((estimated_vertices - target_vertices) ** 2, axis=-1))
 
+    
     if vertices_mask is not None:
         error[:, vertices_mask] = 0
 
     if reduction == "mean":
-        return torch.mean(error)
+        return torch.mean(error), error
 
     error = torch.sum(error, axis=-1)
 
-    return torch.mean(error)
+    return torch.mean(error), error
 
 
 def compute_vertex_loss(

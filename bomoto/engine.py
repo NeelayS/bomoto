@@ -8,12 +8,13 @@ from tqdm import tqdm
 
 from .body_models import BodyModel, get_model_params
 from .config import CfgNode, get_cfg
-from .data import get_dataset
+from .data import get_dataset, custom_collate_fn
 from .losses import (compute_edge_loss, compute_v2v_error,
                      compute_vertex_loss)
 from .utils import (deform_vertices, read_deformation_matrix,
                     seed_everything, validate_device)
 from typing import Mapping
+import csv
 
 
 class Engine:
@@ -35,7 +36,7 @@ class Engine:
         self._setup()
 
         os.makedirs(self.cfg.output.save_dir, exist_ok=True)
-        os.makedirs(os.path.join(self.cfg.output.save_dir, "params"), exist_ok=True)
+        #os.makedirs(os.path.join(self.cfg.output.save_dir, "params"), exist_ok=True)
         if self.cfg.output.save_meshes is True:
             os.makedirs(os.path.join(self.cfg.output.save_dir, "meshes"), exist_ok=True)
 
@@ -261,6 +262,7 @@ class Engine:
             batch_size=dataloader_batch_size,
             shuffle=False,
             num_workers=self.cfg.dataloader_n_workers,
+            collate_fn=custom_collate_fn,
         )
 
     def _get_params_to_optimize_for_optimization_stage(self, optimization_stage: str):
@@ -455,16 +457,29 @@ class Engine:
 
             prev_loss = loss.item()
 
-    def _save_results(self, n_batch: int, output_vertices: torch.Tensor = None):
+    def _save_results(self, n_batch: int, output_vertices: torch.Tensor = None, input_data: dict = None, bedlam_data: bool = False):
 
         save_output_body_model_params = {}
         for param_name, param_value in self.output_body_model_params.items():
             save_output_body_model_params[param_name] = (
                 param_value.detach().cpu().numpy()
             )
-
+        
+        if bedlam_data is True:
+            save_output_body_model_params["betas"] = save_output_body_model_params["betas"].squeeze(0)
+            #add global_orient to the body_pose
+            save_output_body_model_params["poses"] = np.concatenate((save_output_body_model_params["global_orient"], save_output_body_model_params["body_pose"]), axis=1)
+            save_output_body_model_params["trans"] = save_output_body_model_params["transl"]
+            #append 'gender', 'gender_sub', 'motion_info', 'mocap_rate' from input_data to save_output_body_model_params
+            save_output_body_model_params.update({k: v[0] for k, v in input_data.items() if k in ['gender', 'gender_sub', 'motion_info', 'mocap_rate']})
+            save_output_body_model_params["vertices"] = output_vertices.detach().cpu().numpy()
+            #remove global_orient, body_pose, transl from save_output_body_model_params
+            save_output_body_model_params.pop("global_orient")
+            save_output_body_model_params.pop("body_pose")
+            save_output_body_model_params.pop("transl")
+            
         np.savez(
-            os.path.join(self.cfg.output.save_dir, "params", f"batch_{n_batch}.npz"),
+            os.path.join(self.cfg.output.save_dir, f"motion_seq_star.npz"),
             **save_output_body_model_params,
         )
 
@@ -604,16 +619,37 @@ class Engine:
             betas, pose, trans = get_model_params(self.output_body_model, self.output_body_model_params)
             final_estimated_vertices = self.output_body_model.forward(betas=betas, pose=pose, trans=trans)
 
-            final_v2v_error = compute_v2v_error(
+            final_v2v_error, error = compute_v2v_error(
                 final_estimated_vertices, target_vertices
             )
 
             print(
                 f"\nOptimization complete. Final v2v error: {final_v2v_error * 1000} mm"
             )
+            #highest and lowest mean error per row of error in mm
+            mean_error = torch.mean(error, dim=1)
+            print(f"\nHighest mean error: {torch.max(mean_error) * 1000} mm for frame {torch.argmax(mean_error)}")
+            print(f"\nLowest mean error: {torch.min(mean_error) * 1000} mm for frame {torch.argmin(mean_error)}")
             print("\nSaving results\n")
 
+            parent_dir = os.path.dirname(self.cfg.output.save_dir)
+            file_path = os.path.join(parent_dir, 'conversion_results.csv')
+            file_exists = os.path.isfile(file_path)
+            with open(file_path, 'a', newline='') as csvfile:
+                csvwriter = csv.writer(csvfile)
+                if not file_exists or os.path.getsize(file_path) == 0:
+                    csvwriter.writerow(['Data Directory', 'V2V Error (mm)', 'Max Mean Error (mm)', 'Max Mean Error Index', 'Min Mean Error (mm)', 'Min Mean Error Index'])
+                final_v2v_error = final_v2v_error.detach().cpu().numpy() * 1000
+                highest_mean_error = torch.max(mean_error).detach().cpu().numpy() * 1000
+                highest_mean_error_idx = torch.argmax(mean_error)
+                lowest_mean_error = torch.min(mean_error).detach().cpu().numpy() * 1000
+                lowest_mean_error_idx = torch.argmin(mean_error)
+                
+                csvwriter.writerow([self.cfg.input.data.npz_files_dir, final_v2v_error, highest_mean_error, highest_mean_error_idx, lowest_mean_error, lowest_mean_error_idx])
+            
             self._save_results(
                 n_batch=n_batch,
                 output_vertices=final_estimated_vertices,
+                input_data=input_data,
+                bedlam_data=self.cfg.output.bedlam_data,
             )

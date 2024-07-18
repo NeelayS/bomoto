@@ -1,0 +1,5057 @@
+Namespace(object_key=None, cluster_batch_size=56, cluster_start_idx=296, opts=[], cfg_id=0, cluster=False, bid=10, memory=64000, gpu_min_mem=12000, gpu_arch=['tesla', 'quadro', 'rtx'], num_cpus=8, input_dir='/is/cluster/sbhor/smpl_ground_truth_corr/', output_dir='/is/cluster/fast/sbhor/star_bedlam_bomoto/', cfg='/is/cluster/fast/sbhor/bomoto/configs/params_dataset.yaml')
+
+Starting the conversion process at location /is/cluster/fast/sbhor/star_bedlam_bomoto/conversion_log.log.
+running 56 files in the range 16576-16631
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0022/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0022.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0022
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00962134
+Iteration 2/25 | Loss: 0.00138629
+Iteration 3/25 | Loss: 0.00117556
+Iteration 4/25 | Loss: 0.00115370
+Iteration 5/25 | Loss: 0.00114827
+Iteration 6/25 | Loss: 0.00114695
+Iteration 7/25 | Loss: 0.00114695
+Iteration 8/25 | Loss: 0.00114695
+Iteration 9/25 | Loss: 0.00114695
+Iteration 10/25 | Loss: 0.00114695
+Iteration 11/25 | Loss: 0.00114695
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 11. Stopping optimization.
+Last 5 losses: [0.0011469547171145678, 0.0011469547171145678, 0.0011469547171145678, 0.0011469547171145678, 0.0011469547171145678]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0011469547171145678
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.84976137
+Iteration 2/25 | Loss: 0.00077269
+Iteration 3/25 | Loss: 0.00077268
+Iteration 4/25 | Loss: 0.00077268
+Iteration 5/25 | Loss: 0.00077268
+Iteration 6/25 | Loss: 0.00077268
+Iteration 7/25 | Loss: 0.00077268
+Iteration 8/25 | Loss: 0.00077268
+Iteration 9/25 | Loss: 0.00077268
+Iteration 10/25 | Loss: 0.00077268
+Iteration 11/25 | Loss: 0.00077268
+Iteration 12/25 | Loss: 0.00077268
+Iteration 13/25 | Loss: 0.00077268
+Iteration 14/25 | Loss: 0.00077268
+Iteration 15/25 | Loss: 0.00077268
+Iteration 16/25 | Loss: 0.00077268
+Iteration 17/25 | Loss: 0.00077268
+Iteration 18/25 | Loss: 0.00077268
+Iteration 19/25 | Loss: 0.00077268
+Iteration 20/25 | Loss: 0.00077268
+Iteration 21/25 | Loss: 0.00077268
+Iteration 22/25 | Loss: 0.00077268
+Iteration 23/25 | Loss: 0.00077268
+Iteration 24/25 | Loss: 0.00077268
+Iteration 25/25 | Loss: 0.00077268
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00077268
+Iteration 2/1000 | Loss: 0.00004622
+Iteration 3/1000 | Loss: 0.00003304
+Iteration 4/1000 | Loss: 0.00003092
+Iteration 5/1000 | Loss: 0.00002876
+Iteration 6/1000 | Loss: 0.00002755
+Iteration 7/1000 | Loss: 0.00002692
+Iteration 8/1000 | Loss: 0.00002633
+Iteration 9/1000 | Loss: 0.00002599
+Iteration 10/1000 | Loss: 0.00002575
+Iteration 11/1000 | Loss: 0.00002575
+Iteration 12/1000 | Loss: 0.00002573
+Iteration 13/1000 | Loss: 0.00002570
+Iteration 14/1000 | Loss: 0.00002565
+Iteration 15/1000 | Loss: 0.00002564
+Iteration 16/1000 | Loss: 0.00002563
+Iteration 17/1000 | Loss: 0.00002562
+Iteration 18/1000 | Loss: 0.00002561
+Iteration 19/1000 | Loss: 0.00002560
+Iteration 20/1000 | Loss: 0.00002560
+Iteration 21/1000 | Loss: 0.00002558
+Iteration 22/1000 | Loss: 0.00002558
+Iteration 23/1000 | Loss: 0.00002558
+Iteration 24/1000 | Loss: 0.00002558
+Iteration 25/1000 | Loss: 0.00002558
+Iteration 26/1000 | Loss: 0.00002557
+Iteration 27/1000 | Loss: 0.00002556
+Iteration 28/1000 | Loss: 0.00002553
+Iteration 29/1000 | Loss: 0.00002552
+Iteration 30/1000 | Loss: 0.00002552
+Iteration 31/1000 | Loss: 0.00002551
+Iteration 32/1000 | Loss: 0.00002551
+Iteration 33/1000 | Loss: 0.00002550
+Iteration 34/1000 | Loss: 0.00002550
+Iteration 35/1000 | Loss: 0.00002550
+Iteration 36/1000 | Loss: 0.00002549
+Iteration 37/1000 | Loss: 0.00002549
+Iteration 38/1000 | Loss: 0.00002549
+Iteration 39/1000 | Loss: 0.00002549
+Iteration 40/1000 | Loss: 0.00002548
+Iteration 41/1000 | Loss: 0.00002548
+Iteration 42/1000 | Loss: 0.00002548
+Iteration 43/1000 | Loss: 0.00002548
+Iteration 44/1000 | Loss: 0.00002548
+Iteration 45/1000 | Loss: 0.00002548
+Iteration 46/1000 | Loss: 0.00002548
+Iteration 47/1000 | Loss: 0.00002547
+Iteration 48/1000 | Loss: 0.00002547
+Iteration 49/1000 | Loss: 0.00002547
+Iteration 50/1000 | Loss: 0.00002547
+Iteration 51/1000 | Loss: 0.00002547
+Iteration 52/1000 | Loss: 0.00002547
+Iteration 53/1000 | Loss: 0.00002547
+Iteration 54/1000 | Loss: 0.00002547
+Iteration 55/1000 | Loss: 0.00002547
+Iteration 56/1000 | Loss: 0.00002547
+Iteration 57/1000 | Loss: 0.00002546
+Iteration 58/1000 | Loss: 0.00002546
+Iteration 59/1000 | Loss: 0.00002546
+Iteration 60/1000 | Loss: 0.00002546
+Iteration 61/1000 | Loss: 0.00002546
+Iteration 62/1000 | Loss: 0.00002546
+Iteration 63/1000 | Loss: 0.00002546
+Iteration 64/1000 | Loss: 0.00002546
+Iteration 65/1000 | Loss: 0.00002545
+Iteration 66/1000 | Loss: 0.00002545
+Iteration 67/1000 | Loss: 0.00002545
+Iteration 68/1000 | Loss: 0.00002545
+Iteration 69/1000 | Loss: 0.00002545
+Iteration 70/1000 | Loss: 0.00002545
+Iteration 71/1000 | Loss: 0.00002545
+Iteration 72/1000 | Loss: 0.00002544
+Iteration 73/1000 | Loss: 0.00002544
+Iteration 74/1000 | Loss: 0.00002544
+Iteration 75/1000 | Loss: 0.00002544
+Iteration 76/1000 | Loss: 0.00002544
+Iteration 77/1000 | Loss: 0.00002544
+Iteration 78/1000 | Loss: 0.00002544
+Iteration 79/1000 | Loss: 0.00002544
+Iteration 80/1000 | Loss: 0.00002543
+Iteration 81/1000 | Loss: 0.00002543
+Iteration 82/1000 | Loss: 0.00002543
+Iteration 83/1000 | Loss: 0.00002543
+Iteration 84/1000 | Loss: 0.00002542
+Iteration 85/1000 | Loss: 0.00002541
+Iteration 86/1000 | Loss: 0.00002541
+Iteration 87/1000 | Loss: 0.00002541
+Iteration 88/1000 | Loss: 0.00002541
+Iteration 89/1000 | Loss: 0.00002540
+Iteration 90/1000 | Loss: 0.00002540
+Iteration 91/1000 | Loss: 0.00002540
+Iteration 92/1000 | Loss: 0.00002540
+Iteration 93/1000 | Loss: 0.00002540
+Iteration 94/1000 | Loss: 0.00002540
+Iteration 95/1000 | Loss: 0.00002540
+Iteration 96/1000 | Loss: 0.00002540
+Iteration 97/1000 | Loss: 0.00002540
+Iteration 98/1000 | Loss: 0.00002539
+Iteration 99/1000 | Loss: 0.00002539
+Iteration 100/1000 | Loss: 0.00002538
+Iteration 101/1000 | Loss: 0.00002538
+Iteration 102/1000 | Loss: 0.00002538
+Iteration 103/1000 | Loss: 0.00002537
+Iteration 104/1000 | Loss: 0.00002537
+Iteration 105/1000 | Loss: 0.00002537
+Iteration 106/1000 | Loss: 0.00002537
+Iteration 107/1000 | Loss: 0.00002537
+Iteration 108/1000 | Loss: 0.00002537
+Iteration 109/1000 | Loss: 0.00002535
+Iteration 110/1000 | Loss: 0.00002535
+Iteration 111/1000 | Loss: 0.00002535
+Iteration 112/1000 | Loss: 0.00002534
+Iteration 113/1000 | Loss: 0.00002534
+Iteration 114/1000 | Loss: 0.00002534
+Iteration 115/1000 | Loss: 0.00002534
+Iteration 116/1000 | Loss: 0.00002534
+Iteration 117/1000 | Loss: 0.00002534
+Iteration 118/1000 | Loss: 0.00002534
+Iteration 119/1000 | Loss: 0.00002533
+Iteration 120/1000 | Loss: 0.00002533
+Iteration 121/1000 | Loss: 0.00002533
+Iteration 122/1000 | Loss: 0.00002533
+Iteration 123/1000 | Loss: 0.00002533
+Iteration 124/1000 | Loss: 0.00002533
+Iteration 125/1000 | Loss: 0.00002533
+Iteration 126/1000 | Loss: 0.00002533
+Iteration 127/1000 | Loss: 0.00002533
+Iteration 128/1000 | Loss: 0.00002533
+Iteration 129/1000 | Loss: 0.00002533
+Iteration 130/1000 | Loss: 0.00002533
+Iteration 131/1000 | Loss: 0.00002533
+Iteration 132/1000 | Loss: 0.00002533
+Iteration 133/1000 | Loss: 0.00002533
+Iteration 134/1000 | Loss: 0.00002533
+Iteration 135/1000 | Loss: 0.00002533
+Iteration 136/1000 | Loss: 0.00002533
+Iteration 137/1000 | Loss: 0.00002533
+Iteration 138/1000 | Loss: 0.00002533
+Iteration 139/1000 | Loss: 0.00002533
+Iteration 140/1000 | Loss: 0.00002533
+Iteration 141/1000 | Loss: 0.00002533
+Iteration 142/1000 | Loss: 0.00002533
+Iteration 143/1000 | Loss: 0.00002533
+Iteration 144/1000 | Loss: 0.00002533
+Iteration 145/1000 | Loss: 0.00002533
+Iteration 146/1000 | Loss: 0.00002533
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 146. Stopping optimization.
+Last 5 losses: [2.532837970647961e-05, 2.532837970647961e-05, 2.532837970647961e-05, 2.532837970647961e-05, 2.532837970647961e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.532837970647961e-05
+
+Optimization complete. Final v2v error: 4.254876136779785 mm
+
+Highest mean error: 4.773698329925537 mm for frame 8
+
+Lowest mean error: 3.7361769676208496 mm for frame 239
+
+Saving results
+
+Total time: 39.558698892593384
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0021/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0021.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0021
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00850541
+Iteration 2/25 | Loss: 0.00157796
+Iteration 3/25 | Loss: 0.00133170
+Iteration 4/25 | Loss: 0.00120587
+Iteration 5/25 | Loss: 0.00118659
+Iteration 6/25 | Loss: 0.00116900
+Iteration 7/25 | Loss: 0.00116797
+Iteration 8/25 | Loss: 0.00116588
+Iteration 9/25 | Loss: 0.00116410
+Iteration 10/25 | Loss: 0.00116338
+Iteration 11/25 | Loss: 0.00116454
+Iteration 12/25 | Loss: 0.00116304
+Iteration 13/25 | Loss: 0.00116298
+Iteration 14/25 | Loss: 0.00116298
+Iteration 15/25 | Loss: 0.00116298
+Iteration 16/25 | Loss: 0.00116297
+Iteration 17/25 | Loss: 0.00116297
+Iteration 18/25 | Loss: 0.00116297
+Iteration 19/25 | Loss: 0.00116297
+Iteration 20/25 | Loss: 0.00116297
+Iteration 21/25 | Loss: 0.00116297
+Iteration 22/25 | Loss: 0.00116297
+Iteration 23/25 | Loss: 0.00116297
+Iteration 24/25 | Loss: 0.00116297
+Iteration 25/25 | Loss: 0.00116297
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 3.06746006
+Iteration 2/25 | Loss: 0.00063245
+Iteration 3/25 | Loss: 0.00063245
+Iteration 4/25 | Loss: 0.00063245
+Iteration 5/25 | Loss: 0.00063245
+Iteration 6/25 | Loss: 0.00063245
+Iteration 7/25 | Loss: 0.00063245
+Iteration 8/25 | Loss: 0.00063245
+Iteration 9/25 | Loss: 0.00063245
+Iteration 10/25 | Loss: 0.00063245
+Iteration 11/25 | Loss: 0.00063245
+Iteration 12/25 | Loss: 0.00063245
+Iteration 13/25 | Loss: 0.00063245
+Iteration 14/25 | Loss: 0.00063245
+Iteration 15/25 | Loss: 0.00063245
+Iteration 16/25 | Loss: 0.00063245
+Iteration 17/25 | Loss: 0.00063245
+Iteration 18/25 | Loss: 0.00063245
+Iteration 19/25 | Loss: 0.00063245
+Iteration 20/25 | Loss: 0.00063245
+Iteration 21/25 | Loss: 0.00063245
+Iteration 22/25 | Loss: 0.00063245
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 22. Stopping optimization.
+Last 5 losses: [0.0006324504502117634, 0.0006324504502117634, 0.0006324504502117634, 0.0006324504502117634, 0.0006324504502117634]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0006324504502117634
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00063245
+Iteration 2/1000 | Loss: 0.00005528
+Iteration 3/1000 | Loss: 0.00004547
+Iteration 4/1000 | Loss: 0.00004249
+Iteration 5/1000 | Loss: 0.00004134
+Iteration 6/1000 | Loss: 0.00004046
+Iteration 7/1000 | Loss: 0.00003982
+Iteration 8/1000 | Loss: 0.00003942
+Iteration 9/1000 | Loss: 0.00003908
+Iteration 10/1000 | Loss: 0.00003900
+Iteration 11/1000 | Loss: 0.00003891
+Iteration 12/1000 | Loss: 0.00003886
+Iteration 13/1000 | Loss: 0.00003884
+Iteration 14/1000 | Loss: 0.00003883
+Iteration 15/1000 | Loss: 0.00003875
+Iteration 16/1000 | Loss: 0.00003868
+Iteration 17/1000 | Loss: 0.00006092
+Iteration 18/1000 | Loss: 0.00003862
+Iteration 19/1000 | Loss: 0.00003860
+Iteration 20/1000 | Loss: 0.00003859
+Iteration 21/1000 | Loss: 0.00003859
+Iteration 22/1000 | Loss: 0.00003859
+Iteration 23/1000 | Loss: 0.00003859
+Iteration 24/1000 | Loss: 0.00003859
+Iteration 25/1000 | Loss: 0.00003859
+Iteration 26/1000 | Loss: 0.00003859
+Iteration 27/1000 | Loss: 0.00003859
+Iteration 28/1000 | Loss: 0.00003859
+Iteration 29/1000 | Loss: 0.00003859
+Iteration 30/1000 | Loss: 0.00003859
+Iteration 31/1000 | Loss: 0.00003859
+Iteration 32/1000 | Loss: 0.00003859
+Iteration 33/1000 | Loss: 0.00003858
+Iteration 34/1000 | Loss: 0.00003857
+Iteration 35/1000 | Loss: 0.00003856
+Iteration 36/1000 | Loss: 0.00003856
+Iteration 37/1000 | Loss: 0.00003856
+Iteration 38/1000 | Loss: 0.00003856
+Iteration 39/1000 | Loss: 0.00003856
+Iteration 40/1000 | Loss: 0.00003855
+Iteration 41/1000 | Loss: 0.00003855
+Iteration 42/1000 | Loss: 0.00005137
+Iteration 43/1000 | Loss: 0.00004702
+Iteration 44/1000 | Loss: 0.00003854
+Iteration 45/1000 | Loss: 0.00003854
+Iteration 46/1000 | Loss: 0.00003854
+Iteration 47/1000 | Loss: 0.00003854
+Iteration 48/1000 | Loss: 0.00003854
+Iteration 49/1000 | Loss: 0.00003854
+Iteration 50/1000 | Loss: 0.00003854
+Iteration 51/1000 | Loss: 0.00003854
+Iteration 52/1000 | Loss: 0.00003854
+Iteration 53/1000 | Loss: 0.00003854
+Iteration 54/1000 | Loss: 0.00003854
+Iteration 55/1000 | Loss: 0.00003854
+Iteration 56/1000 | Loss: 0.00003854
+Iteration 57/1000 | Loss: 0.00003854
+Iteration 58/1000 | Loss: 0.00003854
+Iteration 59/1000 | Loss: 0.00003854
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 59. Stopping optimization.
+Last 5 losses: [3.8538510125363246e-05, 3.8538510125363246e-05, 3.8538510125363246e-05, 3.8538510125363246e-05, 3.8538510125363246e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 3.8538510125363246e-05
+
+Optimization complete. Final v2v error: 5.316333770751953 mm
+
+Highest mean error: 11.590723991394043 mm for frame 40
+
+Lowest mean error: 4.190762519836426 mm for frame 193
+
+Saving results
+
+Total time: 50.11992263793945
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0013/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0013.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0013
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00775559
+Iteration 2/25 | Loss: 0.00131749
+Iteration 3/25 | Loss: 0.00116801
+Iteration 4/25 | Loss: 0.00112385
+Iteration 5/25 | Loss: 0.00110437
+Iteration 6/25 | Loss: 0.00109512
+Iteration 7/25 | Loss: 0.00108911
+Iteration 8/25 | Loss: 0.00108766
+Iteration 9/25 | Loss: 0.00108371
+Iteration 10/25 | Loss: 0.00108288
+Iteration 11/25 | Loss: 0.00108202
+Iteration 12/25 | Loss: 0.00108254
+Iteration 13/25 | Loss: 0.00108132
+Iteration 14/25 | Loss: 0.00108102
+Iteration 15/25 | Loss: 0.00108102
+Iteration 16/25 | Loss: 0.00108101
+Iteration 17/25 | Loss: 0.00108101
+Iteration 18/25 | Loss: 0.00108101
+Iteration 19/25 | Loss: 0.00108099
+Iteration 20/25 | Loss: 0.00108098
+Iteration 21/25 | Loss: 0.00108097
+Iteration 22/25 | Loss: 0.00108097
+Iteration 23/25 | Loss: 0.00108097
+Iteration 24/25 | Loss: 0.00108097
+Iteration 25/25 | Loss: 0.00108097
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 2.56364369
+Iteration 2/25 | Loss: 0.00066433
+Iteration 3/25 | Loss: 0.00066433
+Iteration 4/25 | Loss: 0.00066433
+Iteration 5/25 | Loss: 0.00066433
+Iteration 6/25 | Loss: 0.00066433
+Iteration 7/25 | Loss: 0.00066433
+Iteration 8/25 | Loss: 0.00066433
+Iteration 9/25 | Loss: 0.00066433
+Iteration 10/25 | Loss: 0.00066433
+Iteration 11/25 | Loss: 0.00066433
+Iteration 12/25 | Loss: 0.00066433
+Iteration 13/25 | Loss: 0.00066433
+Iteration 14/25 | Loss: 0.00066433
+Iteration 15/25 | Loss: 0.00066433
+Iteration 16/25 | Loss: 0.00066433
+Iteration 17/25 | Loss: 0.00066433
+Iteration 18/25 | Loss: 0.00066433
+Iteration 19/25 | Loss: 0.00066433
+Iteration 20/25 | Loss: 0.00066433
+Iteration 21/25 | Loss: 0.00066433
+Iteration 22/25 | Loss: 0.00066433
+Iteration 23/25 | Loss: 0.00066433
+Iteration 24/25 | Loss: 0.00066433
+Iteration 25/25 | Loss: 0.00066433
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00066433
+Iteration 2/1000 | Loss: 0.00004085
+Iteration 3/1000 | Loss: 0.00003018
+Iteration 4/1000 | Loss: 0.00002833
+Iteration 5/1000 | Loss: 0.00002736
+Iteration 6/1000 | Loss: 0.00002716
+Iteration 7/1000 | Loss: 0.00002633
+Iteration 8/1000 | Loss: 0.00002599
+Iteration 9/1000 | Loss: 0.00002592
+Iteration 10/1000 | Loss: 0.00002591
+Iteration 11/1000 | Loss: 0.00002586
+Iteration 12/1000 | Loss: 0.00002585
+Iteration 13/1000 | Loss: 0.00002585
+Iteration 14/1000 | Loss: 0.00002585
+Iteration 15/1000 | Loss: 0.00002581
+Iteration 16/1000 | Loss: 0.00002581
+Iteration 17/1000 | Loss: 0.00002580
+Iteration 18/1000 | Loss: 0.00002580
+Iteration 19/1000 | Loss: 0.00002579
+Iteration 20/1000 | Loss: 0.00002577
+Iteration 21/1000 | Loss: 0.00002576
+Iteration 22/1000 | Loss: 0.00002575
+Iteration 23/1000 | Loss: 0.00002575
+Iteration 24/1000 | Loss: 0.00002574
+Iteration 25/1000 | Loss: 0.00002574
+Iteration 26/1000 | Loss: 0.00002571
+Iteration 27/1000 | Loss: 0.00002571
+Iteration 28/1000 | Loss: 0.00002571
+Iteration 29/1000 | Loss: 0.00002570
+Iteration 30/1000 | Loss: 0.00002570
+Iteration 31/1000 | Loss: 0.00002570
+Iteration 32/1000 | Loss: 0.00002570
+Iteration 33/1000 | Loss: 0.00002569
+Iteration 34/1000 | Loss: 0.00002569
+Iteration 35/1000 | Loss: 0.00002569
+Iteration 36/1000 | Loss: 0.00002569
+Iteration 37/1000 | Loss: 0.00002568
+Iteration 38/1000 | Loss: 0.00002568
+Iteration 39/1000 | Loss: 0.00002568
+Iteration 40/1000 | Loss: 0.00002567
+Iteration 41/1000 | Loss: 0.00002567
+Iteration 42/1000 | Loss: 0.00002566
+Iteration 43/1000 | Loss: 0.00002566
+Iteration 44/1000 | Loss: 0.00002565
+Iteration 45/1000 | Loss: 0.00002565
+Iteration 46/1000 | Loss: 0.00002564
+Iteration 47/1000 | Loss: 0.00002564
+Iteration 48/1000 | Loss: 0.00002564
+Iteration 49/1000 | Loss: 0.00002564
+Iteration 50/1000 | Loss: 0.00002564
+Iteration 51/1000 | Loss: 0.00002564
+Iteration 52/1000 | Loss: 0.00002564
+Iteration 53/1000 | Loss: 0.00002564
+Iteration 54/1000 | Loss: 0.00002564
+Iteration 55/1000 | Loss: 0.00002563
+Iteration 56/1000 | Loss: 0.00002562
+Iteration 57/1000 | Loss: 0.00002562
+Iteration 58/1000 | Loss: 0.00002561
+Iteration 59/1000 | Loss: 0.00002561
+Iteration 60/1000 | Loss: 0.00002561
+Iteration 61/1000 | Loss: 0.00002561
+Iteration 62/1000 | Loss: 0.00002561
+Iteration 63/1000 | Loss: 0.00002561
+Iteration 64/1000 | Loss: 0.00002560
+Iteration 65/1000 | Loss: 0.00002560
+Iteration 66/1000 | Loss: 0.00002560
+Iteration 67/1000 | Loss: 0.00002560
+Iteration 68/1000 | Loss: 0.00002560
+Iteration 69/1000 | Loss: 0.00002560
+Iteration 70/1000 | Loss: 0.00002560
+Iteration 71/1000 | Loss: 0.00002559
+Iteration 72/1000 | Loss: 0.00002559
+Iteration 73/1000 | Loss: 0.00002559
+Iteration 74/1000 | Loss: 0.00002559
+Iteration 75/1000 | Loss: 0.00002559
+Iteration 76/1000 | Loss: 0.00002559
+Iteration 77/1000 | Loss: 0.00002559
+Iteration 78/1000 | Loss: 0.00002559
+Iteration 79/1000 | Loss: 0.00002559
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 79. Stopping optimization.
+Last 5 losses: [2.5588562493794598e-05, 2.5588562493794598e-05, 2.5588562493794598e-05, 2.5588562493794598e-05, 2.5588562493794598e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.5588562493794598e-05
+
+Optimization complete. Final v2v error: 4.200185298919678 mm
+
+Highest mean error: 10.170060157775879 mm for frame 141
+
+Lowest mean error: 3.7321438789367676 mm for frame 93
+
+Saving results
+
+Total time: 48.07829999923706
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0016/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0016.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0016
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.01172976
+Iteration 2/25 | Loss: 0.01172976
+Iteration 3/25 | Loss: 0.01172976
+Iteration 4/25 | Loss: 0.01172975
+Iteration 5/25 | Loss: 0.01172975
+Iteration 6/25 | Loss: 0.01172975
+Iteration 7/25 | Loss: 0.01172975
+Iteration 8/25 | Loss: 0.01172975
+Iteration 9/25 | Loss: 0.01172975
+Iteration 10/25 | Loss: 0.01172975
+Iteration 11/25 | Loss: 0.01172975
+Iteration 12/25 | Loss: 0.01172974
+Iteration 13/25 | Loss: 0.01172974
+Iteration 14/25 | Loss: 0.01172974
+Iteration 15/25 | Loss: 0.01172974
+Iteration 16/25 | Loss: 0.01172974
+Iteration 17/25 | Loss: 0.01172973
+Iteration 18/25 | Loss: 0.01172973
+Iteration 19/25 | Loss: 0.01172973
+Iteration 20/25 | Loss: 0.01172973
+Iteration 21/25 | Loss: 0.01172973
+Iteration 22/25 | Loss: 0.01172973
+Iteration 23/25 | Loss: 0.01172973
+Iteration 24/25 | Loss: 0.01172973
+Iteration 25/25 | Loss: 0.01172972
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.94931567
+Iteration 2/25 | Loss: 0.08044654
+Iteration 3/25 | Loss: 0.07973616
+Iteration 4/25 | Loss: 0.07980432
+Iteration 5/25 | Loss: 0.07891583
+Iteration 6/25 | Loss: 0.07873248
+Iteration 7/25 | Loss: 0.07873247
+Iteration 8/25 | Loss: 0.07873247
+Iteration 9/25 | Loss: 0.07873247
+Iteration 10/25 | Loss: 0.07873247
+Iteration 11/25 | Loss: 0.07873247
+Iteration 12/25 | Loss: 0.07873247
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 12. Stopping optimization.
+Last 5 losses: [0.07873246818780899, 0.07873246818780899, 0.07873246818780899, 0.07873246818780899, 0.07873246818780899]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.07873246818780899
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.07873246
+Iteration 2/1000 | Loss: 0.00340332
+Iteration 3/1000 | Loss: 0.00166479
+Iteration 4/1000 | Loss: 0.00073054
+Iteration 5/1000 | Loss: 0.00131883
+Iteration 6/1000 | Loss: 0.00017706
+Iteration 7/1000 | Loss: 0.00022539
+Iteration 8/1000 | Loss: 0.00038417
+Iteration 9/1000 | Loss: 0.00014883
+Iteration 10/1000 | Loss: 0.00006122
+Iteration 11/1000 | Loss: 0.00006868
+Iteration 12/1000 | Loss: 0.00035885
+Iteration 13/1000 | Loss: 0.00012863
+Iteration 14/1000 | Loss: 0.00005948
+Iteration 15/1000 | Loss: 0.00017979
+Iteration 16/1000 | Loss: 0.00005111
+Iteration 17/1000 | Loss: 0.00003744
+Iteration 18/1000 | Loss: 0.00012996
+Iteration 19/1000 | Loss: 0.00006028
+Iteration 20/1000 | Loss: 0.00003829
+Iteration 21/1000 | Loss: 0.00003399
+Iteration 22/1000 | Loss: 0.00004842
+Iteration 23/1000 | Loss: 0.00011573
+Iteration 24/1000 | Loss: 0.00007109
+Iteration 25/1000 | Loss: 0.00005104
+Iteration 26/1000 | Loss: 0.00003040
+Iteration 27/1000 | Loss: 0.00005572
+Iteration 28/1000 | Loss: 0.00021083
+Iteration 29/1000 | Loss: 0.00144632
+Iteration 30/1000 | Loss: 0.00005225
+Iteration 31/1000 | Loss: 0.00002905
+Iteration 32/1000 | Loss: 0.00002862
+Iteration 33/1000 | Loss: 0.00002867
+Iteration 34/1000 | Loss: 0.00002799
+Iteration 35/1000 | Loss: 0.00003050
+Iteration 36/1000 | Loss: 0.00002762
+Iteration 37/1000 | Loss: 0.00004696
+Iteration 38/1000 | Loss: 0.00002714
+Iteration 39/1000 | Loss: 0.00002704
+Iteration 40/1000 | Loss: 0.00002703
+Iteration 41/1000 | Loss: 0.00002700
+Iteration 42/1000 | Loss: 0.00002696
+Iteration 43/1000 | Loss: 0.00003893
+Iteration 44/1000 | Loss: 0.00002696
+Iteration 45/1000 | Loss: 0.00002687
+Iteration 46/1000 | Loss: 0.00002680
+Iteration 47/1000 | Loss: 0.00002680
+Iteration 48/1000 | Loss: 0.00002680
+Iteration 49/1000 | Loss: 0.00002679
+Iteration 50/1000 | Loss: 0.00002679
+Iteration 51/1000 | Loss: 0.00002678
+Iteration 52/1000 | Loss: 0.00002678
+Iteration 53/1000 | Loss: 0.00002667
+Iteration 54/1000 | Loss: 0.00002666
+Iteration 55/1000 | Loss: 0.00002663
+Iteration 56/1000 | Loss: 0.00002660
+Iteration 57/1000 | Loss: 0.00002656
+Iteration 58/1000 | Loss: 0.00002651
+Iteration 59/1000 | Loss: 0.00002650
+Iteration 60/1000 | Loss: 0.00002649
+Iteration 61/1000 | Loss: 0.00002644
+Iteration 62/1000 | Loss: 0.00002644
+Iteration 63/1000 | Loss: 0.00002644
+Iteration 64/1000 | Loss: 0.00002643
+Iteration 65/1000 | Loss: 0.00002643
+Iteration 66/1000 | Loss: 0.00002643
+Iteration 67/1000 | Loss: 0.00002642
+Iteration 68/1000 | Loss: 0.00002641
+Iteration 69/1000 | Loss: 0.00002640
+Iteration 70/1000 | Loss: 0.00002638
+Iteration 71/1000 | Loss: 0.00002638
+Iteration 72/1000 | Loss: 0.00002635
+Iteration 73/1000 | Loss: 0.00002634
+Iteration 74/1000 | Loss: 0.00002633
+Iteration 75/1000 | Loss: 0.00002633
+Iteration 76/1000 | Loss: 0.00002632
+Iteration 77/1000 | Loss: 0.00002631
+Iteration 78/1000 | Loss: 0.00002631
+Iteration 79/1000 | Loss: 0.00002631
+Iteration 80/1000 | Loss: 0.00002631
+Iteration 81/1000 | Loss: 0.00002631
+Iteration 82/1000 | Loss: 0.00002631
+Iteration 83/1000 | Loss: 0.00002631
+Iteration 84/1000 | Loss: 0.00002631
+Iteration 85/1000 | Loss: 0.00002631
+Iteration 86/1000 | Loss: 0.00002630
+Iteration 87/1000 | Loss: 0.00002629
+Iteration 88/1000 | Loss: 0.00002628
+Iteration 89/1000 | Loss: 0.00002628
+Iteration 90/1000 | Loss: 0.00002628
+Iteration 91/1000 | Loss: 0.00002628
+Iteration 92/1000 | Loss: 0.00002628
+Iteration 93/1000 | Loss: 0.00002627
+Iteration 94/1000 | Loss: 0.00002627
+Iteration 95/1000 | Loss: 0.00002627
+Iteration 96/1000 | Loss: 0.00002627
+Iteration 97/1000 | Loss: 0.00002627
+Iteration 98/1000 | Loss: 0.00002627
+Iteration 99/1000 | Loss: 0.00002626
+Iteration 100/1000 | Loss: 0.00002626
+Iteration 101/1000 | Loss: 0.00002626
+Iteration 102/1000 | Loss: 0.00002626
+Iteration 103/1000 | Loss: 0.00002626
+Iteration 104/1000 | Loss: 0.00002626
+Iteration 105/1000 | Loss: 0.00002626
+Iteration 106/1000 | Loss: 0.00002626
+Iteration 107/1000 | Loss: 0.00002626
+Iteration 108/1000 | Loss: 0.00002626
+Iteration 109/1000 | Loss: 0.00002626
+Iteration 110/1000 | Loss: 0.00002626
+Iteration 111/1000 | Loss: 0.00002626
+Iteration 112/1000 | Loss: 0.00002625
+Iteration 113/1000 | Loss: 0.00002625
+Iteration 114/1000 | Loss: 0.00002625
+Iteration 115/1000 | Loss: 0.00002625
+Iteration 116/1000 | Loss: 0.00002625
+Iteration 117/1000 | Loss: 0.00002625
+Iteration 118/1000 | Loss: 0.00002625
+Iteration 119/1000 | Loss: 0.00002625
+Iteration 120/1000 | Loss: 0.00002625
+Iteration 121/1000 | Loss: 0.00002625
+Iteration 122/1000 | Loss: 0.00002624
+Iteration 123/1000 | Loss: 0.00002624
+Iteration 124/1000 | Loss: 0.00002624
+Iteration 125/1000 | Loss: 0.00002624
+Iteration 126/1000 | Loss: 0.00002624
+Iteration 127/1000 | Loss: 0.00002623
+Iteration 128/1000 | Loss: 0.00002623
+Iteration 129/1000 | Loss: 0.00002623
+Iteration 130/1000 | Loss: 0.00002623
+Iteration 131/1000 | Loss: 0.00002622
+Iteration 132/1000 | Loss: 0.00002622
+Iteration 133/1000 | Loss: 0.00002622
+Iteration 134/1000 | Loss: 0.00002622
+Iteration 135/1000 | Loss: 0.00002622
+Iteration 136/1000 | Loss: 0.00002622
+Iteration 137/1000 | Loss: 0.00002622
+Iteration 138/1000 | Loss: 0.00002621
+Iteration 139/1000 | Loss: 0.00002621
+Iteration 140/1000 | Loss: 0.00002621
+Iteration 141/1000 | Loss: 0.00002621
+Iteration 142/1000 | Loss: 0.00002621
+Iteration 143/1000 | Loss: 0.00002621
+Iteration 144/1000 | Loss: 0.00002621
+Iteration 145/1000 | Loss: 0.00002620
+Iteration 146/1000 | Loss: 0.00002620
+Iteration 147/1000 | Loss: 0.00002620
+Iteration 148/1000 | Loss: 0.00002620
+Iteration 149/1000 | Loss: 0.00002619
+Iteration 150/1000 | Loss: 0.00002619
+Iteration 151/1000 | Loss: 0.00002619
+Iteration 152/1000 | Loss: 0.00002619
+Iteration 153/1000 | Loss: 0.00002618
+Iteration 154/1000 | Loss: 0.00002618
+Iteration 155/1000 | Loss: 0.00002618
+Iteration 156/1000 | Loss: 0.00002618
+Iteration 157/1000 | Loss: 0.00002618
+Iteration 158/1000 | Loss: 0.00002618
+Iteration 159/1000 | Loss: 0.00002618
+Iteration 160/1000 | Loss: 0.00002618
+Iteration 161/1000 | Loss: 0.00002618
+Iteration 162/1000 | Loss: 0.00002618
+Iteration 163/1000 | Loss: 0.00002618
+Iteration 164/1000 | Loss: 0.00002618
+Iteration 165/1000 | Loss: 0.00002618
+Iteration 166/1000 | Loss: 0.00002618
+Iteration 167/1000 | Loss: 0.00002617
+Iteration 168/1000 | Loss: 0.00002617
+Iteration 169/1000 | Loss: 0.00002617
+Iteration 170/1000 | Loss: 0.00002617
+Iteration 171/1000 | Loss: 0.00002617
+Iteration 172/1000 | Loss: 0.00002616
+Iteration 173/1000 | Loss: 0.00002616
+Iteration 174/1000 | Loss: 0.00002616
+Iteration 175/1000 | Loss: 0.00002616
+Iteration 176/1000 | Loss: 0.00002615
+Iteration 177/1000 | Loss: 0.00002615
+Iteration 178/1000 | Loss: 0.00002615
+Iteration 179/1000 | Loss: 0.00002615
+Iteration 180/1000 | Loss: 0.00002615
+Iteration 181/1000 | Loss: 0.00002614
+Iteration 182/1000 | Loss: 0.00002614
+Iteration 183/1000 | Loss: 0.00002614
+Iteration 184/1000 | Loss: 0.00002614
+Iteration 185/1000 | Loss: 0.00002613
+Iteration 186/1000 | Loss: 0.00002613
+Iteration 187/1000 | Loss: 0.00002613
+Iteration 188/1000 | Loss: 0.00002612
+Iteration 189/1000 | Loss: 0.00002612
+Iteration 190/1000 | Loss: 0.00002612
+Iteration 191/1000 | Loss: 0.00002612
+Iteration 192/1000 | Loss: 0.00002612
+Iteration 193/1000 | Loss: 0.00002612
+Iteration 194/1000 | Loss: 0.00002612
+Iteration 195/1000 | Loss: 0.00002612
+Iteration 196/1000 | Loss: 0.00002612
+Iteration 197/1000 | Loss: 0.00002611
+Iteration 198/1000 | Loss: 0.00002611
+Iteration 199/1000 | Loss: 0.00002611
+Iteration 200/1000 | Loss: 0.00008163
+Iteration 201/1000 | Loss: 0.00002615
+Iteration 202/1000 | Loss: 0.00002612
+Iteration 203/1000 | Loss: 0.00002611
+Iteration 204/1000 | Loss: 0.00002608
+Iteration 205/1000 | Loss: 0.00002607
+Iteration 206/1000 | Loss: 0.00002607
+Iteration 207/1000 | Loss: 0.00002607
+Iteration 208/1000 | Loss: 0.00002607
+Iteration 209/1000 | Loss: 0.00002606
+Iteration 210/1000 | Loss: 0.00002606
+Iteration 211/1000 | Loss: 0.00002606
+Iteration 212/1000 | Loss: 0.00002606
+Iteration 213/1000 | Loss: 0.00002606
+Iteration 214/1000 | Loss: 0.00002606
+Iteration 215/1000 | Loss: 0.00005345
+Iteration 216/1000 | Loss: 0.00002642
+Iteration 217/1000 | Loss: 0.00002603
+Iteration 218/1000 | Loss: 0.00002603
+Iteration 219/1000 | Loss: 0.00002603
+Iteration 220/1000 | Loss: 0.00002602
+Iteration 221/1000 | Loss: 0.00002602
+Iteration 222/1000 | Loss: 0.00002602
+Iteration 223/1000 | Loss: 0.00002602
+Iteration 224/1000 | Loss: 0.00002601
+Iteration 225/1000 | Loss: 0.00002601
+Iteration 226/1000 | Loss: 0.00002601
+Iteration 227/1000 | Loss: 0.00002601
+Iteration 228/1000 | Loss: 0.00002601
+Iteration 229/1000 | Loss: 0.00002601
+Iteration 230/1000 | Loss: 0.00002601
+Iteration 231/1000 | Loss: 0.00002601
+Iteration 232/1000 | Loss: 0.00002601
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 232. Stopping optimization.
+Last 5 losses: [2.601243795652408e-05, 2.601243795652408e-05, 2.601243795652408e-05, 2.601243795652408e-05, 2.601243795652408e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.601243795652408e-05
+
+Optimization complete. Final v2v error: 4.339519500732422 mm
+
+Highest mean error: 11.540191650390625 mm for frame 222
+
+Lowest mean error: 3.8324525356292725 mm for frame 94
+
+Saving results
+
+Total time: 98.8617651462555
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0001/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0001.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0001
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.01010705
+Iteration 2/25 | Loss: 0.00142412
+Iteration 3/25 | Loss: 0.00122429
+Iteration 4/25 | Loss: 0.00119484
+Iteration 5/25 | Loss: 0.00119129
+Iteration 6/25 | Loss: 0.00119129
+Iteration 7/25 | Loss: 0.00119129
+Iteration 8/25 | Loss: 0.00119129
+Iteration 9/25 | Loss: 0.00119129
+Iteration 10/25 | Loss: 0.00119129
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 10. Stopping optimization.
+Last 5 losses: [0.0011912942864000797, 0.0011912942864000797, 0.0011912942864000797, 0.0011912942864000797, 0.0011912942864000797]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0011912942864000797
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.37168884
+Iteration 2/25 | Loss: 0.00081292
+Iteration 3/25 | Loss: 0.00081290
+Iteration 4/25 | Loss: 0.00081290
+Iteration 5/25 | Loss: 0.00081290
+Iteration 6/25 | Loss: 0.00081290
+Iteration 7/25 | Loss: 0.00081290
+Iteration 8/25 | Loss: 0.00081290
+Iteration 9/25 | Loss: 0.00081290
+Iteration 10/25 | Loss: 0.00081290
+Iteration 11/25 | Loss: 0.00081290
+Iteration 12/25 | Loss: 0.00081290
+Iteration 13/25 | Loss: 0.00081290
+Iteration 14/25 | Loss: 0.00081290
+Iteration 15/25 | Loss: 0.00081290
+Iteration 16/25 | Loss: 0.00081290
+Iteration 17/25 | Loss: 0.00081290
+Iteration 18/25 | Loss: 0.00081290
+Iteration 19/25 | Loss: 0.00081290
+Iteration 20/25 | Loss: 0.00081290
+Iteration 21/25 | Loss: 0.00081290
+Iteration 22/25 | Loss: 0.00081290
+Iteration 23/25 | Loss: 0.00081290
+Iteration 24/25 | Loss: 0.00081290
+Iteration 25/25 | Loss: 0.00081290
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00081290
+Iteration 2/1000 | Loss: 0.00004970
+Iteration 3/1000 | Loss: 0.00003497
+Iteration 4/1000 | Loss: 0.00002932
+Iteration 5/1000 | Loss: 0.00002670
+Iteration 6/1000 | Loss: 0.00002549
+Iteration 7/1000 | Loss: 0.00002472
+Iteration 8/1000 | Loss: 0.00002409
+Iteration 9/1000 | Loss: 0.00002366
+Iteration 10/1000 | Loss: 0.00002342
+Iteration 11/1000 | Loss: 0.00002342
+Iteration 12/1000 | Loss: 0.00002337
+Iteration 13/1000 | Loss: 0.00002330
+Iteration 14/1000 | Loss: 0.00002326
+Iteration 15/1000 | Loss: 0.00002326
+Iteration 16/1000 | Loss: 0.00002325
+Iteration 17/1000 | Loss: 0.00002325
+Iteration 18/1000 | Loss: 0.00002324
+Iteration 19/1000 | Loss: 0.00002324
+Iteration 20/1000 | Loss: 0.00002324
+Iteration 21/1000 | Loss: 0.00002324
+Iteration 22/1000 | Loss: 0.00002324
+Iteration 23/1000 | Loss: 0.00002324
+Iteration 24/1000 | Loss: 0.00002323
+Iteration 25/1000 | Loss: 0.00002323
+Iteration 26/1000 | Loss: 0.00002322
+Iteration 27/1000 | Loss: 0.00002322
+Iteration 28/1000 | Loss: 0.00002321
+Iteration 29/1000 | Loss: 0.00002321
+Iteration 30/1000 | Loss: 0.00002320
+Iteration 31/1000 | Loss: 0.00002319
+Iteration 32/1000 | Loss: 0.00002319
+Iteration 33/1000 | Loss: 0.00002319
+Iteration 34/1000 | Loss: 0.00002318
+Iteration 35/1000 | Loss: 0.00002318
+Iteration 36/1000 | Loss: 0.00002318
+Iteration 37/1000 | Loss: 0.00002318
+Iteration 38/1000 | Loss: 0.00002317
+Iteration 39/1000 | Loss: 0.00002317
+Iteration 40/1000 | Loss: 0.00002317
+Iteration 41/1000 | Loss: 0.00002317
+Iteration 42/1000 | Loss: 0.00002317
+Iteration 43/1000 | Loss: 0.00002316
+Iteration 44/1000 | Loss: 0.00002316
+Iteration 45/1000 | Loss: 0.00002316
+Iteration 46/1000 | Loss: 0.00002316
+Iteration 47/1000 | Loss: 0.00002316
+Iteration 48/1000 | Loss: 0.00002316
+Iteration 49/1000 | Loss: 0.00002316
+Iteration 50/1000 | Loss: 0.00002316
+Iteration 51/1000 | Loss: 0.00002316
+Iteration 52/1000 | Loss: 0.00002316
+Iteration 53/1000 | Loss: 0.00002316
+Iteration 54/1000 | Loss: 0.00002316
+Iteration 55/1000 | Loss: 0.00002315
+Iteration 56/1000 | Loss: 0.00002315
+Iteration 57/1000 | Loss: 0.00002315
+Iteration 58/1000 | Loss: 0.00002315
+Iteration 59/1000 | Loss: 0.00002315
+Iteration 60/1000 | Loss: 0.00002315
+Iteration 61/1000 | Loss: 0.00002315
+Iteration 62/1000 | Loss: 0.00002315
+Iteration 63/1000 | Loss: 0.00002315
+Iteration 64/1000 | Loss: 0.00002314
+Iteration 65/1000 | Loss: 0.00002314
+Iteration 66/1000 | Loss: 0.00002314
+Iteration 67/1000 | Loss: 0.00002314
+Iteration 68/1000 | Loss: 0.00002314
+Iteration 69/1000 | Loss: 0.00002313
+Iteration 70/1000 | Loss: 0.00002313
+Iteration 71/1000 | Loss: 0.00002313
+Iteration 72/1000 | Loss: 0.00002313
+Iteration 73/1000 | Loss: 0.00002313
+Iteration 74/1000 | Loss: 0.00002313
+Iteration 75/1000 | Loss: 0.00002313
+Iteration 76/1000 | Loss: 0.00002313
+Iteration 77/1000 | Loss: 0.00002313
+Iteration 78/1000 | Loss: 0.00002313
+Iteration 79/1000 | Loss: 0.00002312
+Iteration 80/1000 | Loss: 0.00002312
+Iteration 81/1000 | Loss: 0.00002312
+Iteration 82/1000 | Loss: 0.00002312
+Iteration 83/1000 | Loss: 0.00002312
+Iteration 84/1000 | Loss: 0.00002312
+Iteration 85/1000 | Loss: 0.00002312
+Iteration 86/1000 | Loss: 0.00002312
+Iteration 87/1000 | Loss: 0.00002312
+Iteration 88/1000 | Loss: 0.00002312
+Iteration 89/1000 | Loss: 0.00002311
+Iteration 90/1000 | Loss: 0.00002311
+Iteration 91/1000 | Loss: 0.00002311
+Iteration 92/1000 | Loss: 0.00002310
+Iteration 93/1000 | Loss: 0.00002310
+Iteration 94/1000 | Loss: 0.00002310
+Iteration 95/1000 | Loss: 0.00002310
+Iteration 96/1000 | Loss: 0.00002310
+Iteration 97/1000 | Loss: 0.00002309
+Iteration 98/1000 | Loss: 0.00002309
+Iteration 99/1000 | Loss: 0.00002309
+Iteration 100/1000 | Loss: 0.00002309
+Iteration 101/1000 | Loss: 0.00002309
+Iteration 102/1000 | Loss: 0.00002309
+Iteration 103/1000 | Loss: 0.00002309
+Iteration 104/1000 | Loss: 0.00002309
+Iteration 105/1000 | Loss: 0.00002308
+Iteration 106/1000 | Loss: 0.00002308
+Iteration 107/1000 | Loss: 0.00002308
+Iteration 108/1000 | Loss: 0.00002308
+Iteration 109/1000 | Loss: 0.00002308
+Iteration 110/1000 | Loss: 0.00002307
+Iteration 111/1000 | Loss: 0.00002307
+Iteration 112/1000 | Loss: 0.00002307
+Iteration 113/1000 | Loss: 0.00002307
+Iteration 114/1000 | Loss: 0.00002306
+Iteration 115/1000 | Loss: 0.00002306
+Iteration 116/1000 | Loss: 0.00002305
+Iteration 117/1000 | Loss: 0.00002305
+Iteration 118/1000 | Loss: 0.00002305
+Iteration 119/1000 | Loss: 0.00002305
+Iteration 120/1000 | Loss: 0.00002305
+Iteration 121/1000 | Loss: 0.00002304
+Iteration 122/1000 | Loss: 0.00002304
+Iteration 123/1000 | Loss: 0.00002304
+Iteration 124/1000 | Loss: 0.00002304
+Iteration 125/1000 | Loss: 0.00002303
+Iteration 126/1000 | Loss: 0.00002303
+Iteration 127/1000 | Loss: 0.00002303
+Iteration 128/1000 | Loss: 0.00002303
+Iteration 129/1000 | Loss: 0.00002303
+Iteration 130/1000 | Loss: 0.00002302
+Iteration 131/1000 | Loss: 0.00002302
+Iteration 132/1000 | Loss: 0.00002302
+Iteration 133/1000 | Loss: 0.00002302
+Iteration 134/1000 | Loss: 0.00002302
+Iteration 135/1000 | Loss: 0.00002302
+Iteration 136/1000 | Loss: 0.00002302
+Iteration 137/1000 | Loss: 0.00002302
+Iteration 138/1000 | Loss: 0.00002302
+Iteration 139/1000 | Loss: 0.00002302
+Iteration 140/1000 | Loss: 0.00002302
+Iteration 141/1000 | Loss: 0.00002302
+Iteration 142/1000 | Loss: 0.00002302
+Iteration 143/1000 | Loss: 0.00002302
+Iteration 144/1000 | Loss: 0.00002302
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 144. Stopping optimization.
+Last 5 losses: [2.30196110351244e-05, 2.30196110351244e-05, 2.30196110351244e-05, 2.30196110351244e-05, 2.30196110351244e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.30196110351244e-05
+
+Optimization complete. Final v2v error: 4.073574066162109 mm
+
+Highest mean error: 4.340266704559326 mm for frame 219
+
+Lowest mean error: 3.774075984954834 mm for frame 145
+
+Saving results
+
+Total time: 38.258036851882935
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0017/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0017.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0017
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00481424
+Iteration 2/25 | Loss: 0.00127563
+Iteration 3/25 | Loss: 0.00117931
+Iteration 4/25 | Loss: 0.00115823
+Iteration 5/25 | Loss: 0.00115172
+Iteration 6/25 | Loss: 0.00115005
+Iteration 7/25 | Loss: 0.00115005
+Iteration 8/25 | Loss: 0.00115005
+Iteration 9/25 | Loss: 0.00115005
+Iteration 10/25 | Loss: 0.00115005
+Iteration 11/25 | Loss: 0.00115005
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 11. Stopping optimization.
+Last 5 losses: [0.0011500457767397165, 0.0011500457767397165, 0.0011500457767397165, 0.0011500457767397165, 0.0011500457767397165]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0011500457767397165
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.55973029
+Iteration 2/25 | Loss: 0.00103903
+Iteration 3/25 | Loss: 0.00103902
+Iteration 4/25 | Loss: 0.00103902
+Iteration 5/25 | Loss: 0.00103902
+Iteration 6/25 | Loss: 0.00103902
+Iteration 7/25 | Loss: 0.00103902
+Iteration 8/25 | Loss: 0.00103902
+Iteration 9/25 | Loss: 0.00103902
+Iteration 10/25 | Loss: 0.00103902
+Iteration 11/25 | Loss: 0.00103902
+Iteration 12/25 | Loss: 0.00103902
+Iteration 13/25 | Loss: 0.00103902
+Iteration 14/25 | Loss: 0.00103902
+Iteration 15/25 | Loss: 0.00103902
+Iteration 16/25 | Loss: 0.00103902
+Iteration 17/25 | Loss: 0.00103902
+Iteration 18/25 | Loss: 0.00103902
+Iteration 19/25 | Loss: 0.00103902
+Iteration 20/25 | Loss: 0.00103902
+Iteration 21/25 | Loss: 0.00103902
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 21. Stopping optimization.
+Last 5 losses: [0.0010390225797891617, 0.0010390225797891617, 0.0010390225797891617, 0.0010390225797891617, 0.0010390225797891617]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0010390225797891617
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00103902
+Iteration 2/1000 | Loss: 0.00006661
+Iteration 3/1000 | Loss: 0.00004489
+Iteration 4/1000 | Loss: 0.00003662
+Iteration 5/1000 | Loss: 0.00003387
+Iteration 6/1000 | Loss: 0.00003206
+Iteration 7/1000 | Loss: 0.00003107
+Iteration 8/1000 | Loss: 0.00003028
+Iteration 9/1000 | Loss: 0.00002970
+Iteration 10/1000 | Loss: 0.00002918
+Iteration 11/1000 | Loss: 0.00002882
+Iteration 12/1000 | Loss: 0.00002851
+Iteration 13/1000 | Loss: 0.00002830
+Iteration 14/1000 | Loss: 0.00002830
+Iteration 15/1000 | Loss: 0.00002819
+Iteration 16/1000 | Loss: 0.00002811
+Iteration 17/1000 | Loss: 0.00002803
+Iteration 18/1000 | Loss: 0.00002797
+Iteration 19/1000 | Loss: 0.00002796
+Iteration 20/1000 | Loss: 0.00002794
+Iteration 21/1000 | Loss: 0.00002794
+Iteration 22/1000 | Loss: 0.00002794
+Iteration 23/1000 | Loss: 0.00002794
+Iteration 24/1000 | Loss: 0.00002794
+Iteration 25/1000 | Loss: 0.00002794
+Iteration 26/1000 | Loss: 0.00002794
+Iteration 27/1000 | Loss: 0.00002794
+Iteration 28/1000 | Loss: 0.00002794
+Iteration 29/1000 | Loss: 0.00002793
+Iteration 30/1000 | Loss: 0.00002793
+Iteration 31/1000 | Loss: 0.00002793
+Iteration 32/1000 | Loss: 0.00002793
+Iteration 33/1000 | Loss: 0.00002793
+Iteration 34/1000 | Loss: 0.00002793
+Iteration 35/1000 | Loss: 0.00002793
+Iteration 36/1000 | Loss: 0.00002793
+Iteration 37/1000 | Loss: 0.00002793
+Iteration 38/1000 | Loss: 0.00002793
+Iteration 39/1000 | Loss: 0.00002793
+Iteration 40/1000 | Loss: 0.00002792
+Iteration 41/1000 | Loss: 0.00002792
+Iteration 42/1000 | Loss: 0.00002792
+Iteration 43/1000 | Loss: 0.00002792
+Iteration 44/1000 | Loss: 0.00002790
+Iteration 45/1000 | Loss: 0.00002790
+Iteration 46/1000 | Loss: 0.00002789
+Iteration 47/1000 | Loss: 0.00002789
+Iteration 48/1000 | Loss: 0.00002789
+Iteration 49/1000 | Loss: 0.00002789
+Iteration 50/1000 | Loss: 0.00002789
+Iteration 51/1000 | Loss: 0.00002789
+Iteration 52/1000 | Loss: 0.00002789
+Iteration 53/1000 | Loss: 0.00002789
+Iteration 54/1000 | Loss: 0.00002789
+Iteration 55/1000 | Loss: 0.00002788
+Iteration 56/1000 | Loss: 0.00002788
+Iteration 57/1000 | Loss: 0.00002788
+Iteration 58/1000 | Loss: 0.00002788
+Iteration 59/1000 | Loss: 0.00002787
+Iteration 60/1000 | Loss: 0.00002787
+Iteration 61/1000 | Loss: 0.00002787
+Iteration 62/1000 | Loss: 0.00002787
+Iteration 63/1000 | Loss: 0.00002787
+Iteration 64/1000 | Loss: 0.00002787
+Iteration 65/1000 | Loss: 0.00002786
+Iteration 66/1000 | Loss: 0.00002786
+Iteration 67/1000 | Loss: 0.00002786
+Iteration 68/1000 | Loss: 0.00002785
+Iteration 69/1000 | Loss: 0.00002785
+Iteration 70/1000 | Loss: 0.00002785
+Iteration 71/1000 | Loss: 0.00002785
+Iteration 72/1000 | Loss: 0.00002785
+Iteration 73/1000 | Loss: 0.00002784
+Iteration 74/1000 | Loss: 0.00002784
+Iteration 75/1000 | Loss: 0.00002783
+Iteration 76/1000 | Loss: 0.00002783
+Iteration 77/1000 | Loss: 0.00002783
+Iteration 78/1000 | Loss: 0.00002783
+Iteration 79/1000 | Loss: 0.00002782
+Iteration 80/1000 | Loss: 0.00002782
+Iteration 81/1000 | Loss: 0.00002782
+Iteration 82/1000 | Loss: 0.00002782
+Iteration 83/1000 | Loss: 0.00002781
+Iteration 84/1000 | Loss: 0.00002781
+Iteration 85/1000 | Loss: 0.00002780
+Iteration 86/1000 | Loss: 0.00002780
+Iteration 87/1000 | Loss: 0.00002780
+Iteration 88/1000 | Loss: 0.00002779
+Iteration 89/1000 | Loss: 0.00002779
+Iteration 90/1000 | Loss: 0.00002779
+Iteration 91/1000 | Loss: 0.00002779
+Iteration 92/1000 | Loss: 0.00002779
+Iteration 93/1000 | Loss: 0.00002779
+Iteration 94/1000 | Loss: 0.00002779
+Iteration 95/1000 | Loss: 0.00002779
+Iteration 96/1000 | Loss: 0.00002779
+Iteration 97/1000 | Loss: 0.00002779
+Iteration 98/1000 | Loss: 0.00002779
+Iteration 99/1000 | Loss: 0.00002779
+Iteration 100/1000 | Loss: 0.00002779
+Iteration 101/1000 | Loss: 0.00002779
+Iteration 102/1000 | Loss: 0.00002779
+Iteration 103/1000 | Loss: 0.00002779
+Iteration 104/1000 | Loss: 0.00002779
+Iteration 105/1000 | Loss: 0.00002779
+Iteration 106/1000 | Loss: 0.00002779
+Iteration 107/1000 | Loss: 0.00002779
+Iteration 108/1000 | Loss: 0.00002779
+Iteration 109/1000 | Loss: 0.00002779
+Iteration 110/1000 | Loss: 0.00002779
+Iteration 111/1000 | Loss: 0.00002779
+Iteration 112/1000 | Loss: 0.00002779
+Iteration 113/1000 | Loss: 0.00002779
+Iteration 114/1000 | Loss: 0.00002779
+Iteration 115/1000 | Loss: 0.00002779
+Iteration 116/1000 | Loss: 0.00002779
+Iteration 117/1000 | Loss: 0.00002779
+Iteration 118/1000 | Loss: 0.00002779
+Iteration 119/1000 | Loss: 0.00002779
+Iteration 120/1000 | Loss: 0.00002779
+Iteration 121/1000 | Loss: 0.00002779
+Iteration 122/1000 | Loss: 0.00002779
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 122. Stopping optimization.
+Last 5 losses: [2.779053829726763e-05, 2.779053829726763e-05, 2.779053829726763e-05, 2.779053829726763e-05, 2.779053829726763e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.779053829726763e-05
+
+Optimization complete. Final v2v error: 4.35062837600708 mm
+
+Highest mean error: 6.96054220199585 mm for frame 66
+
+Lowest mean error: 3.566981792449951 mm for frame 52
+
+Saving results
+
+Total time: 43.87862253189087
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0012/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0012.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0012
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00636826
+Iteration 2/25 | Loss: 0.00116190
+Iteration 3/25 | Loss: 0.00108915
+Iteration 4/25 | Loss: 0.00107794
+Iteration 5/25 | Loss: 0.00107418
+Iteration 6/25 | Loss: 0.00107358
+Iteration 7/25 | Loss: 0.00107358
+Iteration 8/25 | Loss: 0.00107358
+Iteration 9/25 | Loss: 0.00107358
+Iteration 10/25 | Loss: 0.00107358
+Iteration 11/25 | Loss: 0.00107358
+Iteration 12/25 | Loss: 0.00107358
+Iteration 13/25 | Loss: 0.00107358
+Iteration 14/25 | Loss: 0.00107358
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 14. Stopping optimization.
+Last 5 losses: [0.0010735804680734873, 0.0010735804680734873, 0.0010735804680734873, 0.0010735804680734873, 0.0010735804680734873]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0010735804680734873
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 15.33292675
+Iteration 2/25 | Loss: 0.00071703
+Iteration 3/25 | Loss: 0.00071694
+Iteration 4/25 | Loss: 0.00071694
+Iteration 5/25 | Loss: 0.00071694
+Iteration 6/25 | Loss: 0.00071694
+Iteration 7/25 | Loss: 0.00071694
+Iteration 8/25 | Loss: 0.00071694
+Iteration 9/25 | Loss: 0.00071694
+Iteration 10/25 | Loss: 0.00071694
+Iteration 11/25 | Loss: 0.00071694
+Iteration 12/25 | Loss: 0.00071694
+Iteration 13/25 | Loss: 0.00071694
+Iteration 14/25 | Loss: 0.00071694
+Iteration 15/25 | Loss: 0.00071694
+Iteration 16/25 | Loss: 0.00071694
+Iteration 17/25 | Loss: 0.00071694
+Iteration 18/25 | Loss: 0.00071694
+Iteration 19/25 | Loss: 0.00071694
+Iteration 20/25 | Loss: 0.00071694
+Iteration 21/25 | Loss: 0.00071694
+Iteration 22/25 | Loss: 0.00071694
+Iteration 23/25 | Loss: 0.00071694
+Iteration 24/25 | Loss: 0.00071694
+Iteration 25/25 | Loss: 0.00071694
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00071694
+Iteration 2/1000 | Loss: 0.00003513
+Iteration 3/1000 | Loss: 0.00002661
+Iteration 4/1000 | Loss: 0.00002408
+Iteration 5/1000 | Loss: 0.00002282
+Iteration 6/1000 | Loss: 0.00002210
+Iteration 7/1000 | Loss: 0.00002163
+Iteration 8/1000 | Loss: 0.00002124
+Iteration 9/1000 | Loss: 0.00002108
+Iteration 10/1000 | Loss: 0.00002100
+Iteration 11/1000 | Loss: 0.00002100
+Iteration 12/1000 | Loss: 0.00002099
+Iteration 13/1000 | Loss: 0.00002098
+Iteration 14/1000 | Loss: 0.00002098
+Iteration 15/1000 | Loss: 0.00002097
+Iteration 16/1000 | Loss: 0.00002095
+Iteration 17/1000 | Loss: 0.00002094
+Iteration 18/1000 | Loss: 0.00002094
+Iteration 19/1000 | Loss: 0.00002093
+Iteration 20/1000 | Loss: 0.00002092
+Iteration 21/1000 | Loss: 0.00002091
+Iteration 22/1000 | Loss: 0.00002091
+Iteration 23/1000 | Loss: 0.00002088
+Iteration 24/1000 | Loss: 0.00002087
+Iteration 25/1000 | Loss: 0.00002087
+Iteration 26/1000 | Loss: 0.00002087
+Iteration 27/1000 | Loss: 0.00002087
+Iteration 28/1000 | Loss: 0.00002087
+Iteration 29/1000 | Loss: 0.00002087
+Iteration 30/1000 | Loss: 0.00002087
+Iteration 31/1000 | Loss: 0.00002087
+Iteration 32/1000 | Loss: 0.00002087
+Iteration 33/1000 | Loss: 0.00002087
+Iteration 34/1000 | Loss: 0.00002087
+Iteration 35/1000 | Loss: 0.00002087
+Iteration 36/1000 | Loss: 0.00002087
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 36. Stopping optimization.
+Last 5 losses: [2.0865660189883783e-05, 2.0865660189883783e-05, 2.0865660189883783e-05, 2.0865660189883783e-05, 2.0865660189883783e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.0865660189883783e-05
+
+Optimization complete. Final v2v error: 3.896768808364868 mm
+
+Highest mean error: 4.479902267456055 mm for frame 100
+
+Lowest mean error: 3.584960460662842 mm for frame 83
+
+Saving results
+
+Total time: 24.743541479110718
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0006/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0006.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0006
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00823342
+Iteration 2/25 | Loss: 0.00181125
+Iteration 3/25 | Loss: 0.00133327
+Iteration 4/25 | Loss: 0.00126902
+Iteration 5/25 | Loss: 0.00124419
+Iteration 6/25 | Loss: 0.00123536
+Iteration 7/25 | Loss: 0.00122555
+Iteration 8/25 | Loss: 0.00122263
+Iteration 9/25 | Loss: 0.00122171
+Iteration 10/25 | Loss: 0.00122140
+Iteration 11/25 | Loss: 0.00122124
+Iteration 12/25 | Loss: 0.00122121
+Iteration 13/25 | Loss: 0.00122121
+Iteration 14/25 | Loss: 0.00122119
+Iteration 15/25 | Loss: 0.00122119
+Iteration 16/25 | Loss: 0.00122119
+Iteration 17/25 | Loss: 0.00122119
+Iteration 18/25 | Loss: 0.00122119
+Iteration 19/25 | Loss: 0.00122119
+Iteration 20/25 | Loss: 0.00122119
+Iteration 21/25 | Loss: 0.00122119
+Iteration 22/25 | Loss: 0.00122119
+Iteration 23/25 | Loss: 0.00122119
+Iteration 24/25 | Loss: 0.00122119
+Iteration 25/25 | Loss: 0.00122119
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 2.08830047
+Iteration 2/25 | Loss: 0.00078832
+Iteration 3/25 | Loss: 0.00078828
+Iteration 4/25 | Loss: 0.00078828
+Iteration 5/25 | Loss: 0.00078828
+Iteration 6/25 | Loss: 0.00078828
+Iteration 7/25 | Loss: 0.00078828
+Iteration 8/25 | Loss: 0.00078828
+Iteration 9/25 | Loss: 0.00078828
+Iteration 10/25 | Loss: 0.00078828
+Iteration 11/25 | Loss: 0.00078828
+Iteration 12/25 | Loss: 0.00078828
+Iteration 13/25 | Loss: 0.00078828
+Iteration 14/25 | Loss: 0.00078828
+Iteration 15/25 | Loss: 0.00078828
+Iteration 16/25 | Loss: 0.00078828
+Iteration 17/25 | Loss: 0.00078828
+Iteration 18/25 | Loss: 0.00078828
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 18. Stopping optimization.
+Last 5 losses: [0.0007882791105657816, 0.0007882791105657816, 0.0007882791105657816, 0.0007882791105657816, 0.0007882791105657816]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0007882791105657816
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00078828
+Iteration 2/1000 | Loss: 0.00005249
+Iteration 3/1000 | Loss: 0.00004003
+Iteration 4/1000 | Loss: 0.00003609
+Iteration 5/1000 | Loss: 0.00003469
+Iteration 6/1000 | Loss: 0.00003354
+Iteration 7/1000 | Loss: 0.00003277
+Iteration 8/1000 | Loss: 0.00003226
+Iteration 9/1000 | Loss: 0.00003188
+Iteration 10/1000 | Loss: 0.00003157
+Iteration 11/1000 | Loss: 0.00003137
+Iteration 12/1000 | Loss: 0.00003137
+Iteration 13/1000 | Loss: 0.00003133
+Iteration 14/1000 | Loss: 0.00003128
+Iteration 15/1000 | Loss: 0.00003127
+Iteration 16/1000 | Loss: 0.00003123
+Iteration 17/1000 | Loss: 0.00003123
+Iteration 18/1000 | Loss: 0.00003123
+Iteration 19/1000 | Loss: 0.00003123
+Iteration 20/1000 | Loss: 0.00003123
+Iteration 21/1000 | Loss: 0.00003123
+Iteration 22/1000 | Loss: 0.00003123
+Iteration 23/1000 | Loss: 0.00003123
+Iteration 24/1000 | Loss: 0.00003123
+Iteration 25/1000 | Loss: 0.00003123
+Iteration 26/1000 | Loss: 0.00003121
+Iteration 27/1000 | Loss: 0.00003117
+Iteration 28/1000 | Loss: 0.00003114
+Iteration 29/1000 | Loss: 0.00003114
+Iteration 30/1000 | Loss: 0.00003113
+Iteration 31/1000 | Loss: 0.00003113
+Iteration 32/1000 | Loss: 0.00003113
+Iteration 33/1000 | Loss: 0.00003113
+Iteration 34/1000 | Loss: 0.00003112
+Iteration 35/1000 | Loss: 0.00003111
+Iteration 36/1000 | Loss: 0.00003109
+Iteration 37/1000 | Loss: 0.00003108
+Iteration 38/1000 | Loss: 0.00003107
+Iteration 39/1000 | Loss: 0.00003107
+Iteration 40/1000 | Loss: 0.00003107
+Iteration 41/1000 | Loss: 0.00003107
+Iteration 42/1000 | Loss: 0.00003102
+Iteration 43/1000 | Loss: 0.00003100
+Iteration 44/1000 | Loss: 0.00003099
+Iteration 45/1000 | Loss: 0.00003098
+Iteration 46/1000 | Loss: 0.00003098
+Iteration 47/1000 | Loss: 0.00003097
+Iteration 48/1000 | Loss: 0.00003097
+Iteration 49/1000 | Loss: 0.00003097
+Iteration 50/1000 | Loss: 0.00003097
+Iteration 51/1000 | Loss: 0.00003096
+Iteration 52/1000 | Loss: 0.00003096
+Iteration 53/1000 | Loss: 0.00003096
+Iteration 54/1000 | Loss: 0.00003095
+Iteration 55/1000 | Loss: 0.00003095
+Iteration 56/1000 | Loss: 0.00003094
+Iteration 57/1000 | Loss: 0.00003094
+Iteration 58/1000 | Loss: 0.00003093
+Iteration 59/1000 | Loss: 0.00003093
+Iteration 60/1000 | Loss: 0.00003093
+Iteration 61/1000 | Loss: 0.00003092
+Iteration 62/1000 | Loss: 0.00003092
+Iteration 63/1000 | Loss: 0.00003091
+Iteration 64/1000 | Loss: 0.00003091
+Iteration 65/1000 | Loss: 0.00003091
+Iteration 66/1000 | Loss: 0.00003091
+Iteration 67/1000 | Loss: 0.00003091
+Iteration 68/1000 | Loss: 0.00003091
+Iteration 69/1000 | Loss: 0.00003091
+Iteration 70/1000 | Loss: 0.00003091
+Iteration 71/1000 | Loss: 0.00003091
+Iteration 72/1000 | Loss: 0.00003091
+Iteration 73/1000 | Loss: 0.00003090
+Iteration 74/1000 | Loss: 0.00003090
+Iteration 75/1000 | Loss: 0.00003090
+Iteration 76/1000 | Loss: 0.00003090
+Iteration 77/1000 | Loss: 0.00003090
+Iteration 78/1000 | Loss: 0.00003089
+Iteration 79/1000 | Loss: 0.00003089
+Iteration 80/1000 | Loss: 0.00003089
+Iteration 81/1000 | Loss: 0.00003089
+Iteration 82/1000 | Loss: 0.00003089
+Iteration 83/1000 | Loss: 0.00003088
+Iteration 84/1000 | Loss: 0.00003088
+Iteration 85/1000 | Loss: 0.00003088
+Iteration 86/1000 | Loss: 0.00003088
+Iteration 87/1000 | Loss: 0.00003088
+Iteration 88/1000 | Loss: 0.00003088
+Iteration 89/1000 | Loss: 0.00003088
+Iteration 90/1000 | Loss: 0.00003088
+Iteration 91/1000 | Loss: 0.00003088
+Iteration 92/1000 | Loss: 0.00003088
+Iteration 93/1000 | Loss: 0.00003088
+Iteration 94/1000 | Loss: 0.00003088
+Iteration 95/1000 | Loss: 0.00003088
+Iteration 96/1000 | Loss: 0.00003088
+Iteration 97/1000 | Loss: 0.00003088
+Iteration 98/1000 | Loss: 0.00003088
+Iteration 99/1000 | Loss: 0.00003087
+Iteration 100/1000 | Loss: 0.00003087
+Iteration 101/1000 | Loss: 0.00003087
+Iteration 102/1000 | Loss: 0.00003087
+Iteration 103/1000 | Loss: 0.00003087
+Iteration 104/1000 | Loss: 0.00003087
+Iteration 105/1000 | Loss: 0.00003087
+Iteration 106/1000 | Loss: 0.00003087
+Iteration 107/1000 | Loss: 0.00003087
+Iteration 108/1000 | Loss: 0.00003086
+Iteration 109/1000 | Loss: 0.00003086
+Iteration 110/1000 | Loss: 0.00003086
+Iteration 111/1000 | Loss: 0.00003086
+Iteration 112/1000 | Loss: 0.00003086
+Iteration 113/1000 | Loss: 0.00003086
+Iteration 114/1000 | Loss: 0.00003086
+Iteration 115/1000 | Loss: 0.00003086
+Iteration 116/1000 | Loss: 0.00003086
+Iteration 117/1000 | Loss: 0.00003086
+Iteration 118/1000 | Loss: 0.00003086
+Iteration 119/1000 | Loss: 0.00003086
+Iteration 120/1000 | Loss: 0.00003086
+Iteration 121/1000 | Loss: 0.00003086
+Iteration 122/1000 | Loss: 0.00003085
+Iteration 123/1000 | Loss: 0.00003085
+Iteration 124/1000 | Loss: 0.00003085
+Iteration 125/1000 | Loss: 0.00003085
+Iteration 126/1000 | Loss: 0.00003085
+Iteration 127/1000 | Loss: 0.00003085
+Iteration 128/1000 | Loss: 0.00003085
+Iteration 129/1000 | Loss: 0.00003085
+Iteration 130/1000 | Loss: 0.00003085
+Iteration 131/1000 | Loss: 0.00003085
+Iteration 132/1000 | Loss: 0.00003085
+Iteration 133/1000 | Loss: 0.00003085
+Iteration 134/1000 | Loss: 0.00003085
+Iteration 135/1000 | Loss: 0.00003085
+Iteration 136/1000 | Loss: 0.00003085
+Iteration 137/1000 | Loss: 0.00003085
+Iteration 138/1000 | Loss: 0.00003085
+Iteration 139/1000 | Loss: 0.00003085
+Iteration 140/1000 | Loss: 0.00003085
+Iteration 141/1000 | Loss: 0.00003085
+Iteration 142/1000 | Loss: 0.00003085
+Iteration 143/1000 | Loss: 0.00003085
+Iteration 144/1000 | Loss: 0.00003085
+Iteration 145/1000 | Loss: 0.00003085
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 145. Stopping optimization.
+Last 5 losses: [3.0848674214212224e-05, 3.0848674214212224e-05, 3.0848674214212224e-05, 3.0848674214212224e-05, 3.0848674214212224e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 3.0848674214212224e-05
+
+Optimization complete. Final v2v error: 4.7398552894592285 mm
+
+Highest mean error: 5.103483200073242 mm for frame 207
+
+Lowest mean error: 4.403910160064697 mm for frame 66
+
+Saving results
+
+Total time: 53.365578413009644
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0024/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0024.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0024
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00905992
+Iteration 2/25 | Loss: 0.00169672
+Iteration 3/25 | Loss: 0.00128266
+Iteration 4/25 | Loss: 0.00122748
+Iteration 5/25 | Loss: 0.00121529
+Iteration 6/25 | Loss: 0.00121363
+Iteration 7/25 | Loss: 0.00121324
+Iteration 8/25 | Loss: 0.00121324
+Iteration 9/25 | Loss: 0.00121324
+Iteration 10/25 | Loss: 0.00121324
+Iteration 11/25 | Loss: 0.00121324
+Iteration 12/25 | Loss: 0.00121324
+Iteration 13/25 | Loss: 0.00121324
+Iteration 14/25 | Loss: 0.00121324
+Iteration 15/25 | Loss: 0.00121324
+Iteration 16/25 | Loss: 0.00121324
+Iteration 17/25 | Loss: 0.00121324
+Iteration 18/25 | Loss: 0.00121324
+Iteration 19/25 | Loss: 0.00121324
+Iteration 20/25 | Loss: 0.00121324
+Iteration 21/25 | Loss: 0.00121324
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 21. Stopping optimization.
+Last 5 losses: [0.0012132424162700772, 0.0012132424162700772, 0.0012132424162700772, 0.0012132424162700772, 0.0012132424162700772]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0012132424162700772
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.44359434
+Iteration 2/25 | Loss: 0.00088522
+Iteration 3/25 | Loss: 0.00088522
+Iteration 4/25 | Loss: 0.00088522
+Iteration 5/25 | Loss: 0.00088522
+Iteration 6/25 | Loss: 0.00088522
+Iteration 7/25 | Loss: 0.00088522
+Iteration 8/25 | Loss: 0.00088522
+Iteration 9/25 | Loss: 0.00088522
+Iteration 10/25 | Loss: 0.00088522
+Iteration 11/25 | Loss: 0.00088522
+Iteration 12/25 | Loss: 0.00088522
+Iteration 13/25 | Loss: 0.00088522
+Iteration 14/25 | Loss: 0.00088522
+Iteration 15/25 | Loss: 0.00088522
+Iteration 16/25 | Loss: 0.00088522
+Iteration 17/25 | Loss: 0.00088522
+Iteration 18/25 | Loss: 0.00088522
+Iteration 19/25 | Loss: 0.00088522
+Iteration 20/25 | Loss: 0.00088522
+Iteration 21/25 | Loss: 0.00088522
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 21. Stopping optimization.
+Last 5 losses: [0.0008852214086800814, 0.0008852214086800814, 0.0008852214086800814, 0.0008852214086800814, 0.0008852214086800814]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0008852214086800814
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00088522
+Iteration 2/1000 | Loss: 0.00005836
+Iteration 3/1000 | Loss: 0.00004554
+Iteration 4/1000 | Loss: 0.00003829
+Iteration 5/1000 | Loss: 0.00003474
+Iteration 6/1000 | Loss: 0.00003296
+Iteration 7/1000 | Loss: 0.00003174
+Iteration 8/1000 | Loss: 0.00003105
+Iteration 9/1000 | Loss: 0.00003061
+Iteration 10/1000 | Loss: 0.00003018
+Iteration 11/1000 | Loss: 0.00002983
+Iteration 12/1000 | Loss: 0.00002962
+Iteration 13/1000 | Loss: 0.00002947
+Iteration 14/1000 | Loss: 0.00002947
+Iteration 15/1000 | Loss: 0.00002947
+Iteration 16/1000 | Loss: 0.00002947
+Iteration 17/1000 | Loss: 0.00002947
+Iteration 18/1000 | Loss: 0.00002947
+Iteration 19/1000 | Loss: 0.00002947
+Iteration 20/1000 | Loss: 0.00002947
+Iteration 21/1000 | Loss: 0.00002946
+Iteration 22/1000 | Loss: 0.00002946
+Iteration 23/1000 | Loss: 0.00002945
+Iteration 24/1000 | Loss: 0.00002943
+Iteration 25/1000 | Loss: 0.00002942
+Iteration 26/1000 | Loss: 0.00002942
+Iteration 27/1000 | Loss: 0.00002941
+Iteration 28/1000 | Loss: 0.00002940
+Iteration 29/1000 | Loss: 0.00002940
+Iteration 30/1000 | Loss: 0.00002939
+Iteration 31/1000 | Loss: 0.00002938
+Iteration 32/1000 | Loss: 0.00002938
+Iteration 33/1000 | Loss: 0.00002938
+Iteration 34/1000 | Loss: 0.00002938
+Iteration 35/1000 | Loss: 0.00002937
+Iteration 36/1000 | Loss: 0.00002937
+Iteration 37/1000 | Loss: 0.00002937
+Iteration 38/1000 | Loss: 0.00002937
+Iteration 39/1000 | Loss: 0.00002937
+Iteration 40/1000 | Loss: 0.00002937
+Iteration 41/1000 | Loss: 0.00002937
+Iteration 42/1000 | Loss: 0.00002936
+Iteration 43/1000 | Loss: 0.00002936
+Iteration 44/1000 | Loss: 0.00002936
+Iteration 45/1000 | Loss: 0.00002936
+Iteration 46/1000 | Loss: 0.00002935
+Iteration 47/1000 | Loss: 0.00002935
+Iteration 48/1000 | Loss: 0.00002935
+Iteration 49/1000 | Loss: 0.00002934
+Iteration 50/1000 | Loss: 0.00002934
+Iteration 51/1000 | Loss: 0.00002933
+Iteration 52/1000 | Loss: 0.00002933
+Iteration 53/1000 | Loss: 0.00002933
+Iteration 54/1000 | Loss: 0.00002933
+Iteration 55/1000 | Loss: 0.00002932
+Iteration 56/1000 | Loss: 0.00002932
+Iteration 57/1000 | Loss: 0.00002932
+Iteration 58/1000 | Loss: 0.00002932
+Iteration 59/1000 | Loss: 0.00002932
+Iteration 60/1000 | Loss: 0.00002932
+Iteration 61/1000 | Loss: 0.00002932
+Iteration 62/1000 | Loss: 0.00002932
+Iteration 63/1000 | Loss: 0.00002932
+Iteration 64/1000 | Loss: 0.00002931
+Iteration 65/1000 | Loss: 0.00002931
+Iteration 66/1000 | Loss: 0.00002931
+Iteration 67/1000 | Loss: 0.00002931
+Iteration 68/1000 | Loss: 0.00002930
+Iteration 69/1000 | Loss: 0.00002930
+Iteration 70/1000 | Loss: 0.00002930
+Iteration 71/1000 | Loss: 0.00002930
+Iteration 72/1000 | Loss: 0.00002930
+Iteration 73/1000 | Loss: 0.00002930
+Iteration 74/1000 | Loss: 0.00002930
+Iteration 75/1000 | Loss: 0.00002930
+Iteration 76/1000 | Loss: 0.00002929
+Iteration 77/1000 | Loss: 0.00002929
+Iteration 78/1000 | Loss: 0.00002929
+Iteration 79/1000 | Loss: 0.00002929
+Iteration 80/1000 | Loss: 0.00002929
+Iteration 81/1000 | Loss: 0.00002929
+Iteration 82/1000 | Loss: 0.00002929
+Iteration 83/1000 | Loss: 0.00002929
+Iteration 84/1000 | Loss: 0.00002929
+Iteration 85/1000 | Loss: 0.00002929
+Iteration 86/1000 | Loss: 0.00002929
+Iteration 87/1000 | Loss: 0.00002929
+Iteration 88/1000 | Loss: 0.00002929
+Iteration 89/1000 | Loss: 0.00002929
+Iteration 90/1000 | Loss: 0.00002929
+Iteration 91/1000 | Loss: 0.00002929
+Iteration 92/1000 | Loss: 0.00002928
+Iteration 93/1000 | Loss: 0.00002928
+Iteration 94/1000 | Loss: 0.00002928
+Iteration 95/1000 | Loss: 0.00002928
+Iteration 96/1000 | Loss: 0.00002928
+Iteration 97/1000 | Loss: 0.00002928
+Iteration 98/1000 | Loss: 0.00002928
+Iteration 99/1000 | Loss: 0.00002927
+Iteration 100/1000 | Loss: 0.00002927
+Iteration 101/1000 | Loss: 0.00002927
+Iteration 102/1000 | Loss: 0.00002927
+Iteration 103/1000 | Loss: 0.00002927
+Iteration 104/1000 | Loss: 0.00002927
+Iteration 105/1000 | Loss: 0.00002927
+Iteration 106/1000 | Loss: 0.00002927
+Iteration 107/1000 | Loss: 0.00002927
+Iteration 108/1000 | Loss: 0.00002927
+Iteration 109/1000 | Loss: 0.00002927
+Iteration 110/1000 | Loss: 0.00002927
+Iteration 111/1000 | Loss: 0.00002927
+Iteration 112/1000 | Loss: 0.00002927
+Iteration 113/1000 | Loss: 0.00002927
+Iteration 114/1000 | Loss: 0.00002926
+Iteration 115/1000 | Loss: 0.00002926
+Iteration 116/1000 | Loss: 0.00002926
+Iteration 117/1000 | Loss: 0.00002926
+Iteration 118/1000 | Loss: 0.00002926
+Iteration 119/1000 | Loss: 0.00002926
+Iteration 120/1000 | Loss: 0.00002926
+Iteration 121/1000 | Loss: 0.00002926
+Iteration 122/1000 | Loss: 0.00002926
+Iteration 123/1000 | Loss: 0.00002926
+Iteration 124/1000 | Loss: 0.00002926
+Iteration 125/1000 | Loss: 0.00002926
+Iteration 126/1000 | Loss: 0.00002926
+Iteration 127/1000 | Loss: 0.00002926
+Iteration 128/1000 | Loss: 0.00002926
+Iteration 129/1000 | Loss: 0.00002926
+Iteration 130/1000 | Loss: 0.00002926
+Iteration 131/1000 | Loss: 0.00002926
+Iteration 132/1000 | Loss: 0.00002926
+Iteration 133/1000 | Loss: 0.00002926
+Iteration 134/1000 | Loss: 0.00002926
+Iteration 135/1000 | Loss: 0.00002926
+Iteration 136/1000 | Loss: 0.00002926
+Iteration 137/1000 | Loss: 0.00002926
+Iteration 138/1000 | Loss: 0.00002926
+Iteration 139/1000 | Loss: 0.00002926
+Iteration 140/1000 | Loss: 0.00002926
+Iteration 141/1000 | Loss: 0.00002926
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 141. Stopping optimization.
+Last 5 losses: [2.9255164918140508e-05, 2.9255164918140508e-05, 2.9255164918140508e-05, 2.9255164918140508e-05, 2.9255164918140508e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.9255164918140508e-05
+
+Optimization complete. Final v2v error: 4.551396369934082 mm
+
+Highest mean error: 5.156190395355225 mm for frame 108
+
+Lowest mean error: 3.9513325691223145 mm for frame 63
+
+Saving results
+
+Total time: 35.43676137924194
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0002/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0002.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0002
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00439008
+Iteration 2/25 | Loss: 0.00118559
+Iteration 3/25 | Loss: 0.00106934
+Iteration 4/25 | Loss: 0.00105606
+Iteration 5/25 | Loss: 0.00105249
+Iteration 6/25 | Loss: 0.00105151
+Iteration 7/25 | Loss: 0.00105117
+Iteration 8/25 | Loss: 0.00105117
+Iteration 9/25 | Loss: 0.00105117
+Iteration 10/25 | Loss: 0.00105117
+Iteration 11/25 | Loss: 0.00105117
+Iteration 12/25 | Loss: 0.00105117
+Iteration 13/25 | Loss: 0.00105117
+Iteration 14/25 | Loss: 0.00105117
+Iteration 15/25 | Loss: 0.00105117
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 15. Stopping optimization.
+Last 5 losses: [0.0010511723812669516, 0.0010511723812669516, 0.0010511723812669516, 0.0010511723812669516, 0.0010511723812669516]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0010511723812669516
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.42118490
+Iteration 2/25 | Loss: 0.00069768
+Iteration 3/25 | Loss: 0.00069768
+Iteration 4/25 | Loss: 0.00069768
+Iteration 5/25 | Loss: 0.00069768
+Iteration 6/25 | Loss: 0.00069768
+Iteration 7/25 | Loss: 0.00069768
+Iteration 8/25 | Loss: 0.00069768
+Iteration 9/25 | Loss: 0.00069768
+Iteration 10/25 | Loss: 0.00069768
+Iteration 11/25 | Loss: 0.00069768
+Iteration 12/25 | Loss: 0.00069768
+Iteration 13/25 | Loss: 0.00069768
+Iteration 14/25 | Loss: 0.00069768
+Iteration 15/25 | Loss: 0.00069768
+Iteration 16/25 | Loss: 0.00069768
+Iteration 17/25 | Loss: 0.00069768
+Iteration 18/25 | Loss: 0.00069768
+Iteration 19/25 | Loss: 0.00069768
+Iteration 20/25 | Loss: 0.00069768
+Iteration 21/25 | Loss: 0.00069768
+Iteration 22/25 | Loss: 0.00069768
+Iteration 23/25 | Loss: 0.00069768
+Iteration 24/25 | Loss: 0.00069768
+Iteration 25/25 | Loss: 0.00069768
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00069768
+Iteration 2/1000 | Loss: 0.00003934
+Iteration 3/1000 | Loss: 0.00002882
+Iteration 4/1000 | Loss: 0.00002337
+Iteration 5/1000 | Loss: 0.00002103
+Iteration 6/1000 | Loss: 0.00002023
+Iteration 7/1000 | Loss: 0.00001974
+Iteration 8/1000 | Loss: 0.00001942
+Iteration 9/1000 | Loss: 0.00001920
+Iteration 10/1000 | Loss: 0.00001901
+Iteration 11/1000 | Loss: 0.00001890
+Iteration 12/1000 | Loss: 0.00001889
+Iteration 13/1000 | Loss: 0.00001883
+Iteration 14/1000 | Loss: 0.00001882
+Iteration 15/1000 | Loss: 0.00001880
+Iteration 16/1000 | Loss: 0.00001879
+Iteration 17/1000 | Loss: 0.00001879
+Iteration 18/1000 | Loss: 0.00001879
+Iteration 19/1000 | Loss: 0.00001878
+Iteration 20/1000 | Loss: 0.00001877
+Iteration 21/1000 | Loss: 0.00001876
+Iteration 22/1000 | Loss: 0.00001876
+Iteration 23/1000 | Loss: 0.00001875
+Iteration 24/1000 | Loss: 0.00001875
+Iteration 25/1000 | Loss: 0.00001874
+Iteration 26/1000 | Loss: 0.00001874
+Iteration 27/1000 | Loss: 0.00001874
+Iteration 28/1000 | Loss: 0.00001874
+Iteration 29/1000 | Loss: 0.00001873
+Iteration 30/1000 | Loss: 0.00001872
+Iteration 31/1000 | Loss: 0.00001872
+Iteration 32/1000 | Loss: 0.00001872
+Iteration 33/1000 | Loss: 0.00001870
+Iteration 34/1000 | Loss: 0.00001870
+Iteration 35/1000 | Loss: 0.00001870
+Iteration 36/1000 | Loss: 0.00001870
+Iteration 37/1000 | Loss: 0.00001870
+Iteration 38/1000 | Loss: 0.00001870
+Iteration 39/1000 | Loss: 0.00001870
+Iteration 40/1000 | Loss: 0.00001870
+Iteration 41/1000 | Loss: 0.00001870
+Iteration 42/1000 | Loss: 0.00001870
+Iteration 43/1000 | Loss: 0.00001869
+Iteration 44/1000 | Loss: 0.00001869
+Iteration 45/1000 | Loss: 0.00001869
+Iteration 46/1000 | Loss: 0.00001867
+Iteration 47/1000 | Loss: 0.00001867
+Iteration 48/1000 | Loss: 0.00001866
+Iteration 49/1000 | Loss: 0.00001866
+Iteration 50/1000 | Loss: 0.00001866
+Iteration 51/1000 | Loss: 0.00001866
+Iteration 52/1000 | Loss: 0.00001865
+Iteration 53/1000 | Loss: 0.00001865
+Iteration 54/1000 | Loss: 0.00001865
+Iteration 55/1000 | Loss: 0.00001865
+Iteration 56/1000 | Loss: 0.00001865
+Iteration 57/1000 | Loss: 0.00001865
+Iteration 58/1000 | Loss: 0.00001864
+Iteration 59/1000 | Loss: 0.00001864
+Iteration 60/1000 | Loss: 0.00001864
+Iteration 61/1000 | Loss: 0.00001864
+Iteration 62/1000 | Loss: 0.00001864
+Iteration 63/1000 | Loss: 0.00001864
+Iteration 64/1000 | Loss: 0.00001864
+Iteration 65/1000 | Loss: 0.00001864
+Iteration 66/1000 | Loss: 0.00001864
+Iteration 67/1000 | Loss: 0.00001864
+Iteration 68/1000 | Loss: 0.00001863
+Iteration 69/1000 | Loss: 0.00001863
+Iteration 70/1000 | Loss: 0.00001863
+Iteration 71/1000 | Loss: 0.00001863
+Iteration 72/1000 | Loss: 0.00001863
+Iteration 73/1000 | Loss: 0.00001863
+Iteration 74/1000 | Loss: 0.00001863
+Iteration 75/1000 | Loss: 0.00001863
+Iteration 76/1000 | Loss: 0.00001863
+Iteration 77/1000 | Loss: 0.00001863
+Iteration 78/1000 | Loss: 0.00001862
+Iteration 79/1000 | Loss: 0.00001862
+Iteration 80/1000 | Loss: 0.00001862
+Iteration 81/1000 | Loss: 0.00001862
+Iteration 82/1000 | Loss: 0.00001862
+Iteration 83/1000 | Loss: 0.00001862
+Iteration 84/1000 | Loss: 0.00001862
+Iteration 85/1000 | Loss: 0.00001862
+Iteration 86/1000 | Loss: 0.00001862
+Iteration 87/1000 | Loss: 0.00001861
+Iteration 88/1000 | Loss: 0.00001861
+Iteration 89/1000 | Loss: 0.00001861
+Iteration 90/1000 | Loss: 0.00001861
+Iteration 91/1000 | Loss: 0.00001861
+Iteration 92/1000 | Loss: 0.00001861
+Iteration 93/1000 | Loss: 0.00001861
+Iteration 94/1000 | Loss: 0.00001861
+Iteration 95/1000 | Loss: 0.00001861
+Iteration 96/1000 | Loss: 0.00001861
+Iteration 97/1000 | Loss: 0.00001861
+Iteration 98/1000 | Loss: 0.00001861
+Iteration 99/1000 | Loss: 0.00001861
+Iteration 100/1000 | Loss: 0.00001860
+Iteration 101/1000 | Loss: 0.00001860
+Iteration 102/1000 | Loss: 0.00001860
+Iteration 103/1000 | Loss: 0.00001860
+Iteration 104/1000 | Loss: 0.00001860
+Iteration 105/1000 | Loss: 0.00001859
+Iteration 106/1000 | Loss: 0.00001859
+Iteration 107/1000 | Loss: 0.00001859
+Iteration 108/1000 | Loss: 0.00001859
+Iteration 109/1000 | Loss: 0.00001859
+Iteration 110/1000 | Loss: 0.00001859
+Iteration 111/1000 | Loss: 0.00001859
+Iteration 112/1000 | Loss: 0.00001859
+Iteration 113/1000 | Loss: 0.00001859
+Iteration 114/1000 | Loss: 0.00001859
+Iteration 115/1000 | Loss: 0.00001858
+Iteration 116/1000 | Loss: 0.00001858
+Iteration 117/1000 | Loss: 0.00001858
+Iteration 118/1000 | Loss: 0.00001858
+Iteration 119/1000 | Loss: 0.00001858
+Iteration 120/1000 | Loss: 0.00001858
+Iteration 121/1000 | Loss: 0.00001858
+Iteration 122/1000 | Loss: 0.00001858
+Iteration 123/1000 | Loss: 0.00001858
+Iteration 124/1000 | Loss: 0.00001858
+Iteration 125/1000 | Loss: 0.00001857
+Iteration 126/1000 | Loss: 0.00001857
+Iteration 127/1000 | Loss: 0.00001857
+Iteration 128/1000 | Loss: 0.00001857
+Iteration 129/1000 | Loss: 0.00001857
+Iteration 130/1000 | Loss: 0.00001857
+Iteration 131/1000 | Loss: 0.00001857
+Iteration 132/1000 | Loss: 0.00001857
+Iteration 133/1000 | Loss: 0.00001857
+Iteration 134/1000 | Loss: 0.00001857
+Iteration 135/1000 | Loss: 0.00001857
+Iteration 136/1000 | Loss: 0.00001857
+Iteration 137/1000 | Loss: 0.00001857
+Iteration 138/1000 | Loss: 0.00001857
+Iteration 139/1000 | Loss: 0.00001857
+Iteration 140/1000 | Loss: 0.00001857
+Iteration 141/1000 | Loss: 0.00001857
+Iteration 142/1000 | Loss: 0.00001856
+Iteration 143/1000 | Loss: 0.00001856
+Iteration 144/1000 | Loss: 0.00001856
+Iteration 145/1000 | Loss: 0.00001856
+Iteration 146/1000 | Loss: 0.00001856
+Iteration 147/1000 | Loss: 0.00001856
+Iteration 148/1000 | Loss: 0.00001856
+Iteration 149/1000 | Loss: 0.00001856
+Iteration 150/1000 | Loss: 0.00001856
+Iteration 151/1000 | Loss: 0.00001856
+Iteration 152/1000 | Loss: 0.00001856
+Iteration 153/1000 | Loss: 0.00001856
+Iteration 154/1000 | Loss: 0.00001856
+Iteration 155/1000 | Loss: 0.00001856
+Iteration 156/1000 | Loss: 0.00001856
+Iteration 157/1000 | Loss: 0.00001856
+Iteration 158/1000 | Loss: 0.00001856
+Iteration 159/1000 | Loss: 0.00001856
+Iteration 160/1000 | Loss: 0.00001856
+Iteration 161/1000 | Loss: 0.00001856
+Iteration 162/1000 | Loss: 0.00001856
+Iteration 163/1000 | Loss: 0.00001856
+Iteration 164/1000 | Loss: 0.00001856
+Iteration 165/1000 | Loss: 0.00001856
+Iteration 166/1000 | Loss: 0.00001856
+Iteration 167/1000 | Loss: 0.00001856
+Iteration 168/1000 | Loss: 0.00001856
+Iteration 169/1000 | Loss: 0.00001856
+Iteration 170/1000 | Loss: 0.00001856
+Iteration 171/1000 | Loss: 0.00001856
+Iteration 172/1000 | Loss: 0.00001856
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 172. Stopping optimization.
+Last 5 losses: [1.855687878560275e-05, 1.855687878560275e-05, 1.855687878560275e-05, 1.855687878560275e-05, 1.855687878560275e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 1.855687878560275e-05
+
+Optimization complete. Final v2v error: 3.699773073196411 mm
+
+Highest mean error: 4.048971176147461 mm for frame 8
+
+Lowest mean error: 3.22306752204895 mm for frame 91
+
+Saving results
+
+Total time: 35.04766035079956
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0005/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0005.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0005
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00444522
+Iteration 2/25 | Loss: 0.00141388
+Iteration 3/25 | Loss: 0.00112777
+Iteration 4/25 | Loss: 0.00107994
+Iteration 5/25 | Loss: 0.00106960
+Iteration 6/25 | Loss: 0.00106615
+Iteration 7/25 | Loss: 0.00106486
+Iteration 8/25 | Loss: 0.00106477
+Iteration 9/25 | Loss: 0.00106477
+Iteration 10/25 | Loss: 0.00106477
+Iteration 11/25 | Loss: 0.00106477
+Iteration 12/25 | Loss: 0.00106477
+Iteration 13/25 | Loss: 0.00106477
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 13. Stopping optimization.
+Last 5 losses: [0.001064770040102303, 0.001064770040102303, 0.001064770040102303, 0.001064770040102303, 0.001064770040102303]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.001064770040102303
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.37206042
+Iteration 2/25 | Loss: 0.00063409
+Iteration 3/25 | Loss: 0.00063409
+Iteration 4/25 | Loss: 0.00063409
+Iteration 5/25 | Loss: 0.00063409
+Iteration 6/25 | Loss: 0.00063409
+Iteration 7/25 | Loss: 0.00063409
+Iteration 8/25 | Loss: 0.00063409
+Iteration 9/25 | Loss: 0.00063409
+Iteration 10/25 | Loss: 0.00063409
+Iteration 11/25 | Loss: 0.00063409
+Iteration 12/25 | Loss: 0.00063409
+Iteration 13/25 | Loss: 0.00063409
+Iteration 14/25 | Loss: 0.00063409
+Iteration 15/25 | Loss: 0.00063409
+Iteration 16/25 | Loss: 0.00063409
+Iteration 17/25 | Loss: 0.00063409
+Iteration 18/25 | Loss: 0.00063409
+Iteration 19/25 | Loss: 0.00063409
+Iteration 20/25 | Loss: 0.00063409
+Iteration 21/25 | Loss: 0.00063409
+Iteration 22/25 | Loss: 0.00063409
+Iteration 23/25 | Loss: 0.00063409
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 23. Stopping optimization.
+Last 5 losses: [0.0006340864347293973, 0.0006340864347293973, 0.0006340864347293973, 0.0006340864347293973, 0.0006340864347293973]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0006340864347293973
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00063409
+Iteration 2/1000 | Loss: 0.00003212
+Iteration 3/1000 | Loss: 0.00002455
+Iteration 4/1000 | Loss: 0.00002142
+Iteration 5/1000 | Loss: 0.00002006
+Iteration 6/1000 | Loss: 0.00001942
+Iteration 7/1000 | Loss: 0.00001882
+Iteration 8/1000 | Loss: 0.00001840
+Iteration 9/1000 | Loss: 0.00001819
+Iteration 10/1000 | Loss: 0.00001807
+Iteration 11/1000 | Loss: 0.00001789
+Iteration 12/1000 | Loss: 0.00001781
+Iteration 13/1000 | Loss: 0.00001780
+Iteration 14/1000 | Loss: 0.00001779
+Iteration 15/1000 | Loss: 0.00001778
+Iteration 16/1000 | Loss: 0.00001778
+Iteration 17/1000 | Loss: 0.00001777
+Iteration 18/1000 | Loss: 0.00001775
+Iteration 19/1000 | Loss: 0.00001775
+Iteration 20/1000 | Loss: 0.00001774
+Iteration 21/1000 | Loss: 0.00001766
+Iteration 22/1000 | Loss: 0.00001766
+Iteration 23/1000 | Loss: 0.00001766
+Iteration 24/1000 | Loss: 0.00001764
+Iteration 25/1000 | Loss: 0.00001764
+Iteration 26/1000 | Loss: 0.00001764
+Iteration 27/1000 | Loss: 0.00001763
+Iteration 28/1000 | Loss: 0.00001763
+Iteration 29/1000 | Loss: 0.00001763
+Iteration 30/1000 | Loss: 0.00001763
+Iteration 31/1000 | Loss: 0.00001763
+Iteration 32/1000 | Loss: 0.00001762
+Iteration 33/1000 | Loss: 0.00001762
+Iteration 34/1000 | Loss: 0.00001761
+Iteration 35/1000 | Loss: 0.00001761
+Iteration 36/1000 | Loss: 0.00001761
+Iteration 37/1000 | Loss: 0.00001760
+Iteration 38/1000 | Loss: 0.00001760
+Iteration 39/1000 | Loss: 0.00001760
+Iteration 40/1000 | Loss: 0.00001759
+Iteration 41/1000 | Loss: 0.00001757
+Iteration 42/1000 | Loss: 0.00001757
+Iteration 43/1000 | Loss: 0.00001756
+Iteration 44/1000 | Loss: 0.00001756
+Iteration 45/1000 | Loss: 0.00001755
+Iteration 46/1000 | Loss: 0.00001755
+Iteration 47/1000 | Loss: 0.00001754
+Iteration 48/1000 | Loss: 0.00001754
+Iteration 49/1000 | Loss: 0.00001754
+Iteration 50/1000 | Loss: 0.00001754
+Iteration 51/1000 | Loss: 0.00001754
+Iteration 52/1000 | Loss: 0.00001754
+Iteration 53/1000 | Loss: 0.00001753
+Iteration 54/1000 | Loss: 0.00001753
+Iteration 55/1000 | Loss: 0.00001753
+Iteration 56/1000 | Loss: 0.00001753
+Iteration 57/1000 | Loss: 0.00001752
+Iteration 58/1000 | Loss: 0.00001752
+Iteration 59/1000 | Loss: 0.00001752
+Iteration 60/1000 | Loss: 0.00001752
+Iteration 61/1000 | Loss: 0.00001752
+Iteration 62/1000 | Loss: 0.00001751
+Iteration 63/1000 | Loss: 0.00001751
+Iteration 64/1000 | Loss: 0.00001751
+Iteration 65/1000 | Loss: 0.00001751
+Iteration 66/1000 | Loss: 0.00001751
+Iteration 67/1000 | Loss: 0.00001751
+Iteration 68/1000 | Loss: 0.00001751
+Iteration 69/1000 | Loss: 0.00001751
+Iteration 70/1000 | Loss: 0.00001751
+Iteration 71/1000 | Loss: 0.00001750
+Iteration 72/1000 | Loss: 0.00001750
+Iteration 73/1000 | Loss: 0.00001750
+Iteration 74/1000 | Loss: 0.00001750
+Iteration 75/1000 | Loss: 0.00001750
+Iteration 76/1000 | Loss: 0.00001750
+Iteration 77/1000 | Loss: 0.00001750
+Iteration 78/1000 | Loss: 0.00001750
+Iteration 79/1000 | Loss: 0.00001749
+Iteration 80/1000 | Loss: 0.00001749
+Iteration 81/1000 | Loss: 0.00001749
+Iteration 82/1000 | Loss: 0.00001748
+Iteration 83/1000 | Loss: 0.00001748
+Iteration 84/1000 | Loss: 0.00001748
+Iteration 85/1000 | Loss: 0.00001748
+Iteration 86/1000 | Loss: 0.00001748
+Iteration 87/1000 | Loss: 0.00001747
+Iteration 88/1000 | Loss: 0.00001747
+Iteration 89/1000 | Loss: 0.00001747
+Iteration 90/1000 | Loss: 0.00001746
+Iteration 91/1000 | Loss: 0.00001746
+Iteration 92/1000 | Loss: 0.00001745
+Iteration 93/1000 | Loss: 0.00001745
+Iteration 94/1000 | Loss: 0.00001745
+Iteration 95/1000 | Loss: 0.00001745
+Iteration 96/1000 | Loss: 0.00001745
+Iteration 97/1000 | Loss: 0.00001744
+Iteration 98/1000 | Loss: 0.00001744
+Iteration 99/1000 | Loss: 0.00001744
+Iteration 100/1000 | Loss: 0.00001744
+Iteration 101/1000 | Loss: 0.00001744
+Iteration 102/1000 | Loss: 0.00001744
+Iteration 103/1000 | Loss: 0.00001744
+Iteration 104/1000 | Loss: 0.00001743
+Iteration 105/1000 | Loss: 0.00001743
+Iteration 106/1000 | Loss: 0.00001743
+Iteration 107/1000 | Loss: 0.00001743
+Iteration 108/1000 | Loss: 0.00001743
+Iteration 109/1000 | Loss: 0.00001742
+Iteration 110/1000 | Loss: 0.00001742
+Iteration 111/1000 | Loss: 0.00001742
+Iteration 112/1000 | Loss: 0.00001742
+Iteration 113/1000 | Loss: 0.00001742
+Iteration 114/1000 | Loss: 0.00001742
+Iteration 115/1000 | Loss: 0.00001741
+Iteration 116/1000 | Loss: 0.00001741
+Iteration 117/1000 | Loss: 0.00001741
+Iteration 118/1000 | Loss: 0.00001741
+Iteration 119/1000 | Loss: 0.00001741
+Iteration 120/1000 | Loss: 0.00001741
+Iteration 121/1000 | Loss: 0.00001741
+Iteration 122/1000 | Loss: 0.00001741
+Iteration 123/1000 | Loss: 0.00001741
+Iteration 124/1000 | Loss: 0.00001741
+Iteration 125/1000 | Loss: 0.00001741
+Iteration 126/1000 | Loss: 0.00001741
+Iteration 127/1000 | Loss: 0.00001741
+Iteration 128/1000 | Loss: 0.00001741
+Iteration 129/1000 | Loss: 0.00001741
+Iteration 130/1000 | Loss: 0.00001741
+Iteration 131/1000 | Loss: 0.00001741
+Iteration 132/1000 | Loss: 0.00001741
+Iteration 133/1000 | Loss: 0.00001741
+Iteration 134/1000 | Loss: 0.00001741
+Iteration 135/1000 | Loss: 0.00001741
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 135. Stopping optimization.
+Last 5 losses: [1.7407917766831815e-05, 1.7407917766831815e-05, 1.7407917766831815e-05, 1.7407917766831815e-05, 1.7407917766831815e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 1.7407917766831815e-05
+
+Optimization complete. Final v2v error: 3.501163959503174 mm
+
+Highest mean error: 4.079569339752197 mm for frame 98
+
+Lowest mean error: 3.0934813022613525 mm for frame 42
+
+Saving results
+
+Total time: 38.37889313697815
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0003/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0003.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0003
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00865940
+Iteration 2/25 | Loss: 0.00138522
+Iteration 3/25 | Loss: 0.00113443
+Iteration 4/25 | Loss: 0.00111134
+Iteration 5/25 | Loss: 0.00110723
+Iteration 6/25 | Loss: 0.00110595
+Iteration 7/25 | Loss: 0.00110595
+Iteration 8/25 | Loss: 0.00110595
+Iteration 9/25 | Loss: 0.00110595
+Iteration 10/25 | Loss: 0.00110595
+Iteration 11/25 | Loss: 0.00110595
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 11. Stopping optimization.
+Last 5 losses: [0.0011059521930292249, 0.0011059521930292249, 0.0011059521930292249, 0.0011059521930292249, 0.0011059521930292249]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0011059521930292249
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.36937165
+Iteration 2/25 | Loss: 0.00080795
+Iteration 3/25 | Loss: 0.00080794
+Iteration 4/25 | Loss: 0.00080794
+Iteration 5/25 | Loss: 0.00080794
+Iteration 6/25 | Loss: 0.00080794
+Iteration 7/25 | Loss: 0.00080794
+Iteration 8/25 | Loss: 0.00080794
+Iteration 9/25 | Loss: 0.00080794
+Iteration 10/25 | Loss: 0.00080794
+Iteration 11/25 | Loss: 0.00080794
+Iteration 12/25 | Loss: 0.00080794
+Iteration 13/25 | Loss: 0.00080794
+Iteration 14/25 | Loss: 0.00080794
+Iteration 15/25 | Loss: 0.00080794
+Iteration 16/25 | Loss: 0.00080794
+Iteration 17/25 | Loss: 0.00080794
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 17. Stopping optimization.
+Last 5 losses: [0.0008079381659626961, 0.0008079381659626961, 0.0008079381659626961, 0.0008079381659626961, 0.0008079381659626961]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0008079381659626961
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00080794
+Iteration 2/1000 | Loss: 0.00003960
+Iteration 3/1000 | Loss: 0.00003034
+Iteration 4/1000 | Loss: 0.00002829
+Iteration 5/1000 | Loss: 0.00002718
+Iteration 6/1000 | Loss: 0.00002632
+Iteration 7/1000 | Loss: 0.00002588
+Iteration 8/1000 | Loss: 0.00002556
+Iteration 9/1000 | Loss: 0.00002524
+Iteration 10/1000 | Loss: 0.00002502
+Iteration 11/1000 | Loss: 0.00002489
+Iteration 12/1000 | Loss: 0.00002489
+Iteration 13/1000 | Loss: 0.00002488
+Iteration 14/1000 | Loss: 0.00002488
+Iteration 15/1000 | Loss: 0.00002485
+Iteration 16/1000 | Loss: 0.00002484
+Iteration 17/1000 | Loss: 0.00002484
+Iteration 18/1000 | Loss: 0.00002484
+Iteration 19/1000 | Loss: 0.00002484
+Iteration 20/1000 | Loss: 0.00002483
+Iteration 21/1000 | Loss: 0.00002483
+Iteration 22/1000 | Loss: 0.00002483
+Iteration 23/1000 | Loss: 0.00002483
+Iteration 24/1000 | Loss: 0.00002483
+Iteration 25/1000 | Loss: 0.00002482
+Iteration 26/1000 | Loss: 0.00002482
+Iteration 27/1000 | Loss: 0.00002482
+Iteration 28/1000 | Loss: 0.00002482
+Iteration 29/1000 | Loss: 0.00002482
+Iteration 30/1000 | Loss: 0.00002482
+Iteration 31/1000 | Loss: 0.00002482
+Iteration 32/1000 | Loss: 0.00002482
+Iteration 33/1000 | Loss: 0.00002482
+Iteration 34/1000 | Loss: 0.00002482
+Iteration 35/1000 | Loss: 0.00002482
+Iteration 36/1000 | Loss: 0.00002482
+Iteration 37/1000 | Loss: 0.00002481
+Iteration 38/1000 | Loss: 0.00002481
+Iteration 39/1000 | Loss: 0.00002481
+Iteration 40/1000 | Loss: 0.00002481
+Iteration 41/1000 | Loss: 0.00002480
+Iteration 42/1000 | Loss: 0.00002480
+Iteration 43/1000 | Loss: 0.00002480
+Iteration 44/1000 | Loss: 0.00002480
+Iteration 45/1000 | Loss: 0.00002480
+Iteration 46/1000 | Loss: 0.00002480
+Iteration 47/1000 | Loss: 0.00002479
+Iteration 48/1000 | Loss: 0.00002479
+Iteration 49/1000 | Loss: 0.00002478
+Iteration 50/1000 | Loss: 0.00002478
+Iteration 51/1000 | Loss: 0.00002478
+Iteration 52/1000 | Loss: 0.00002477
+Iteration 53/1000 | Loss: 0.00002477
+Iteration 54/1000 | Loss: 0.00002477
+Iteration 55/1000 | Loss: 0.00002477
+Iteration 56/1000 | Loss: 0.00002477
+Iteration 57/1000 | Loss: 0.00002476
+Iteration 58/1000 | Loss: 0.00002476
+Iteration 59/1000 | Loss: 0.00002476
+Iteration 60/1000 | Loss: 0.00002476
+Iteration 61/1000 | Loss: 0.00002476
+Iteration 62/1000 | Loss: 0.00002476
+Iteration 63/1000 | Loss: 0.00002476
+Iteration 64/1000 | Loss: 0.00002476
+Iteration 65/1000 | Loss: 0.00002476
+Iteration 66/1000 | Loss: 0.00002475
+Iteration 67/1000 | Loss: 0.00002475
+Iteration 68/1000 | Loss: 0.00002475
+Iteration 69/1000 | Loss: 0.00002475
+Iteration 70/1000 | Loss: 0.00002475
+Iteration 71/1000 | Loss: 0.00002475
+Iteration 72/1000 | Loss: 0.00002474
+Iteration 73/1000 | Loss: 0.00002474
+Iteration 74/1000 | Loss: 0.00002473
+Iteration 75/1000 | Loss: 0.00002473
+Iteration 76/1000 | Loss: 0.00002473
+Iteration 77/1000 | Loss: 0.00002473
+Iteration 78/1000 | Loss: 0.00002473
+Iteration 79/1000 | Loss: 0.00002473
+Iteration 80/1000 | Loss: 0.00002473
+Iteration 81/1000 | Loss: 0.00002473
+Iteration 82/1000 | Loss: 0.00002473
+Iteration 83/1000 | Loss: 0.00002472
+Iteration 84/1000 | Loss: 0.00002471
+Iteration 85/1000 | Loss: 0.00002471
+Iteration 86/1000 | Loss: 0.00002471
+Iteration 87/1000 | Loss: 0.00002471
+Iteration 88/1000 | Loss: 0.00002471
+Iteration 89/1000 | Loss: 0.00002471
+Iteration 90/1000 | Loss: 0.00002471
+Iteration 91/1000 | Loss: 0.00002471
+Iteration 92/1000 | Loss: 0.00002471
+Iteration 93/1000 | Loss: 0.00002471
+Iteration 94/1000 | Loss: 0.00002471
+Iteration 95/1000 | Loss: 0.00002470
+Iteration 96/1000 | Loss: 0.00002470
+Iteration 97/1000 | Loss: 0.00002470
+Iteration 98/1000 | Loss: 0.00002470
+Iteration 99/1000 | Loss: 0.00002470
+Iteration 100/1000 | Loss: 0.00002470
+Iteration 101/1000 | Loss: 0.00002470
+Iteration 102/1000 | Loss: 0.00002470
+Iteration 103/1000 | Loss: 0.00002470
+Iteration 104/1000 | Loss: 0.00002470
+Iteration 105/1000 | Loss: 0.00002469
+Iteration 106/1000 | Loss: 0.00002469
+Iteration 107/1000 | Loss: 0.00002469
+Iteration 108/1000 | Loss: 0.00002469
+Iteration 109/1000 | Loss: 0.00002469
+Iteration 110/1000 | Loss: 0.00002469
+Iteration 111/1000 | Loss: 0.00002469
+Iteration 112/1000 | Loss: 0.00002468
+Iteration 113/1000 | Loss: 0.00002468
+Iteration 114/1000 | Loss: 0.00002468
+Iteration 115/1000 | Loss: 0.00002468
+Iteration 116/1000 | Loss: 0.00002468
+Iteration 117/1000 | Loss: 0.00002468
+Iteration 118/1000 | Loss: 0.00002468
+Iteration 119/1000 | Loss: 0.00002468
+Iteration 120/1000 | Loss: 0.00002468
+Iteration 121/1000 | Loss: 0.00002468
+Iteration 122/1000 | Loss: 0.00002467
+Iteration 123/1000 | Loss: 0.00002467
+Iteration 124/1000 | Loss: 0.00002467
+Iteration 125/1000 | Loss: 0.00002467
+Iteration 126/1000 | Loss: 0.00002467
+Iteration 127/1000 | Loss: 0.00002466
+Iteration 128/1000 | Loss: 0.00002466
+Iteration 129/1000 | Loss: 0.00002466
+Iteration 130/1000 | Loss: 0.00002466
+Iteration 131/1000 | Loss: 0.00002466
+Iteration 132/1000 | Loss: 0.00002466
+Iteration 133/1000 | Loss: 0.00002466
+Iteration 134/1000 | Loss: 0.00002466
+Iteration 135/1000 | Loss: 0.00002465
+Iteration 136/1000 | Loss: 0.00002465
+Iteration 137/1000 | Loss: 0.00002465
+Iteration 138/1000 | Loss: 0.00002465
+Iteration 139/1000 | Loss: 0.00002464
+Iteration 140/1000 | Loss: 0.00002464
+Iteration 141/1000 | Loss: 0.00002464
+Iteration 142/1000 | Loss: 0.00002464
+Iteration 143/1000 | Loss: 0.00002463
+Iteration 144/1000 | Loss: 0.00002463
+Iteration 145/1000 | Loss: 0.00002463
+Iteration 146/1000 | Loss: 0.00002463
+Iteration 147/1000 | Loss: 0.00002463
+Iteration 148/1000 | Loss: 0.00002463
+Iteration 149/1000 | Loss: 0.00002462
+Iteration 150/1000 | Loss: 0.00002462
+Iteration 151/1000 | Loss: 0.00002462
+Iteration 152/1000 | Loss: 0.00002462
+Iteration 153/1000 | Loss: 0.00002461
+Iteration 154/1000 | Loss: 0.00002461
+Iteration 155/1000 | Loss: 0.00002461
+Iteration 156/1000 | Loss: 0.00002461
+Iteration 157/1000 | Loss: 0.00002461
+Iteration 158/1000 | Loss: 0.00002461
+Iteration 159/1000 | Loss: 0.00002461
+Iteration 160/1000 | Loss: 0.00002461
+Iteration 161/1000 | Loss: 0.00002461
+Iteration 162/1000 | Loss: 0.00002461
+Iteration 163/1000 | Loss: 0.00002461
+Iteration 164/1000 | Loss: 0.00002461
+Iteration 165/1000 | Loss: 0.00002461
+Iteration 166/1000 | Loss: 0.00002461
+Iteration 167/1000 | Loss: 0.00002461
+Iteration 168/1000 | Loss: 0.00002461
+Iteration 169/1000 | Loss: 0.00002461
+Iteration 170/1000 | Loss: 0.00002461
+Iteration 171/1000 | Loss: 0.00002461
+Iteration 172/1000 | Loss: 0.00002461
+Iteration 173/1000 | Loss: 0.00002461
+Iteration 174/1000 | Loss: 0.00002461
+Iteration 175/1000 | Loss: 0.00002461
+Iteration 176/1000 | Loss: 0.00002461
+Iteration 177/1000 | Loss: 0.00002461
+Iteration 178/1000 | Loss: 0.00002461
+Iteration 179/1000 | Loss: 0.00002461
+Iteration 180/1000 | Loss: 0.00002461
+Iteration 181/1000 | Loss: 0.00002461
+Iteration 182/1000 | Loss: 0.00002461
+Iteration 183/1000 | Loss: 0.00002461
+Iteration 184/1000 | Loss: 0.00002461
+Iteration 185/1000 | Loss: 0.00002461
+Iteration 186/1000 | Loss: 0.00002461
+Iteration 187/1000 | Loss: 0.00002461
+Iteration 188/1000 | Loss: 0.00002461
+Iteration 189/1000 | Loss: 0.00002461
+Iteration 190/1000 | Loss: 0.00002461
+Iteration 191/1000 | Loss: 0.00002461
+Iteration 192/1000 | Loss: 0.00002461
+Iteration 193/1000 | Loss: 0.00002461
+Iteration 194/1000 | Loss: 0.00002461
+Iteration 195/1000 | Loss: 0.00002461
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 195. Stopping optimization.
+Last 5 losses: [2.4608802050352097e-05, 2.4608802050352097e-05, 2.4608802050352097e-05, 2.4608802050352097e-05, 2.4608802050352097e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.4608802050352097e-05
+
+Optimization complete. Final v2v error: 4.217741012573242 mm
+
+Highest mean error: 4.6548967361450195 mm for frame 162
+
+Lowest mean error: 3.745281457901001 mm for frame 202
+
+Saving results
+
+Total time: 41.07001805305481
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0019/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0019.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0019
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00891212
+Iteration 2/25 | Loss: 0.00117182
+Iteration 3/25 | Loss: 0.00106634
+Iteration 4/25 | Loss: 0.00105573
+Iteration 5/25 | Loss: 0.00105200
+Iteration 6/25 | Loss: 0.00105108
+Iteration 7/25 | Loss: 0.00105108
+Iteration 8/25 | Loss: 0.00105108
+Iteration 9/25 | Loss: 0.00105108
+Iteration 10/25 | Loss: 0.00105108
+Iteration 11/25 | Loss: 0.00105108
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 11. Stopping optimization.
+Last 5 losses: [0.0010510815773159266, 0.0010510815773159266, 0.0010510815773159266, 0.0010510815773159266, 0.0010510815773159266]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0010510815773159266
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.37434435
+Iteration 2/25 | Loss: 0.00066408
+Iteration 3/25 | Loss: 0.00066408
+Iteration 4/25 | Loss: 0.00066408
+Iteration 5/25 | Loss: 0.00066408
+Iteration 6/25 | Loss: 0.00066408
+Iteration 7/25 | Loss: 0.00066408
+Iteration 8/25 | Loss: 0.00066408
+Iteration 9/25 | Loss: 0.00066408
+Iteration 10/25 | Loss: 0.00066408
+Iteration 11/25 | Loss: 0.00066408
+Iteration 12/25 | Loss: 0.00066408
+Iteration 13/25 | Loss: 0.00066408
+Iteration 14/25 | Loss: 0.00066408
+Iteration 15/25 | Loss: 0.00066408
+Iteration 16/25 | Loss: 0.00066408
+Iteration 17/25 | Loss: 0.00066408
+Iteration 18/25 | Loss: 0.00066408
+Iteration 19/25 | Loss: 0.00066408
+Iteration 20/25 | Loss: 0.00066408
+Iteration 21/25 | Loss: 0.00066408
+Iteration 22/25 | Loss: 0.00066408
+Iteration 23/25 | Loss: 0.00066408
+Iteration 24/25 | Loss: 0.00066408
+Iteration 25/25 | Loss: 0.00066408
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00066408
+Iteration 2/1000 | Loss: 0.00004040
+Iteration 3/1000 | Loss: 0.00002671
+Iteration 4/1000 | Loss: 0.00002218
+Iteration 5/1000 | Loss: 0.00002064
+Iteration 6/1000 | Loss: 0.00001986
+Iteration 7/1000 | Loss: 0.00001951
+Iteration 8/1000 | Loss: 0.00001916
+Iteration 9/1000 | Loss: 0.00001901
+Iteration 10/1000 | Loss: 0.00001897
+Iteration 11/1000 | Loss: 0.00001889
+Iteration 12/1000 | Loss: 0.00001889
+Iteration 13/1000 | Loss: 0.00001887
+Iteration 14/1000 | Loss: 0.00001881
+Iteration 15/1000 | Loss: 0.00001880
+Iteration 16/1000 | Loss: 0.00001879
+Iteration 17/1000 | Loss: 0.00001875
+Iteration 18/1000 | Loss: 0.00001872
+Iteration 19/1000 | Loss: 0.00001871
+Iteration 20/1000 | Loss: 0.00001870
+Iteration 21/1000 | Loss: 0.00001870
+Iteration 22/1000 | Loss: 0.00001869
+Iteration 23/1000 | Loss: 0.00001868
+Iteration 24/1000 | Loss: 0.00001868
+Iteration 25/1000 | Loss: 0.00001868
+Iteration 26/1000 | Loss: 0.00001868
+Iteration 27/1000 | Loss: 0.00001868
+Iteration 28/1000 | Loss: 0.00001867
+Iteration 29/1000 | Loss: 0.00001867
+Iteration 30/1000 | Loss: 0.00001866
+Iteration 31/1000 | Loss: 0.00001866
+Iteration 32/1000 | Loss: 0.00001865
+Iteration 33/1000 | Loss: 0.00001863
+Iteration 34/1000 | Loss: 0.00001863
+Iteration 35/1000 | Loss: 0.00001863
+Iteration 36/1000 | Loss: 0.00001863
+Iteration 37/1000 | Loss: 0.00001863
+Iteration 38/1000 | Loss: 0.00001863
+Iteration 39/1000 | Loss: 0.00001863
+Iteration 40/1000 | Loss: 0.00001863
+Iteration 41/1000 | Loss: 0.00001863
+Iteration 42/1000 | Loss: 0.00001863
+Iteration 43/1000 | Loss: 0.00001863
+Iteration 44/1000 | Loss: 0.00001861
+Iteration 45/1000 | Loss: 0.00001861
+Iteration 46/1000 | Loss: 0.00001860
+Iteration 47/1000 | Loss: 0.00001859
+Iteration 48/1000 | Loss: 0.00001859
+Iteration 49/1000 | Loss: 0.00001859
+Iteration 50/1000 | Loss: 0.00001859
+Iteration 51/1000 | Loss: 0.00001858
+Iteration 52/1000 | Loss: 0.00001858
+Iteration 53/1000 | Loss: 0.00001857
+Iteration 54/1000 | Loss: 0.00001857
+Iteration 55/1000 | Loss: 0.00001856
+Iteration 56/1000 | Loss: 0.00001856
+Iteration 57/1000 | Loss: 0.00001855
+Iteration 58/1000 | Loss: 0.00001855
+Iteration 59/1000 | Loss: 0.00001855
+Iteration 60/1000 | Loss: 0.00001855
+Iteration 61/1000 | Loss: 0.00001855
+Iteration 62/1000 | Loss: 0.00001855
+Iteration 63/1000 | Loss: 0.00001855
+Iteration 64/1000 | Loss: 0.00001854
+Iteration 65/1000 | Loss: 0.00001854
+Iteration 66/1000 | Loss: 0.00001854
+Iteration 67/1000 | Loss: 0.00001853
+Iteration 68/1000 | Loss: 0.00001853
+Iteration 69/1000 | Loss: 0.00001853
+Iteration 70/1000 | Loss: 0.00001853
+Iteration 71/1000 | Loss: 0.00001853
+Iteration 72/1000 | Loss: 0.00001853
+Iteration 73/1000 | Loss: 0.00001853
+Iteration 74/1000 | Loss: 0.00001853
+Iteration 75/1000 | Loss: 0.00001853
+Iteration 76/1000 | Loss: 0.00001853
+Iteration 77/1000 | Loss: 0.00001853
+Iteration 78/1000 | Loss: 0.00001852
+Iteration 79/1000 | Loss: 0.00001852
+Iteration 80/1000 | Loss: 0.00001852
+Iteration 81/1000 | Loss: 0.00001852
+Iteration 82/1000 | Loss: 0.00001852
+Iteration 83/1000 | Loss: 0.00001852
+Iteration 84/1000 | Loss: 0.00001852
+Iteration 85/1000 | Loss: 0.00001852
+Iteration 86/1000 | Loss: 0.00001852
+Iteration 87/1000 | Loss: 0.00001852
+Iteration 88/1000 | Loss: 0.00001852
+Iteration 89/1000 | Loss: 0.00001852
+Iteration 90/1000 | Loss: 0.00001852
+Iteration 91/1000 | Loss: 0.00001852
+Iteration 92/1000 | Loss: 0.00001852
+Iteration 93/1000 | Loss: 0.00001852
+Iteration 94/1000 | Loss: 0.00001852
+Iteration 95/1000 | Loss: 0.00001852
+Iteration 96/1000 | Loss: 0.00001852
+Iteration 97/1000 | Loss: 0.00001852
+Iteration 98/1000 | Loss: 0.00001852
+Iteration 99/1000 | Loss: 0.00001852
+Iteration 100/1000 | Loss: 0.00001852
+Iteration 101/1000 | Loss: 0.00001852
+Iteration 102/1000 | Loss: 0.00001852
+Iteration 103/1000 | Loss: 0.00001852
+Iteration 104/1000 | Loss: 0.00001852
+Iteration 105/1000 | Loss: 0.00001852
+Iteration 106/1000 | Loss: 0.00001852
+Iteration 107/1000 | Loss: 0.00001852
+Iteration 108/1000 | Loss: 0.00001852
+Iteration 109/1000 | Loss: 0.00001852
+Iteration 110/1000 | Loss: 0.00001852
+Iteration 111/1000 | Loss: 0.00001852
+Iteration 112/1000 | Loss: 0.00001852
+Iteration 113/1000 | Loss: 0.00001852
+Iteration 114/1000 | Loss: 0.00001852
+Iteration 115/1000 | Loss: 0.00001852
+Iteration 116/1000 | Loss: 0.00001852
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 116. Stopping optimization.
+Last 5 losses: [1.8523614926380105e-05, 1.8523614926380105e-05, 1.8523614926380105e-05, 1.8523614926380105e-05, 1.8523614926380105e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 1.8523614926380105e-05
+
+Optimization complete. Final v2v error: 3.673720598220825 mm
+
+Highest mean error: 3.9495387077331543 mm for frame 4
+
+Lowest mean error: 3.4541091918945312 mm for frame 125
+
+Saving results
+
+Total time: 29.730066061019897
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0008/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0008.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0008
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00451263
+Iteration 2/25 | Loss: 0.00133420
+Iteration 3/25 | Loss: 0.00117936
+Iteration 4/25 | Loss: 0.00115265
+Iteration 5/25 | Loss: 0.00114251
+Iteration 6/25 | Loss: 0.00114064
+Iteration 7/25 | Loss: 0.00113983
+Iteration 8/25 | Loss: 0.00113983
+Iteration 9/25 | Loss: 0.00113983
+Iteration 10/25 | Loss: 0.00113983
+Iteration 11/25 | Loss: 0.00113983
+Iteration 12/25 | Loss: 0.00113983
+Iteration 13/25 | Loss: 0.00113983
+Iteration 14/25 | Loss: 0.00113983
+Iteration 15/25 | Loss: 0.00113983
+Iteration 16/25 | Loss: 0.00113983
+Iteration 17/25 | Loss: 0.00113983
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 17. Stopping optimization.
+Last 5 losses: [0.0011398326605558395, 0.0011398326605558395, 0.0011398326605558395, 0.0011398326605558395, 0.0011398326605558395]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0011398326605558395
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 5.85821295
+Iteration 2/25 | Loss: 0.00068758
+Iteration 3/25 | Loss: 0.00068755
+Iteration 4/25 | Loss: 0.00068755
+Iteration 5/25 | Loss: 0.00068755
+Iteration 6/25 | Loss: 0.00068755
+Iteration 7/25 | Loss: 0.00068755
+Iteration 8/25 | Loss: 0.00068755
+Iteration 9/25 | Loss: 0.00068755
+Iteration 10/25 | Loss: 0.00068754
+Iteration 11/25 | Loss: 0.00068754
+Iteration 12/25 | Loss: 0.00068754
+Iteration 13/25 | Loss: 0.00068754
+Iteration 14/25 | Loss: 0.00068754
+Iteration 15/25 | Loss: 0.00068754
+Iteration 16/25 | Loss: 0.00068754
+Iteration 17/25 | Loss: 0.00068754
+Iteration 18/25 | Loss: 0.00068754
+Iteration 19/25 | Loss: 0.00068754
+Iteration 20/25 | Loss: 0.00068754
+Iteration 21/25 | Loss: 0.00068754
+Iteration 22/25 | Loss: 0.00068754
+Iteration 23/25 | Loss: 0.00068754
+Iteration 24/25 | Loss: 0.00068754
+Iteration 25/25 | Loss: 0.00068754
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00068754
+Iteration 2/1000 | Loss: 0.00006246
+Iteration 3/1000 | Loss: 0.00004561
+Iteration 4/1000 | Loss: 0.00004158
+Iteration 5/1000 | Loss: 0.00003941
+Iteration 6/1000 | Loss: 0.00003857
+Iteration 7/1000 | Loss: 0.00003773
+Iteration 8/1000 | Loss: 0.00003713
+Iteration 9/1000 | Loss: 0.00003673
+Iteration 10/1000 | Loss: 0.00003650
+Iteration 11/1000 | Loss: 0.00003635
+Iteration 12/1000 | Loss: 0.00003633
+Iteration 13/1000 | Loss: 0.00003629
+Iteration 14/1000 | Loss: 0.00003629
+Iteration 15/1000 | Loss: 0.00003629
+Iteration 16/1000 | Loss: 0.00003628
+Iteration 17/1000 | Loss: 0.00003628
+Iteration 18/1000 | Loss: 0.00003628
+Iteration 19/1000 | Loss: 0.00003627
+Iteration 20/1000 | Loss: 0.00003627
+Iteration 21/1000 | Loss: 0.00003626
+Iteration 22/1000 | Loss: 0.00003626
+Iteration 23/1000 | Loss: 0.00003625
+Iteration 24/1000 | Loss: 0.00003625
+Iteration 25/1000 | Loss: 0.00003625
+Iteration 26/1000 | Loss: 0.00003625
+Iteration 27/1000 | Loss: 0.00003625
+Iteration 28/1000 | Loss: 0.00003625
+Iteration 29/1000 | Loss: 0.00003625
+Iteration 30/1000 | Loss: 0.00003625
+Iteration 31/1000 | Loss: 0.00003625
+Iteration 32/1000 | Loss: 0.00003625
+Iteration 33/1000 | Loss: 0.00003625
+Iteration 34/1000 | Loss: 0.00003625
+Iteration 35/1000 | Loss: 0.00003625
+Iteration 36/1000 | Loss: 0.00003625
+Iteration 37/1000 | Loss: 0.00003625
+Iteration 38/1000 | Loss: 0.00003625
+Iteration 39/1000 | Loss: 0.00003623
+Iteration 40/1000 | Loss: 0.00003622
+Iteration 41/1000 | Loss: 0.00003622
+Iteration 42/1000 | Loss: 0.00003621
+Iteration 43/1000 | Loss: 0.00003621
+Iteration 44/1000 | Loss: 0.00003620
+Iteration 45/1000 | Loss: 0.00003620
+Iteration 46/1000 | Loss: 0.00003619
+Iteration 47/1000 | Loss: 0.00003619
+Iteration 48/1000 | Loss: 0.00003619
+Iteration 49/1000 | Loss: 0.00003619
+Iteration 50/1000 | Loss: 0.00003619
+Iteration 51/1000 | Loss: 0.00003619
+Iteration 52/1000 | Loss: 0.00003619
+Iteration 53/1000 | Loss: 0.00003619
+Iteration 54/1000 | Loss: 0.00003619
+Iteration 55/1000 | Loss: 0.00003619
+Iteration 56/1000 | Loss: 0.00003619
+Iteration 57/1000 | Loss: 0.00003619
+Iteration 58/1000 | Loss: 0.00003618
+Iteration 59/1000 | Loss: 0.00003618
+Iteration 60/1000 | Loss: 0.00003618
+Iteration 61/1000 | Loss: 0.00003618
+Iteration 62/1000 | Loss: 0.00003618
+Iteration 63/1000 | Loss: 0.00003618
+Iteration 64/1000 | Loss: 0.00003618
+Iteration 65/1000 | Loss: 0.00003618
+Iteration 66/1000 | Loss: 0.00003618
+Iteration 67/1000 | Loss: 0.00003618
+Iteration 68/1000 | Loss: 0.00003618
+Iteration 69/1000 | Loss: 0.00003618
+Iteration 70/1000 | Loss: 0.00003618
+Iteration 71/1000 | Loss: 0.00003618
+Iteration 72/1000 | Loss: 0.00003618
+Iteration 73/1000 | Loss: 0.00003618
+Iteration 74/1000 | Loss: 0.00003618
+Iteration 75/1000 | Loss: 0.00003618
+Iteration 76/1000 | Loss: 0.00003618
+Iteration 77/1000 | Loss: 0.00003618
+Iteration 78/1000 | Loss: 0.00003618
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 78. Stopping optimization.
+Last 5 losses: [3.61823731509503e-05, 3.61823731509503e-05, 3.61823731509503e-05, 3.61823731509503e-05, 3.61823731509503e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 3.61823731509503e-05
+
+Optimization complete. Final v2v error: 5.082210063934326 mm
+
+Highest mean error: 5.480257034301758 mm for frame 114
+
+Lowest mean error: 4.657841682434082 mm for frame 57
+
+Saving results
+
+Total time: 29.914020776748657
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0018/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0018.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0018
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00528143
+Iteration 2/25 | Loss: 0.00137950
+Iteration 3/25 | Loss: 0.00117181
+Iteration 4/25 | Loss: 0.00115210
+Iteration 5/25 | Loss: 0.00114624
+Iteration 6/25 | Loss: 0.00114484
+Iteration 7/25 | Loss: 0.00114484
+Iteration 8/25 | Loss: 0.00114484
+Iteration 9/25 | Loss: 0.00114484
+Iteration 10/25 | Loss: 0.00114484
+Iteration 11/25 | Loss: 0.00114484
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 11. Stopping optimization.
+Last 5 losses: [0.001144838286563754, 0.001144838286563754, 0.001144838286563754, 0.001144838286563754, 0.001144838286563754]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.001144838286563754
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.35445511
+Iteration 2/25 | Loss: 0.00096025
+Iteration 3/25 | Loss: 0.00096025
+Iteration 4/25 | Loss: 0.00096025
+Iteration 5/25 | Loss: 0.00096025
+Iteration 6/25 | Loss: 0.00096025
+Iteration 7/25 | Loss: 0.00096025
+Iteration 8/25 | Loss: 0.00096025
+Iteration 9/25 | Loss: 0.00096025
+Iteration 10/25 | Loss: 0.00096025
+Iteration 11/25 | Loss: 0.00096025
+Iteration 12/25 | Loss: 0.00096025
+Iteration 13/25 | Loss: 0.00096025
+Iteration 14/25 | Loss: 0.00096025
+Iteration 15/25 | Loss: 0.00096025
+Iteration 16/25 | Loss: 0.00096025
+Iteration 17/25 | Loss: 0.00096025
+Iteration 18/25 | Loss: 0.00096025
+Iteration 19/25 | Loss: 0.00096025
+Iteration 20/25 | Loss: 0.00096025
+Iteration 21/25 | Loss: 0.00096025
+Iteration 22/25 | Loss: 0.00096025
+Iteration 23/25 | Loss: 0.00096025
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 23. Stopping optimization.
+Last 5 losses: [0.0009602467180229723, 0.0009602467180229723, 0.0009602467180229723, 0.0009602467180229723, 0.0009602467180229723]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0009602467180229723
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00096025
+Iteration 2/1000 | Loss: 0.00005330
+Iteration 3/1000 | Loss: 0.00004145
+Iteration 4/1000 | Loss: 0.00003872
+Iteration 5/1000 | Loss: 0.00003709
+Iteration 6/1000 | Loss: 0.00003589
+Iteration 7/1000 | Loss: 0.00003502
+Iteration 8/1000 | Loss: 0.00003452
+Iteration 9/1000 | Loss: 0.00003413
+Iteration 10/1000 | Loss: 0.00003393
+Iteration 11/1000 | Loss: 0.00003390
+Iteration 12/1000 | Loss: 0.00003385
+Iteration 13/1000 | Loss: 0.00003377
+Iteration 14/1000 | Loss: 0.00003376
+Iteration 15/1000 | Loss: 0.00003376
+Iteration 16/1000 | Loss: 0.00003375
+Iteration 17/1000 | Loss: 0.00003375
+Iteration 18/1000 | Loss: 0.00003375
+Iteration 19/1000 | Loss: 0.00003374
+Iteration 20/1000 | Loss: 0.00003373
+Iteration 21/1000 | Loss: 0.00003373
+Iteration 22/1000 | Loss: 0.00003373
+Iteration 23/1000 | Loss: 0.00003372
+Iteration 24/1000 | Loss: 0.00003372
+Iteration 25/1000 | Loss: 0.00003372
+Iteration 26/1000 | Loss: 0.00003371
+Iteration 27/1000 | Loss: 0.00003371
+Iteration 28/1000 | Loss: 0.00003370
+Iteration 29/1000 | Loss: 0.00003370
+Iteration 30/1000 | Loss: 0.00003369
+Iteration 31/1000 | Loss: 0.00003369
+Iteration 32/1000 | Loss: 0.00003368
+Iteration 33/1000 | Loss: 0.00003368
+Iteration 34/1000 | Loss: 0.00003368
+Iteration 35/1000 | Loss: 0.00003367
+Iteration 36/1000 | Loss: 0.00003366
+Iteration 37/1000 | Loss: 0.00003366
+Iteration 38/1000 | Loss: 0.00003366
+Iteration 39/1000 | Loss: 0.00003365
+Iteration 40/1000 | Loss: 0.00003362
+Iteration 41/1000 | Loss: 0.00003357
+Iteration 42/1000 | Loss: 0.00003357
+Iteration 43/1000 | Loss: 0.00003351
+Iteration 44/1000 | Loss: 0.00003351
+Iteration 45/1000 | Loss: 0.00003348
+Iteration 46/1000 | Loss: 0.00003348
+Iteration 47/1000 | Loss: 0.00003348
+Iteration 48/1000 | Loss: 0.00003348
+Iteration 49/1000 | Loss: 0.00003348
+Iteration 50/1000 | Loss: 0.00003348
+Iteration 51/1000 | Loss: 0.00003348
+Iteration 52/1000 | Loss: 0.00003348
+Iteration 53/1000 | Loss: 0.00003348
+Iteration 54/1000 | Loss: 0.00003348
+Iteration 55/1000 | Loss: 0.00003348
+Iteration 56/1000 | Loss: 0.00003347
+Iteration 57/1000 | Loss: 0.00003347
+Iteration 58/1000 | Loss: 0.00003345
+Iteration 59/1000 | Loss: 0.00003345
+Iteration 60/1000 | Loss: 0.00003345
+Iteration 61/1000 | Loss: 0.00003345
+Iteration 62/1000 | Loss: 0.00003344
+Iteration 63/1000 | Loss: 0.00003344
+Iteration 64/1000 | Loss: 0.00003344
+Iteration 65/1000 | Loss: 0.00003340
+Iteration 66/1000 | Loss: 0.00003340
+Iteration 67/1000 | Loss: 0.00003340
+Iteration 68/1000 | Loss: 0.00003340
+Iteration 69/1000 | Loss: 0.00003340
+Iteration 70/1000 | Loss: 0.00003340
+Iteration 71/1000 | Loss: 0.00003340
+Iteration 72/1000 | Loss: 0.00003340
+Iteration 73/1000 | Loss: 0.00003340
+Iteration 74/1000 | Loss: 0.00003340
+Iteration 75/1000 | Loss: 0.00003340
+Iteration 76/1000 | Loss: 0.00003340
+Iteration 77/1000 | Loss: 0.00003339
+Iteration 78/1000 | Loss: 0.00003339
+Iteration 79/1000 | Loss: 0.00003339
+Iteration 80/1000 | Loss: 0.00003338
+Iteration 81/1000 | Loss: 0.00003338
+Iteration 82/1000 | Loss: 0.00003338
+Iteration 83/1000 | Loss: 0.00003338
+Iteration 84/1000 | Loss: 0.00003338
+Iteration 85/1000 | Loss: 0.00003337
+Iteration 86/1000 | Loss: 0.00003337
+Iteration 87/1000 | Loss: 0.00003337
+Iteration 88/1000 | Loss: 0.00003336
+Iteration 89/1000 | Loss: 0.00003336
+Iteration 90/1000 | Loss: 0.00003336
+Iteration 91/1000 | Loss: 0.00003336
+Iteration 92/1000 | Loss: 0.00003336
+Iteration 93/1000 | Loss: 0.00003336
+Iteration 94/1000 | Loss: 0.00003336
+Iteration 95/1000 | Loss: 0.00003336
+Iteration 96/1000 | Loss: 0.00003336
+Iteration 97/1000 | Loss: 0.00003335
+Iteration 98/1000 | Loss: 0.00003335
+Iteration 99/1000 | Loss: 0.00003334
+Iteration 100/1000 | Loss: 0.00003334
+Iteration 101/1000 | Loss: 0.00003334
+Iteration 102/1000 | Loss: 0.00003334
+Iteration 103/1000 | Loss: 0.00003334
+Iteration 104/1000 | Loss: 0.00003333
+Iteration 105/1000 | Loss: 0.00003333
+Iteration 106/1000 | Loss: 0.00003333
+Iteration 107/1000 | Loss: 0.00003333
+Iteration 108/1000 | Loss: 0.00003333
+Iteration 109/1000 | Loss: 0.00003332
+Iteration 110/1000 | Loss: 0.00003331
+Iteration 111/1000 | Loss: 0.00003331
+Iteration 112/1000 | Loss: 0.00003331
+Iteration 113/1000 | Loss: 0.00003331
+Iteration 114/1000 | Loss: 0.00003331
+Iteration 115/1000 | Loss: 0.00003331
+Iteration 116/1000 | Loss: 0.00003331
+Iteration 117/1000 | Loss: 0.00003331
+Iteration 118/1000 | Loss: 0.00003331
+Iteration 119/1000 | Loss: 0.00003331
+Iteration 120/1000 | Loss: 0.00003331
+Iteration 121/1000 | Loss: 0.00003331
+Iteration 122/1000 | Loss: 0.00003331
+Iteration 123/1000 | Loss: 0.00003331
+Iteration 124/1000 | Loss: 0.00003331
+Iteration 125/1000 | Loss: 0.00003331
+Iteration 126/1000 | Loss: 0.00003331
+Iteration 127/1000 | Loss: 0.00003331
+Iteration 128/1000 | Loss: 0.00003331
+Iteration 129/1000 | Loss: 0.00003331
+Iteration 130/1000 | Loss: 0.00003331
+Iteration 131/1000 | Loss: 0.00003331
+Iteration 132/1000 | Loss: 0.00003331
+Iteration 133/1000 | Loss: 0.00003331
+Iteration 134/1000 | Loss: 0.00003331
+Iteration 135/1000 | Loss: 0.00003331
+Iteration 136/1000 | Loss: 0.00003331
+Iteration 137/1000 | Loss: 0.00003331
+Iteration 138/1000 | Loss: 0.00003331
+Iteration 139/1000 | Loss: 0.00003331
+Iteration 140/1000 | Loss: 0.00003331
+Iteration 141/1000 | Loss: 0.00003331
+Iteration 142/1000 | Loss: 0.00003331
+Iteration 143/1000 | Loss: 0.00003331
+Iteration 144/1000 | Loss: 0.00003331
+Iteration 145/1000 | Loss: 0.00003331
+Iteration 146/1000 | Loss: 0.00003331
+Iteration 147/1000 | Loss: 0.00003331
+Iteration 148/1000 | Loss: 0.00003331
+Iteration 149/1000 | Loss: 0.00003331
+Iteration 150/1000 | Loss: 0.00003331
+Iteration 151/1000 | Loss: 0.00003331
+Iteration 152/1000 | Loss: 0.00003331
+Iteration 153/1000 | Loss: 0.00003331
+Iteration 154/1000 | Loss: 0.00003331
+Iteration 155/1000 | Loss: 0.00003331
+Iteration 156/1000 | Loss: 0.00003331
+Iteration 157/1000 | Loss: 0.00003331
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 157. Stopping optimization.
+Last 5 losses: [3.3305615943390876e-05, 3.3305615943390876e-05, 3.3305615943390876e-05, 3.3305615943390876e-05, 3.3305615943390876e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 3.3305615943390876e-05
+
+Optimization complete. Final v2v error: 4.845468521118164 mm
+
+Highest mean error: 5.187312602996826 mm for frame 178
+
+Lowest mean error: 4.380614757537842 mm for frame 0
+
+Saving results
+
+Total time: 42.05831170082092
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0000/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0000.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0000
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.01010831
+Iteration 2/25 | Loss: 0.00280208
+Iteration 3/25 | Loss: 0.00177267
+Iteration 4/25 | Loss: 0.00156100
+Iteration 5/25 | Loss: 0.00148631
+Iteration 6/25 | Loss: 0.00138977
+Iteration 7/25 | Loss: 0.00129110
+Iteration 8/25 | Loss: 0.00125593
+Iteration 9/25 | Loss: 0.00123636
+Iteration 10/25 | Loss: 0.00121287
+Iteration 11/25 | Loss: 0.00120629
+Iteration 12/25 | Loss: 0.00120882
+Iteration 13/25 | Loss: 0.00119607
+Iteration 14/25 | Loss: 0.00119249
+Iteration 15/25 | Loss: 0.00119158
+Iteration 16/25 | Loss: 0.00119491
+Iteration 17/25 | Loss: 0.00118848
+Iteration 18/25 | Loss: 0.00118731
+Iteration 19/25 | Loss: 0.00118573
+Iteration 20/25 | Loss: 0.00118774
+Iteration 21/25 | Loss: 0.00118240
+Iteration 22/25 | Loss: 0.00118178
+Iteration 23/25 | Loss: 0.00118160
+Iteration 24/25 | Loss: 0.00118143
+Iteration 25/25 | Loss: 0.00118120
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.81910110
+Iteration 2/25 | Loss: 0.00115207
+Iteration 3/25 | Loss: 0.00115205
+Iteration 4/25 | Loss: 0.00115205
+Iteration 5/25 | Loss: 0.00115205
+Iteration 6/25 | Loss: 0.00115205
+Iteration 7/25 | Loss: 0.00115205
+Iteration 8/25 | Loss: 0.00115205
+Iteration 9/25 | Loss: 0.00115205
+Iteration 10/25 | Loss: 0.00115205
+Iteration 11/25 | Loss: 0.00115205
+Iteration 12/25 | Loss: 0.00115205
+Iteration 13/25 | Loss: 0.00115205
+Iteration 14/25 | Loss: 0.00115205
+Iteration 15/25 | Loss: 0.00115205
+Iteration 16/25 | Loss: 0.00115205
+Iteration 17/25 | Loss: 0.00115205
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 17. Stopping optimization.
+Last 5 losses: [0.0011520454427227378, 0.0011520454427227378, 0.0011520454427227378, 0.0011520454427227378, 0.0011520454427227378]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0011520454427227378
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00115205
+Iteration 2/1000 | Loss: 0.00023333
+Iteration 3/1000 | Loss: 0.00015105
+Iteration 4/1000 | Loss: 0.00008445
+Iteration 5/1000 | Loss: 0.00005228
+Iteration 6/1000 | Loss: 0.00004515
+Iteration 7/1000 | Loss: 0.00004048
+Iteration 8/1000 | Loss: 0.00005406
+Iteration 9/1000 | Loss: 0.00004256
+Iteration 10/1000 | Loss: 0.00061134
+Iteration 11/1000 | Loss: 0.00041151
+Iteration 12/1000 | Loss: 0.00041800
+Iteration 13/1000 | Loss: 0.00042323
+Iteration 14/1000 | Loss: 0.00014674
+Iteration 15/1000 | Loss: 0.00020749
+Iteration 16/1000 | Loss: 0.00006810
+Iteration 17/1000 | Loss: 0.00027662
+Iteration 18/1000 | Loss: 0.00005202
+Iteration 19/1000 | Loss: 0.00003987
+Iteration 20/1000 | Loss: 0.00003697
+Iteration 21/1000 | Loss: 0.00003496
+Iteration 22/1000 | Loss: 0.00003381
+Iteration 23/1000 | Loss: 0.00003299
+Iteration 24/1000 | Loss: 0.00003274
+Iteration 25/1000 | Loss: 0.00003242
+Iteration 26/1000 | Loss: 0.00003214
+Iteration 27/1000 | Loss: 0.00003193
+Iteration 28/1000 | Loss: 0.00003176
+Iteration 29/1000 | Loss: 0.00003159
+Iteration 30/1000 | Loss: 0.00003142
+Iteration 31/1000 | Loss: 0.00003129
+Iteration 32/1000 | Loss: 0.00003125
+Iteration 33/1000 | Loss: 0.00003125
+Iteration 34/1000 | Loss: 0.00003124
+Iteration 35/1000 | Loss: 0.00003123
+Iteration 36/1000 | Loss: 0.00003113
+Iteration 37/1000 | Loss: 0.00003113
+Iteration 38/1000 | Loss: 0.00003105
+Iteration 39/1000 | Loss: 0.00003100
+Iteration 40/1000 | Loss: 0.00003099
+Iteration 41/1000 | Loss: 0.00003098
+Iteration 42/1000 | Loss: 0.00003097
+Iteration 43/1000 | Loss: 0.00003097
+Iteration 44/1000 | Loss: 0.00003096
+Iteration 45/1000 | Loss: 0.00003095
+Iteration 46/1000 | Loss: 0.00003095
+Iteration 47/1000 | Loss: 0.00003095
+Iteration 48/1000 | Loss: 0.00003094
+Iteration 49/1000 | Loss: 0.00003094
+Iteration 50/1000 | Loss: 0.00003093
+Iteration 51/1000 | Loss: 0.00003092
+Iteration 52/1000 | Loss: 0.00003092
+Iteration 53/1000 | Loss: 0.00003091
+Iteration 54/1000 | Loss: 0.00003091
+Iteration 55/1000 | Loss: 0.00003091
+Iteration 56/1000 | Loss: 0.00003089
+Iteration 57/1000 | Loss: 0.00003089
+Iteration 58/1000 | Loss: 0.00003088
+Iteration 59/1000 | Loss: 0.00003088
+Iteration 60/1000 | Loss: 0.00003088
+Iteration 61/1000 | Loss: 0.00003087
+Iteration 62/1000 | Loss: 0.00003087
+Iteration 63/1000 | Loss: 0.00003085
+Iteration 64/1000 | Loss: 0.00003084
+Iteration 65/1000 | Loss: 0.00003084
+Iteration 66/1000 | Loss: 0.00003084
+Iteration 67/1000 | Loss: 0.00003084
+Iteration 68/1000 | Loss: 0.00003084
+Iteration 69/1000 | Loss: 0.00003084
+Iteration 70/1000 | Loss: 0.00003083
+Iteration 71/1000 | Loss: 0.00003083
+Iteration 72/1000 | Loss: 0.00003083
+Iteration 73/1000 | Loss: 0.00003083
+Iteration 74/1000 | Loss: 0.00003082
+Iteration 75/1000 | Loss: 0.00003082
+Iteration 76/1000 | Loss: 0.00003082
+Iteration 77/1000 | Loss: 0.00003082
+Iteration 78/1000 | Loss: 0.00003081
+Iteration 79/1000 | Loss: 0.00003081
+Iteration 80/1000 | Loss: 0.00003081
+Iteration 81/1000 | Loss: 0.00003081
+Iteration 82/1000 | Loss: 0.00003081
+Iteration 83/1000 | Loss: 0.00003081
+Iteration 84/1000 | Loss: 0.00003081
+Iteration 85/1000 | Loss: 0.00003080
+Iteration 86/1000 | Loss: 0.00003080
+Iteration 87/1000 | Loss: 0.00003080
+Iteration 88/1000 | Loss: 0.00003080
+Iteration 89/1000 | Loss: 0.00003080
+Iteration 90/1000 | Loss: 0.00003080
+Iteration 91/1000 | Loss: 0.00003079
+Iteration 92/1000 | Loss: 0.00003079
+Iteration 93/1000 | Loss: 0.00003079
+Iteration 94/1000 | Loss: 0.00003079
+Iteration 95/1000 | Loss: 0.00003079
+Iteration 96/1000 | Loss: 0.00003078
+Iteration 97/1000 | Loss: 0.00003078
+Iteration 98/1000 | Loss: 0.00003078
+Iteration 99/1000 | Loss: 0.00003078
+Iteration 100/1000 | Loss: 0.00003077
+Iteration 101/1000 | Loss: 0.00003077
+Iteration 102/1000 | Loss: 0.00003077
+Iteration 103/1000 | Loss: 0.00003077
+Iteration 104/1000 | Loss: 0.00003077
+Iteration 105/1000 | Loss: 0.00003077
+Iteration 106/1000 | Loss: 0.00003076
+Iteration 107/1000 | Loss: 0.00003076
+Iteration 108/1000 | Loss: 0.00003076
+Iteration 109/1000 | Loss: 0.00003076
+Iteration 110/1000 | Loss: 0.00003076
+Iteration 111/1000 | Loss: 0.00003076
+Iteration 112/1000 | Loss: 0.00003076
+Iteration 113/1000 | Loss: 0.00003075
+Iteration 114/1000 | Loss: 0.00003075
+Iteration 115/1000 | Loss: 0.00003075
+Iteration 116/1000 | Loss: 0.00003075
+Iteration 117/1000 | Loss: 0.00003075
+Iteration 118/1000 | Loss: 0.00003075
+Iteration 119/1000 | Loss: 0.00003075
+Iteration 120/1000 | Loss: 0.00003074
+Iteration 121/1000 | Loss: 0.00003074
+Iteration 122/1000 | Loss: 0.00003074
+Iteration 123/1000 | Loss: 0.00003074
+Iteration 124/1000 | Loss: 0.00003074
+Iteration 125/1000 | Loss: 0.00003074
+Iteration 126/1000 | Loss: 0.00003074
+Iteration 127/1000 | Loss: 0.00003074
+Iteration 128/1000 | Loss: 0.00003074
+Iteration 129/1000 | Loss: 0.00003074
+Iteration 130/1000 | Loss: 0.00003074
+Iteration 131/1000 | Loss: 0.00003074
+Iteration 132/1000 | Loss: 0.00003074
+Iteration 133/1000 | Loss: 0.00003074
+Iteration 134/1000 | Loss: 0.00003074
+Iteration 135/1000 | Loss: 0.00003074
+Iteration 136/1000 | Loss: 0.00003074
+Iteration 137/1000 | Loss: 0.00003074
+Iteration 138/1000 | Loss: 0.00003074
+Iteration 139/1000 | Loss: 0.00003074
+Iteration 140/1000 | Loss: 0.00003074
+Iteration 141/1000 | Loss: 0.00003074
+Iteration 142/1000 | Loss: 0.00003074
+Iteration 143/1000 | Loss: 0.00003074
+Iteration 144/1000 | Loss: 0.00003074
+Iteration 145/1000 | Loss: 0.00003074
+Iteration 146/1000 | Loss: 0.00003074
+Iteration 147/1000 | Loss: 0.00003074
+Iteration 148/1000 | Loss: 0.00003074
+Iteration 149/1000 | Loss: 0.00003074
+Iteration 150/1000 | Loss: 0.00003074
+Iteration 151/1000 | Loss: 0.00003074
+Iteration 152/1000 | Loss: 0.00003074
+Iteration 153/1000 | Loss: 0.00003074
+Iteration 154/1000 | Loss: 0.00003074
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 154. Stopping optimization.
+Last 5 losses: [3.073777406825684e-05, 3.073777406825684e-05, 3.073777406825684e-05, 3.073777406825684e-05, 3.073777406825684e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 3.073777406825684e-05
+
+Optimization complete. Final v2v error: 4.619770050048828 mm
+
+Highest mean error: 6.8355889320373535 mm for frame 201
+
+Lowest mean error: 3.905529499053955 mm for frame 198
+
+Saving results
+
+Total time: 113.53305697441101
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0007/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0007.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0007
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00435709
+Iteration 2/25 | Loss: 0.00136716
+Iteration 3/25 | Loss: 0.00124764
+Iteration 4/25 | Loss: 0.00122810
+Iteration 5/25 | Loss: 0.00122294
+Iteration 6/25 | Loss: 0.00122152
+Iteration 7/25 | Loss: 0.00122133
+Iteration 8/25 | Loss: 0.00122133
+Iteration 9/25 | Loss: 0.00122133
+Iteration 10/25 | Loss: 0.00122133
+Iteration 11/25 | Loss: 0.00122133
+Iteration 12/25 | Loss: 0.00122133
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 12. Stopping optimization.
+Last 5 losses: [0.001221328042447567, 0.001221328042447567, 0.001221328042447567, 0.001221328042447567, 0.001221328042447567]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.001221328042447567
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.39505208
+Iteration 2/25 | Loss: 0.00120361
+Iteration 3/25 | Loss: 0.00120361
+Iteration 4/25 | Loss: 0.00120361
+Iteration 5/25 | Loss: 0.00120360
+Iteration 6/25 | Loss: 0.00120360
+Iteration 7/25 | Loss: 0.00120360
+Iteration 8/25 | Loss: 0.00120360
+Iteration 9/25 | Loss: 0.00120360
+Iteration 10/25 | Loss: 0.00120360
+Iteration 11/25 | Loss: 0.00120360
+Iteration 12/25 | Loss: 0.00120360
+Iteration 13/25 | Loss: 0.00120360
+Iteration 14/25 | Loss: 0.00120360
+Iteration 15/25 | Loss: 0.00120360
+Iteration 16/25 | Loss: 0.00120360
+Iteration 17/25 | Loss: 0.00120360
+Iteration 18/25 | Loss: 0.00120360
+Iteration 19/25 | Loss: 0.00120360
+Iteration 20/25 | Loss: 0.00120360
+Iteration 21/25 | Loss: 0.00120360
+Iteration 22/25 | Loss: 0.00120360
+Iteration 23/25 | Loss: 0.00120360
+Iteration 24/25 | Loss: 0.00120360
+Iteration 25/25 | Loss: 0.00120360
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 25. Stopping optimization.
+Last 5 losses: [0.0012036034604534507, 0.0012036034604534507, 0.0012036034604534507, 0.0012036034604534507, 0.0012036034604534507]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0012036034604534507
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00120360
+Iteration 2/1000 | Loss: 0.00008188
+Iteration 3/1000 | Loss: 0.00005125
+Iteration 4/1000 | Loss: 0.00003967
+Iteration 5/1000 | Loss: 0.00003540
+Iteration 6/1000 | Loss: 0.00003298
+Iteration 7/1000 | Loss: 0.00003142
+Iteration 8/1000 | Loss: 0.00003033
+Iteration 9/1000 | Loss: 0.00002953
+Iteration 10/1000 | Loss: 0.00002901
+Iteration 11/1000 | Loss: 0.00002867
+Iteration 12/1000 | Loss: 0.00002840
+Iteration 13/1000 | Loss: 0.00002819
+Iteration 14/1000 | Loss: 0.00002813
+Iteration 15/1000 | Loss: 0.00002811
+Iteration 16/1000 | Loss: 0.00002810
+Iteration 17/1000 | Loss: 0.00002810
+Iteration 18/1000 | Loss: 0.00002809
+Iteration 19/1000 | Loss: 0.00002807
+Iteration 20/1000 | Loss: 0.00002807
+Iteration 21/1000 | Loss: 0.00002806
+Iteration 22/1000 | Loss: 0.00002806
+Iteration 23/1000 | Loss: 0.00002806
+Iteration 24/1000 | Loss: 0.00002805
+Iteration 25/1000 | Loss: 0.00002804
+Iteration 26/1000 | Loss: 0.00002804
+Iteration 27/1000 | Loss: 0.00002804
+Iteration 28/1000 | Loss: 0.00002803
+Iteration 29/1000 | Loss: 0.00002803
+Iteration 30/1000 | Loss: 0.00002803
+Iteration 31/1000 | Loss: 0.00002802
+Iteration 32/1000 | Loss: 0.00002802
+Iteration 33/1000 | Loss: 0.00002802
+Iteration 34/1000 | Loss: 0.00002802
+Iteration 35/1000 | Loss: 0.00002802
+Iteration 36/1000 | Loss: 0.00002801
+Iteration 37/1000 | Loss: 0.00002801
+Iteration 38/1000 | Loss: 0.00002801
+Iteration 39/1000 | Loss: 0.00002801
+Iteration 40/1000 | Loss: 0.00002801
+Iteration 41/1000 | Loss: 0.00002801
+Iteration 42/1000 | Loss: 0.00002801
+Iteration 43/1000 | Loss: 0.00002801
+Iteration 44/1000 | Loss: 0.00002801
+Iteration 45/1000 | Loss: 0.00002800
+Iteration 46/1000 | Loss: 0.00002800
+Iteration 47/1000 | Loss: 0.00002800
+Iteration 48/1000 | Loss: 0.00002800
+Iteration 49/1000 | Loss: 0.00002799
+Iteration 50/1000 | Loss: 0.00002799
+Iteration 51/1000 | Loss: 0.00002799
+Iteration 52/1000 | Loss: 0.00002799
+Iteration 53/1000 | Loss: 0.00002799
+Iteration 54/1000 | Loss: 0.00002799
+Iteration 55/1000 | Loss: 0.00002799
+Iteration 56/1000 | Loss: 0.00002798
+Iteration 57/1000 | Loss: 0.00002798
+Iteration 58/1000 | Loss: 0.00002798
+Iteration 59/1000 | Loss: 0.00002798
+Iteration 60/1000 | Loss: 0.00002798
+Iteration 61/1000 | Loss: 0.00002798
+Iteration 62/1000 | Loss: 0.00002798
+Iteration 63/1000 | Loss: 0.00002798
+Iteration 64/1000 | Loss: 0.00002798
+Iteration 65/1000 | Loss: 0.00002798
+Iteration 66/1000 | Loss: 0.00002798
+Iteration 67/1000 | Loss: 0.00002798
+Iteration 68/1000 | Loss: 0.00002798
+Iteration 69/1000 | Loss: 0.00002797
+Iteration 70/1000 | Loss: 0.00002797
+Iteration 71/1000 | Loss: 0.00002797
+Iteration 72/1000 | Loss: 0.00002797
+Iteration 73/1000 | Loss: 0.00002797
+Iteration 74/1000 | Loss: 0.00002797
+Iteration 75/1000 | Loss: 0.00002797
+Iteration 76/1000 | Loss: 0.00002797
+Iteration 77/1000 | Loss: 0.00002797
+Iteration 78/1000 | Loss: 0.00002797
+Iteration 79/1000 | Loss: 0.00002796
+Iteration 80/1000 | Loss: 0.00002796
+Iteration 81/1000 | Loss: 0.00002796
+Iteration 82/1000 | Loss: 0.00002796
+Iteration 83/1000 | Loss: 0.00002796
+Iteration 84/1000 | Loss: 0.00002796
+Iteration 85/1000 | Loss: 0.00002796
+Iteration 86/1000 | Loss: 0.00002796
+Iteration 87/1000 | Loss: 0.00002796
+Iteration 88/1000 | Loss: 0.00002796
+Iteration 89/1000 | Loss: 0.00002796
+Iteration 90/1000 | Loss: 0.00002796
+Iteration 91/1000 | Loss: 0.00002796
+Iteration 92/1000 | Loss: 0.00002796
+Iteration 93/1000 | Loss: 0.00002796
+Iteration 94/1000 | Loss: 0.00002796
+Iteration 95/1000 | Loss: 0.00002795
+Iteration 96/1000 | Loss: 0.00002795
+Iteration 97/1000 | Loss: 0.00002795
+Iteration 98/1000 | Loss: 0.00002795
+Iteration 99/1000 | Loss: 0.00002795
+Iteration 100/1000 | Loss: 0.00002795
+Iteration 101/1000 | Loss: 0.00002795
+Iteration 102/1000 | Loss: 0.00002795
+Iteration 103/1000 | Loss: 0.00002795
+Iteration 104/1000 | Loss: 0.00002795
+Iteration 105/1000 | Loss: 0.00002795
+Iteration 106/1000 | Loss: 0.00002795
+Iteration 107/1000 | Loss: 0.00002795
+Iteration 108/1000 | Loss: 0.00002795
+Iteration 109/1000 | Loss: 0.00002795
+Iteration 110/1000 | Loss: 0.00002795
+Iteration 111/1000 | Loss: 0.00002795
+Iteration 112/1000 | Loss: 0.00002795
+Iteration 113/1000 | Loss: 0.00002795
+Iteration 114/1000 | Loss: 0.00002794
+Iteration 115/1000 | Loss: 0.00002794
+Iteration 116/1000 | Loss: 0.00002794
+Iteration 117/1000 | Loss: 0.00002794
+Iteration 118/1000 | Loss: 0.00002794
+Iteration 119/1000 | Loss: 0.00002794
+Iteration 120/1000 | Loss: 0.00002794
+Iteration 121/1000 | Loss: 0.00002794
+Iteration 122/1000 | Loss: 0.00002794
+Iteration 123/1000 | Loss: 0.00002794
+Iteration 124/1000 | Loss: 0.00002794
+Iteration 125/1000 | Loss: 0.00002794
+Iteration 126/1000 | Loss: 0.00002794
+Iteration 127/1000 | Loss: 0.00002794
+Iteration 128/1000 | Loss: 0.00002794
+Iteration 129/1000 | Loss: 0.00002794
+Iteration 130/1000 | Loss: 0.00002794
+Iteration 131/1000 | Loss: 0.00002794
+Iteration 132/1000 | Loss: 0.00002794
+Iteration 133/1000 | Loss: 0.00002794
+Iteration 134/1000 | Loss: 0.00002794
+Iteration 135/1000 | Loss: 0.00002794
+Iteration 136/1000 | Loss: 0.00002794
+Iteration 137/1000 | Loss: 0.00002794
+Iteration 138/1000 | Loss: 0.00002794
+Iteration 139/1000 | Loss: 0.00002794
+Iteration 140/1000 | Loss: 0.00002794
+Iteration 141/1000 | Loss: 0.00002794
+Iteration 142/1000 | Loss: 0.00002794
+Iteration 143/1000 | Loss: 0.00002794
+Iteration 144/1000 | Loss: 0.00002794
+Iteration 145/1000 | Loss: 0.00002794
+Iteration 146/1000 | Loss: 0.00002794
+Iteration 147/1000 | Loss: 0.00002794
+Iteration 148/1000 | Loss: 0.00002794
+Iteration 149/1000 | Loss: 0.00002794
+Iteration 150/1000 | Loss: 0.00002794
+Iteration 151/1000 | Loss: 0.00002794
+Iteration 152/1000 | Loss: 0.00002794
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 152. Stopping optimization.
+Last 5 losses: [2.7942194719798863e-05, 2.7942194719798863e-05, 2.7942194719798863e-05, 2.7942194719798863e-05, 2.7942194719798863e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.7942194719798863e-05
+
+Optimization complete. Final v2v error: 4.4707231521606445 mm
+
+Highest mean error: 4.774794101715088 mm for frame 57
+
+Lowest mean error: 4.05078125 mm for frame 14
+
+Saving results
+
+Total time: 34.9717857837677
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0004/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0004.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0004
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00749985
+Iteration 2/25 | Loss: 0.00169281
+Iteration 3/25 | Loss: 0.00129503
+Iteration 4/25 | Loss: 0.00116569
+Iteration 5/25 | Loss: 0.00112839
+Iteration 6/25 | Loss: 0.00111376
+Iteration 7/25 | Loss: 0.00110565
+Iteration 8/25 | Loss: 0.00110326
+Iteration 9/25 | Loss: 0.00110168
+Iteration 10/25 | Loss: 0.00110092
+Iteration 11/25 | Loss: 0.00110062
+Iteration 12/25 | Loss: 0.00109667
+Iteration 13/25 | Loss: 0.00109214
+Iteration 14/25 | Loss: 0.00109378
+Iteration 15/25 | Loss: 0.00109223
+Iteration 16/25 | Loss: 0.00108961
+Iteration 17/25 | Loss: 0.00108934
+Iteration 18/25 | Loss: 0.00108957
+Iteration 19/25 | Loss: 0.00108958
+Iteration 20/25 | Loss: 0.00109009
+Iteration 21/25 | Loss: 0.00108921
+Iteration 22/25 | Loss: 0.00108943
+Iteration 23/25 | Loss: 0.00108950
+Iteration 24/25 | Loss: 0.00108898
+Iteration 25/25 | Loss: 0.00108690
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 2.27683473
+Iteration 2/25 | Loss: 0.00065610
+Iteration 3/25 | Loss: 0.00065606
+Iteration 4/25 | Loss: 0.00065606
+Iteration 5/25 | Loss: 0.00065606
+Iteration 6/25 | Loss: 0.00065606
+Iteration 7/25 | Loss: 0.00065606
+Iteration 8/25 | Loss: 0.00065606
+Iteration 9/25 | Loss: 0.00065606
+Iteration 10/25 | Loss: 0.00065606
+Iteration 11/25 | Loss: 0.00065606
+Iteration 12/25 | Loss: 0.00065606
+Iteration 13/25 | Loss: 0.00065606
+Iteration 14/25 | Loss: 0.00065606
+Iteration 15/25 | Loss: 0.00065606
+Iteration 16/25 | Loss: 0.00065606
+Iteration 17/25 | Loss: 0.00065606
+Iteration 18/25 | Loss: 0.00065606
+Iteration 19/25 | Loss: 0.00065606
+Iteration 20/25 | Loss: 0.00065606
+Iteration 21/25 | Loss: 0.00065606
+Iteration 22/25 | Loss: 0.00065606
+Iteration 23/25 | Loss: 0.00065606
+Iteration 24/25 | Loss: 0.00065606
+Iteration 25/25 | Loss: 0.00065606
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00065606
+Iteration 2/1000 | Loss: 0.00007238
+Iteration 3/1000 | Loss: 0.00005179
+Iteration 4/1000 | Loss: 0.00004533
+Iteration 5/1000 | Loss: 0.00005684
+Iteration 6/1000 | Loss: 0.00004168
+Iteration 7/1000 | Loss: 0.00005217
+Iteration 8/1000 | Loss: 0.00005759
+Iteration 9/1000 | Loss: 0.00005278
+Iteration 10/1000 | Loss: 0.00004545
+Iteration 11/1000 | Loss: 0.00003432
+Iteration 12/1000 | Loss: 0.00003989
+Iteration 13/1000 | Loss: 0.00003581
+Iteration 14/1000 | Loss: 0.00003546
+Iteration 15/1000 | Loss: 0.00004749
+Iteration 16/1000 | Loss: 0.00006740
+Iteration 17/1000 | Loss: 0.00006126
+Iteration 18/1000 | Loss: 0.00005269
+Iteration 19/1000 | Loss: 0.00005038
+Iteration 20/1000 | Loss: 0.00006187
+Iteration 21/1000 | Loss: 0.00005318
+Iteration 22/1000 | Loss: 0.00004900
+Iteration 23/1000 | Loss: 0.00003448
+Iteration 24/1000 | Loss: 0.00019215
+Iteration 25/1000 | Loss: 0.00004945
+Iteration 26/1000 | Loss: 0.00004068
+Iteration 27/1000 | Loss: 0.00003440
+Iteration 28/1000 | Loss: 0.00002942
+Iteration 29/1000 | Loss: 0.00002778
+Iteration 30/1000 | Loss: 0.00002696
+Iteration 31/1000 | Loss: 0.00002649
+Iteration 32/1000 | Loss: 0.00002627
+Iteration 33/1000 | Loss: 0.00002612
+Iteration 34/1000 | Loss: 0.00002612
+Iteration 35/1000 | Loss: 0.00002610
+Iteration 36/1000 | Loss: 0.00002607
+Iteration 37/1000 | Loss: 0.00002607
+Iteration 38/1000 | Loss: 0.00002606
+Iteration 39/1000 | Loss: 0.00002604
+Iteration 40/1000 | Loss: 0.00002594
+Iteration 41/1000 | Loss: 0.00002592
+Iteration 42/1000 | Loss: 0.00002592
+Iteration 43/1000 | Loss: 0.00002591
+Iteration 44/1000 | Loss: 0.00002590
+Iteration 45/1000 | Loss: 0.00002589
+Iteration 46/1000 | Loss: 0.00002589
+Iteration 47/1000 | Loss: 0.00002588
+Iteration 48/1000 | Loss: 0.00002588
+Iteration 49/1000 | Loss: 0.00002588
+Iteration 50/1000 | Loss: 0.00002588
+Iteration 51/1000 | Loss: 0.00002587
+Iteration 52/1000 | Loss: 0.00002587
+Iteration 53/1000 | Loss: 0.00002587
+Iteration 54/1000 | Loss: 0.00002587
+Iteration 55/1000 | Loss: 0.00002586
+Iteration 56/1000 | Loss: 0.00002586
+Iteration 57/1000 | Loss: 0.00002586
+Iteration 58/1000 | Loss: 0.00002585
+Iteration 59/1000 | Loss: 0.00002584
+Iteration 60/1000 | Loss: 0.00002584
+Iteration 61/1000 | Loss: 0.00002584
+Iteration 62/1000 | Loss: 0.00002584
+Iteration 63/1000 | Loss: 0.00002583
+Iteration 64/1000 | Loss: 0.00002583
+Iteration 65/1000 | Loss: 0.00002583
+Iteration 66/1000 | Loss: 0.00002581
+Iteration 67/1000 | Loss: 0.00002581
+Iteration 68/1000 | Loss: 0.00002581
+Iteration 69/1000 | Loss: 0.00002580
+Iteration 70/1000 | Loss: 0.00002580
+Iteration 71/1000 | Loss: 0.00002578
+Iteration 72/1000 | Loss: 0.00002577
+Iteration 73/1000 | Loss: 0.00002577
+Iteration 74/1000 | Loss: 0.00002577
+Iteration 75/1000 | Loss: 0.00002576
+Iteration 76/1000 | Loss: 0.00002576
+Iteration 77/1000 | Loss: 0.00002576
+Iteration 78/1000 | Loss: 0.00002576
+Iteration 79/1000 | Loss: 0.00002576
+Iteration 80/1000 | Loss: 0.00002575
+Iteration 81/1000 | Loss: 0.00002575
+Iteration 82/1000 | Loss: 0.00002574
+Iteration 83/1000 | Loss: 0.00002574
+Iteration 84/1000 | Loss: 0.00002574
+Iteration 85/1000 | Loss: 0.00002573
+Iteration 86/1000 | Loss: 0.00002573
+Iteration 87/1000 | Loss: 0.00002572
+Iteration 88/1000 | Loss: 0.00002572
+Iteration 89/1000 | Loss: 0.00002572
+Iteration 90/1000 | Loss: 0.00002572
+Iteration 91/1000 | Loss: 0.00002572
+Iteration 92/1000 | Loss: 0.00002572
+Iteration 93/1000 | Loss: 0.00002572
+Iteration 94/1000 | Loss: 0.00002571
+Iteration 95/1000 | Loss: 0.00002571
+Iteration 96/1000 | Loss: 0.00002571
+Iteration 97/1000 | Loss: 0.00002571
+Iteration 98/1000 | Loss: 0.00002571
+Iteration 99/1000 | Loss: 0.00002571
+Iteration 100/1000 | Loss: 0.00002571
+Iteration 101/1000 | Loss: 0.00002571
+Iteration 102/1000 | Loss: 0.00002571
+Iteration 103/1000 | Loss: 0.00002570
+Iteration 104/1000 | Loss: 0.00002570
+Iteration 105/1000 | Loss: 0.00002570
+Iteration 106/1000 | Loss: 0.00002570
+Iteration 107/1000 | Loss: 0.00002570
+Iteration 108/1000 | Loss: 0.00002570
+Iteration 109/1000 | Loss: 0.00002570
+Iteration 110/1000 | Loss: 0.00002570
+Iteration 111/1000 | Loss: 0.00002570
+Iteration 112/1000 | Loss: 0.00002570
+Iteration 113/1000 | Loss: 0.00002570
+Iteration 114/1000 | Loss: 0.00002570
+Iteration 115/1000 | Loss: 0.00002570
+Iteration 116/1000 | Loss: 0.00002569
+Iteration 117/1000 | Loss: 0.00002569
+Iteration 118/1000 | Loss: 0.00002569
+Iteration 119/1000 | Loss: 0.00002569
+Iteration 120/1000 | Loss: 0.00002569
+Iteration 121/1000 | Loss: 0.00002569
+Iteration 122/1000 | Loss: 0.00002569
+Iteration 123/1000 | Loss: 0.00002569
+Iteration 124/1000 | Loss: 0.00002569
+Iteration 125/1000 | Loss: 0.00002569
+Iteration 126/1000 | Loss: 0.00002569
+Iteration 127/1000 | Loss: 0.00002569
+Iteration 128/1000 | Loss: 0.00002568
+Iteration 129/1000 | Loss: 0.00002568
+Iteration 130/1000 | Loss: 0.00002568
+Iteration 131/1000 | Loss: 0.00002568
+Iteration 132/1000 | Loss: 0.00002568
+Iteration 133/1000 | Loss: 0.00002568
+Iteration 134/1000 | Loss: 0.00002568
+Iteration 135/1000 | Loss: 0.00002568
+Iteration 136/1000 | Loss: 0.00002568
+Iteration 137/1000 | Loss: 0.00002568
+Iteration 138/1000 | Loss: 0.00002568
+Iteration 139/1000 | Loss: 0.00002568
+Iteration 140/1000 | Loss: 0.00002568
+Iteration 141/1000 | Loss: 0.00002568
+Iteration 142/1000 | Loss: 0.00002568
+Iteration 143/1000 | Loss: 0.00002568
+Iteration 144/1000 | Loss: 0.00002568
+Iteration 145/1000 | Loss: 0.00002568
+Iteration 146/1000 | Loss: 0.00002568
+Iteration 147/1000 | Loss: 0.00002568
+Iteration 148/1000 | Loss: 0.00002568
+Iteration 149/1000 | Loss: 0.00002568
+Iteration 150/1000 | Loss: 0.00002568
+Iteration 151/1000 | Loss: 0.00002568
+Iteration 152/1000 | Loss: 0.00002568
+Iteration 153/1000 | Loss: 0.00002568
+Iteration 154/1000 | Loss: 0.00002568
+Iteration 155/1000 | Loss: 0.00002568
+Iteration 156/1000 | Loss: 0.00002568
+Iteration 157/1000 | Loss: 0.00002568
+Iteration 158/1000 | Loss: 0.00002568
+Iteration 159/1000 | Loss: 0.00002568
+Iteration 160/1000 | Loss: 0.00002568
+Iteration 161/1000 | Loss: 0.00002568
+Iteration 162/1000 | Loss: 0.00002568
+Iteration 163/1000 | Loss: 0.00002568
+Iteration 164/1000 | Loss: 0.00002568
+Iteration 165/1000 | Loss: 0.00002568
+Iteration 166/1000 | Loss: 0.00002568
+Iteration 167/1000 | Loss: 0.00002568
+Iteration 168/1000 | Loss: 0.00002568
+Iteration 169/1000 | Loss: 0.00002568
+Iteration 170/1000 | Loss: 0.00002568
+Iteration 171/1000 | Loss: 0.00002568
+Iteration 172/1000 | Loss: 0.00002568
+Iteration 173/1000 | Loss: 0.00002568
+Iteration 174/1000 | Loss: 0.00002568
+Iteration 175/1000 | Loss: 0.00002568
+Iteration 176/1000 | Loss: 0.00002568
+Iteration 177/1000 | Loss: 0.00002568
+Iteration 178/1000 | Loss: 0.00002568
+Iteration 179/1000 | Loss: 0.00002568
+Iteration 180/1000 | Loss: 0.00002568
+Iteration 181/1000 | Loss: 0.00002568
+Iteration 182/1000 | Loss: 0.00002568
+Iteration 183/1000 | Loss: 0.00002568
+Iteration 184/1000 | Loss: 0.00002568
+Iteration 185/1000 | Loss: 0.00002568
+Iteration 186/1000 | Loss: 0.00002568
+Iteration 187/1000 | Loss: 0.00002568
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 187. Stopping optimization.
+Last 5 losses: [2.5679564714664593e-05, 2.5679564714664593e-05, 2.5679564714664593e-05, 2.5679564714664593e-05, 2.5679564714664593e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.5679564714664593e-05
+
+Optimization complete. Final v2v error: 4.382760047912598 mm
+
+Highest mean error: 4.858334064483643 mm for frame 147
+
+Lowest mean error: 3.9443485736846924 mm for frame 126
+
+Saving results
+
+Total time: 104.95174288749695
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0009/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0009.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0009
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00397298
+Iteration 2/25 | Loss: 0.00115679
+Iteration 3/25 | Loss: 0.00108411
+Iteration 4/25 | Loss: 0.00107233
+Iteration 5/25 | Loss: 0.00106880
+Iteration 6/25 | Loss: 0.00106764
+Iteration 7/25 | Loss: 0.00106764
+Iteration 8/25 | Loss: 0.00106764
+Iteration 9/25 | Loss: 0.00106764
+Iteration 10/25 | Loss: 0.00106764
+Iteration 11/25 | Loss: 0.00106764
+Iteration 12/25 | Loss: 0.00106764
+Iteration 13/25 | Loss: 0.00106764
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 13. Stopping optimization.
+Last 5 losses: [0.001067640958353877, 0.001067640958353877, 0.001067640958353877, 0.001067640958353877, 0.001067640958353877]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.001067640958353877
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.45430994
+Iteration 2/25 | Loss: 0.00070201
+Iteration 3/25 | Loss: 0.00070201
+Iteration 4/25 | Loss: 0.00070201
+Iteration 5/25 | Loss: 0.00070201
+Iteration 6/25 | Loss: 0.00070201
+Iteration 7/25 | Loss: 0.00070201
+Iteration 8/25 | Loss: 0.00070201
+Iteration 9/25 | Loss: 0.00070201
+Iteration 10/25 | Loss: 0.00070200
+Iteration 11/25 | Loss: 0.00070200
+Iteration 12/25 | Loss: 0.00070200
+Iteration 13/25 | Loss: 0.00070200
+Iteration 14/25 | Loss: 0.00070201
+Iteration 15/25 | Loss: 0.00070201
+Iteration 16/25 | Loss: 0.00070201
+Iteration 17/25 | Loss: 0.00070201
+Iteration 18/25 | Loss: 0.00070201
+Iteration 19/25 | Loss: 0.00070201
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 19. Stopping optimization.
+Last 5 losses: [0.0007020051125437021, 0.0007020051125437021, 0.0007020051125437021, 0.0007020051125437021, 0.0007020051125437021]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0007020051125437021
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00070201
+Iteration 2/1000 | Loss: 0.00003293
+Iteration 3/1000 | Loss: 0.00002385
+Iteration 4/1000 | Loss: 0.00002136
+Iteration 5/1000 | Loss: 0.00002038
+Iteration 6/1000 | Loss: 0.00001976
+Iteration 7/1000 | Loss: 0.00001935
+Iteration 8/1000 | Loss: 0.00001917
+Iteration 9/1000 | Loss: 0.00001896
+Iteration 10/1000 | Loss: 0.00001892
+Iteration 11/1000 | Loss: 0.00001888
+Iteration 12/1000 | Loss: 0.00001887
+Iteration 13/1000 | Loss: 0.00001887
+Iteration 14/1000 | Loss: 0.00001887
+Iteration 15/1000 | Loss: 0.00001887
+Iteration 16/1000 | Loss: 0.00001887
+Iteration 17/1000 | Loss: 0.00001885
+Iteration 18/1000 | Loss: 0.00001885
+Iteration 19/1000 | Loss: 0.00001883
+Iteration 20/1000 | Loss: 0.00001883
+Iteration 21/1000 | Loss: 0.00001882
+Iteration 22/1000 | Loss: 0.00001882
+Iteration 23/1000 | Loss: 0.00001880
+Iteration 24/1000 | Loss: 0.00001880
+Iteration 25/1000 | Loss: 0.00001879
+Iteration 26/1000 | Loss: 0.00001879
+Iteration 27/1000 | Loss: 0.00001879
+Iteration 28/1000 | Loss: 0.00001879
+Iteration 29/1000 | Loss: 0.00001879
+Iteration 30/1000 | Loss: 0.00001878
+Iteration 31/1000 | Loss: 0.00001878
+Iteration 32/1000 | Loss: 0.00001878
+Iteration 33/1000 | Loss: 0.00001878
+Iteration 34/1000 | Loss: 0.00001878
+Iteration 35/1000 | Loss: 0.00001878
+Iteration 36/1000 | Loss: 0.00001878
+Iteration 37/1000 | Loss: 0.00001878
+Iteration 38/1000 | Loss: 0.00001877
+Iteration 39/1000 | Loss: 0.00001877
+Iteration 40/1000 | Loss: 0.00001877
+Iteration 41/1000 | Loss: 0.00001877
+Iteration 42/1000 | Loss: 0.00001877
+Iteration 43/1000 | Loss: 0.00001877
+Iteration 44/1000 | Loss: 0.00001876
+Iteration 45/1000 | Loss: 0.00001876
+Iteration 46/1000 | Loss: 0.00001876
+Iteration 47/1000 | Loss: 0.00001876
+Iteration 48/1000 | Loss: 0.00001875
+Iteration 49/1000 | Loss: 0.00001875
+Iteration 50/1000 | Loss: 0.00001874
+Iteration 51/1000 | Loss: 0.00001874
+Iteration 52/1000 | Loss: 0.00001874
+Iteration 53/1000 | Loss: 0.00001873
+Iteration 54/1000 | Loss: 0.00001873
+Iteration 55/1000 | Loss: 0.00001873
+Iteration 56/1000 | Loss: 0.00001873
+Iteration 57/1000 | Loss: 0.00001873
+Iteration 58/1000 | Loss: 0.00001872
+Iteration 59/1000 | Loss: 0.00001871
+Iteration 60/1000 | Loss: 0.00001871
+Iteration 61/1000 | Loss: 0.00001870
+Iteration 62/1000 | Loss: 0.00001870
+Iteration 63/1000 | Loss: 0.00001870
+Iteration 64/1000 | Loss: 0.00001869
+Iteration 65/1000 | Loss: 0.00001869
+Iteration 66/1000 | Loss: 0.00001869
+Iteration 67/1000 | Loss: 0.00001869
+Iteration 68/1000 | Loss: 0.00001869
+Iteration 69/1000 | Loss: 0.00001869
+Iteration 70/1000 | Loss: 0.00001869
+Iteration 71/1000 | Loss: 0.00001869
+Iteration 72/1000 | Loss: 0.00001868
+Iteration 73/1000 | Loss: 0.00001868
+Iteration 74/1000 | Loss: 0.00001868
+Iteration 75/1000 | Loss: 0.00001868
+Iteration 76/1000 | Loss: 0.00001868
+Iteration 77/1000 | Loss: 0.00001868
+Iteration 78/1000 | Loss: 0.00001868
+Iteration 79/1000 | Loss: 0.00001868
+Iteration 80/1000 | Loss: 0.00001867
+Iteration 81/1000 | Loss: 0.00001867
+Iteration 82/1000 | Loss: 0.00001867
+Iteration 83/1000 | Loss: 0.00001867
+Iteration 84/1000 | Loss: 0.00001867
+Iteration 85/1000 | Loss: 0.00001867
+Iteration 86/1000 | Loss: 0.00001867
+Iteration 87/1000 | Loss: 0.00001867
+Iteration 88/1000 | Loss: 0.00001867
+Iteration 89/1000 | Loss: 0.00001867
+Iteration 90/1000 | Loss: 0.00001867
+Iteration 91/1000 | Loss: 0.00001867
+Iteration 92/1000 | Loss: 0.00001866
+Iteration 93/1000 | Loss: 0.00001866
+Iteration 94/1000 | Loss: 0.00001866
+Iteration 95/1000 | Loss: 0.00001866
+Iteration 96/1000 | Loss: 0.00001866
+Iteration 97/1000 | Loss: 0.00001866
+Iteration 98/1000 | Loss: 0.00001866
+Iteration 99/1000 | Loss: 0.00001866
+Iteration 100/1000 | Loss: 0.00001866
+Iteration 101/1000 | Loss: 0.00001866
+Iteration 102/1000 | Loss: 0.00001866
+Iteration 103/1000 | Loss: 0.00001865
+Iteration 104/1000 | Loss: 0.00001865
+Iteration 105/1000 | Loss: 0.00001865
+Iteration 106/1000 | Loss: 0.00001865
+Iteration 107/1000 | Loss: 0.00001865
+Iteration 108/1000 | Loss: 0.00001865
+Iteration 109/1000 | Loss: 0.00001864
+Iteration 110/1000 | Loss: 0.00001864
+Iteration 111/1000 | Loss: 0.00001864
+Iteration 112/1000 | Loss: 0.00001864
+Iteration 113/1000 | Loss: 0.00001864
+Iteration 114/1000 | Loss: 0.00001864
+Iteration 115/1000 | Loss: 0.00001864
+Iteration 116/1000 | Loss: 0.00001864
+Iteration 117/1000 | Loss: 0.00001864
+Iteration 118/1000 | Loss: 0.00001864
+Iteration 119/1000 | Loss: 0.00001864
+Iteration 120/1000 | Loss: 0.00001863
+Iteration 121/1000 | Loss: 0.00001863
+Iteration 122/1000 | Loss: 0.00001863
+Iteration 123/1000 | Loss: 0.00001863
+Iteration 124/1000 | Loss: 0.00001863
+Iteration 125/1000 | Loss: 0.00001863
+Iteration 126/1000 | Loss: 0.00001863
+Iteration 127/1000 | Loss: 0.00001863
+Iteration 128/1000 | Loss: 0.00001863
+Iteration 129/1000 | Loss: 0.00001863
+Iteration 130/1000 | Loss: 0.00001863
+Iteration 131/1000 | Loss: 0.00001863
+Iteration 132/1000 | Loss: 0.00001863
+Iteration 133/1000 | Loss: 0.00001863
+Iteration 134/1000 | Loss: 0.00001863
+Iteration 135/1000 | Loss: 0.00001863
+Iteration 136/1000 | Loss: 0.00001863
+Iteration 137/1000 | Loss: 0.00001863
+Iteration 138/1000 | Loss: 0.00001863
+Iteration 139/1000 | Loss: 0.00001863
+Iteration 140/1000 | Loss: 0.00001863
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 140. Stopping optimization.
+Last 5 losses: [1.862906174210366e-05, 1.862906174210366e-05, 1.862906174210366e-05, 1.862906174210366e-05, 1.862906174210366e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 1.862906174210366e-05
+
+Optimization complete. Final v2v error: 3.6506171226501465 mm
+
+Highest mean error: 3.932415008544922 mm for frame 30
+
+Lowest mean error: 3.333127737045288 mm for frame 51
+
+Saving results
+
+Total time: 30.58834433555603
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0011/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0011.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0011
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.01065010
+Iteration 2/25 | Loss: 0.00257480
+Iteration 3/25 | Loss: 0.00191183
+Iteration 4/25 | Loss: 0.00177005
+Iteration 5/25 | Loss: 0.00165877
+Iteration 6/25 | Loss: 0.00157440
+Iteration 7/25 | Loss: 0.00154352
+Iteration 8/25 | Loss: 0.00152326
+Iteration 9/25 | Loss: 0.00150819
+Iteration 10/25 | Loss: 0.00150082
+Iteration 11/25 | Loss: 0.00153283
+Iteration 12/25 | Loss: 0.00154675
+Iteration 13/25 | Loss: 0.00153708
+Iteration 14/25 | Loss: 0.00155562
+Iteration 15/25 | Loss: 0.00154525
+Iteration 16/25 | Loss: 0.00152302
+Iteration 17/25 | Loss: 0.00150568
+Iteration 18/25 | Loss: 0.00148681
+Iteration 19/25 | Loss: 0.00147999
+Iteration 20/25 | Loss: 0.00147540
+Iteration 21/25 | Loss: 0.00147484
+Iteration 22/25 | Loss: 0.00147494
+Iteration 23/25 | Loss: 0.00147484
+Iteration 24/25 | Loss: 0.00147427
+Iteration 25/25 | Loss: 0.00147417
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.44201136
+Iteration 2/25 | Loss: 0.00365381
+Iteration 3/25 | Loss: 0.00364456
+Iteration 4/25 | Loss: 0.00364456
+Iteration 5/25 | Loss: 0.00364456
+Iteration 6/25 | Loss: 0.00364456
+Iteration 7/25 | Loss: 0.00364456
+Iteration 8/25 | Loss: 0.00364456
+Iteration 9/25 | Loss: 0.00364456
+Iteration 10/25 | Loss: 0.00364456
+Iteration 11/25 | Loss: 0.00364456
+Iteration 12/25 | Loss: 0.00364456
+Iteration 13/25 | Loss: 0.00364456
+Iteration 14/25 | Loss: 0.00364456
+Iteration 15/25 | Loss: 0.00364456
+Iteration 16/25 | Loss: 0.00364456
+Iteration 17/25 | Loss: 0.00364456
+Iteration 18/25 | Loss: 0.00364456
+Iteration 19/25 | Loss: 0.00364456
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 19. Stopping optimization.
+Last 5 losses: [0.0036445583682507277, 0.0036445583682507277, 0.0036445583682507277, 0.0036445583682507277, 0.0036445583682507277]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0036445583682507277
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00364456
+Iteration 2/1000 | Loss: 0.00062539
+Iteration 3/1000 | Loss: 0.00051580
+Iteration 4/1000 | Loss: 0.00186977
+Iteration 5/1000 | Loss: 0.00026673
+Iteration 6/1000 | Loss: 0.00032836
+Iteration 7/1000 | Loss: 0.00024664
+Iteration 8/1000 | Loss: 0.00019381
+Iteration 9/1000 | Loss: 0.00018996
+Iteration 10/1000 | Loss: 0.00022224
+Iteration 11/1000 | Loss: 0.00017191
+Iteration 12/1000 | Loss: 0.00020038
+Iteration 13/1000 | Loss: 0.00018251
+Iteration 14/1000 | Loss: 0.00016549
+Iteration 15/1000 | Loss: 0.00016387
+Iteration 16/1000 | Loss: 0.00016268
+Iteration 17/1000 | Loss: 0.00016184
+Iteration 18/1000 | Loss: 0.00016123
+Iteration 19/1000 | Loss: 0.00016064
+Iteration 20/1000 | Loss: 0.00016019
+Iteration 21/1000 | Loss: 0.00015990
+Iteration 22/1000 | Loss: 0.00015963
+Iteration 23/1000 | Loss: 0.00015941
+Iteration 24/1000 | Loss: 0.00015924
+Iteration 25/1000 | Loss: 0.00015916
+Iteration 26/1000 | Loss: 0.00015906
+Iteration 27/1000 | Loss: 0.00015904
+Iteration 28/1000 | Loss: 0.00015901
+Iteration 29/1000 | Loss: 0.00015901
+Iteration 30/1000 | Loss: 0.00015900
+Iteration 31/1000 | Loss: 0.00015897
+Iteration 32/1000 | Loss: 0.00015897
+Iteration 33/1000 | Loss: 0.00015897
+Iteration 34/1000 | Loss: 0.00015894
+Iteration 35/1000 | Loss: 0.00015892
+Iteration 36/1000 | Loss: 0.00015892
+Iteration 37/1000 | Loss: 0.00015888
+Iteration 38/1000 | Loss: 0.00015888
+Iteration 39/1000 | Loss: 0.00015887
+Iteration 40/1000 | Loss: 0.00015887
+Iteration 41/1000 | Loss: 0.00015886
+Iteration 42/1000 | Loss: 0.00015886
+Iteration 43/1000 | Loss: 0.00015885
+Iteration 44/1000 | Loss: 0.00015885
+Iteration 45/1000 | Loss: 0.00015885
+Iteration 46/1000 | Loss: 0.00015884
+Iteration 47/1000 | Loss: 0.00015884
+Iteration 48/1000 | Loss: 0.00015883
+Iteration 49/1000 | Loss: 0.00015883
+Iteration 50/1000 | Loss: 0.00015883
+Iteration 51/1000 | Loss: 0.00015883
+Iteration 52/1000 | Loss: 0.00015882
+Iteration 53/1000 | Loss: 0.00015881
+Iteration 54/1000 | Loss: 0.00015881
+Iteration 55/1000 | Loss: 0.00015881
+Iteration 56/1000 | Loss: 0.00015880
+Iteration 57/1000 | Loss: 0.00015880
+Iteration 58/1000 | Loss: 0.00015880
+Iteration 59/1000 | Loss: 0.00015880
+Iteration 60/1000 | Loss: 0.00015880
+Iteration 61/1000 | Loss: 0.00015879
+Iteration 62/1000 | Loss: 0.00015879
+Iteration 63/1000 | Loss: 0.00015879
+Iteration 64/1000 | Loss: 0.00015879
+Iteration 65/1000 | Loss: 0.00015879
+Iteration 66/1000 | Loss: 0.00015879
+Iteration 67/1000 | Loss: 0.00015879
+Iteration 68/1000 | Loss: 0.00015879
+Iteration 69/1000 | Loss: 0.00015879
+Iteration 70/1000 | Loss: 0.00015878
+Iteration 71/1000 | Loss: 0.00015878
+Iteration 72/1000 | Loss: 0.00015878
+Iteration 73/1000 | Loss: 0.00015878
+Iteration 74/1000 | Loss: 0.00015878
+Iteration 75/1000 | Loss: 0.00015878
+Iteration 76/1000 | Loss: 0.00015878
+Iteration 77/1000 | Loss: 0.00015878
+Iteration 78/1000 | Loss: 0.00015877
+Iteration 79/1000 | Loss: 0.00015877
+Iteration 80/1000 | Loss: 0.00015877
+Iteration 81/1000 | Loss: 0.00015877
+Iteration 82/1000 | Loss: 0.00015877
+Iteration 83/1000 | Loss: 0.00015877
+Iteration 84/1000 | Loss: 0.00015877
+Iteration 85/1000 | Loss: 0.00015877
+Iteration 86/1000 | Loss: 0.00015877
+Iteration 87/1000 | Loss: 0.00015876
+Iteration 88/1000 | Loss: 0.00015876
+Iteration 89/1000 | Loss: 0.00015876
+Iteration 90/1000 | Loss: 0.00015876
+Iteration 91/1000 | Loss: 0.00015876
+Iteration 92/1000 | Loss: 0.00015876
+Iteration 93/1000 | Loss: 0.00015876
+Iteration 94/1000 | Loss: 0.00015876
+Iteration 95/1000 | Loss: 0.00015876
+Iteration 96/1000 | Loss: 0.00015876
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 96. Stopping optimization.
+Last 5 losses: [0.00015875750978011638, 0.00015875750978011638, 0.00015875750978011638, 0.00015875750978011638, 0.00015875750978011638]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.00015875750978011638
+
+Optimization complete. Final v2v error: 6.746161937713623 mm
+
+Highest mean error: 13.64732837677002 mm for frame 6
+
+Lowest mean error: 4.16790246963501 mm for frame 24
+
+Saving results
+
+Total time: 86.20412063598633
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0020/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0020.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0020
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.01012505
+Iteration 2/25 | Loss: 0.00165514
+Iteration 3/25 | Loss: 0.00130393
+Iteration 4/25 | Loss: 0.00125327
+Iteration 5/25 | Loss: 0.00123314
+Iteration 6/25 | Loss: 0.00122866
+Iteration 7/25 | Loss: 0.00122796
+Iteration 8/25 | Loss: 0.00122796
+Iteration 9/25 | Loss: 0.00122796
+Iteration 10/25 | Loss: 0.00122796
+Iteration 11/25 | Loss: 0.00122796
+Iteration 12/25 | Loss: 0.00122796
+Iteration 13/25 | Loss: 0.00122796
+Iteration 14/25 | Loss: 0.00122796
+Iteration 15/25 | Loss: 0.00122796
+Iteration 16/25 | Loss: 0.00122796
+Iteration 17/25 | Loss: 0.00122796
+Iteration 18/25 | Loss: 0.00122796
+Iteration 19/25 | Loss: 0.00122796
+Iteration 20/25 | Loss: 0.00122796
+Iteration 21/25 | Loss: 0.00122796
+Iteration 22/25 | Loss: 0.00122796
+Iteration 23/25 | Loss: 0.00122796
+Iteration 24/25 | Loss: 0.00122796
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 24. Stopping optimization.
+Last 5 losses: [0.001227961271069944, 0.001227961271069944, 0.001227961271069944, 0.001227961271069944, 0.001227961271069944]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.001227961271069944
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.43343902
+Iteration 2/25 | Loss: 0.00092652
+Iteration 3/25 | Loss: 0.00092650
+Iteration 4/25 | Loss: 0.00092650
+Iteration 5/25 | Loss: 0.00092650
+Iteration 6/25 | Loss: 0.00092649
+Iteration 7/25 | Loss: 0.00092649
+Iteration 8/25 | Loss: 0.00092649
+Iteration 9/25 | Loss: 0.00092649
+Iteration 10/25 | Loss: 0.00092649
+Iteration 11/25 | Loss: 0.00092649
+Iteration 12/25 | Loss: 0.00092649
+Iteration 13/25 | Loss: 0.00092649
+Iteration 14/25 | Loss: 0.00092649
+Iteration 15/25 | Loss: 0.00092649
+Iteration 16/25 | Loss: 0.00092649
+Iteration 17/25 | Loss: 0.00092649
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 17. Stopping optimization.
+Last 5 losses: [0.0009264932596124709, 0.0009264932596124709, 0.0009264932596124709, 0.0009264932596124709, 0.0009264932596124709]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0009264932596124709
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00092649
+Iteration 2/1000 | Loss: 0.00009445
+Iteration 3/1000 | Loss: 0.00006814
+Iteration 4/1000 | Loss: 0.00005610
+Iteration 5/1000 | Loss: 0.00005176
+Iteration 6/1000 | Loss: 0.00004915
+Iteration 7/1000 | Loss: 0.00004729
+Iteration 8/1000 | Loss: 0.00004576
+Iteration 9/1000 | Loss: 0.00004485
+Iteration 10/1000 | Loss: 0.00004416
+Iteration 11/1000 | Loss: 0.00004383
+Iteration 12/1000 | Loss: 0.00004347
+Iteration 13/1000 | Loss: 0.00004323
+Iteration 14/1000 | Loss: 0.00004322
+Iteration 15/1000 | Loss: 0.00004310
+Iteration 16/1000 | Loss: 0.00004309
+Iteration 17/1000 | Loss: 0.00004309
+Iteration 18/1000 | Loss: 0.00004309
+Iteration 19/1000 | Loss: 0.00004308
+Iteration 20/1000 | Loss: 0.00004308
+Iteration 21/1000 | Loss: 0.00004308
+Iteration 22/1000 | Loss: 0.00004308
+Iteration 23/1000 | Loss: 0.00004308
+Iteration 24/1000 | Loss: 0.00004308
+Iteration 25/1000 | Loss: 0.00004308
+Iteration 26/1000 | Loss: 0.00004308
+Iteration 27/1000 | Loss: 0.00004308
+Iteration 28/1000 | Loss: 0.00004308
+Iteration 29/1000 | Loss: 0.00004307
+Iteration 30/1000 | Loss: 0.00004307
+Iteration 31/1000 | Loss: 0.00004305
+Iteration 32/1000 | Loss: 0.00004305
+Iteration 33/1000 | Loss: 0.00004305
+Iteration 34/1000 | Loss: 0.00004304
+Iteration 35/1000 | Loss: 0.00004304
+Iteration 36/1000 | Loss: 0.00004302
+Iteration 37/1000 | Loss: 0.00004302
+Iteration 38/1000 | Loss: 0.00004302
+Iteration 39/1000 | Loss: 0.00004301
+Iteration 40/1000 | Loss: 0.00004301
+Iteration 41/1000 | Loss: 0.00004301
+Iteration 42/1000 | Loss: 0.00004300
+Iteration 43/1000 | Loss: 0.00004300
+Iteration 44/1000 | Loss: 0.00004300
+Iteration 45/1000 | Loss: 0.00004299
+Iteration 46/1000 | Loss: 0.00004299
+Iteration 47/1000 | Loss: 0.00004299
+Iteration 48/1000 | Loss: 0.00004298
+Iteration 49/1000 | Loss: 0.00004298
+Iteration 50/1000 | Loss: 0.00004298
+Iteration 51/1000 | Loss: 0.00004298
+Iteration 52/1000 | Loss: 0.00004298
+Iteration 53/1000 | Loss: 0.00004298
+Iteration 54/1000 | Loss: 0.00004298
+Iteration 55/1000 | Loss: 0.00004298
+Iteration 56/1000 | Loss: 0.00004297
+Iteration 57/1000 | Loss: 0.00004297
+Iteration 58/1000 | Loss: 0.00004297
+Iteration 59/1000 | Loss: 0.00004297
+Iteration 60/1000 | Loss: 0.00004297
+Iteration 61/1000 | Loss: 0.00004296
+Iteration 62/1000 | Loss: 0.00004296
+Iteration 63/1000 | Loss: 0.00004296
+Iteration 64/1000 | Loss: 0.00004296
+Iteration 65/1000 | Loss: 0.00004296
+Iteration 66/1000 | Loss: 0.00004295
+Iteration 67/1000 | Loss: 0.00004295
+Iteration 68/1000 | Loss: 0.00004295
+Iteration 69/1000 | Loss: 0.00004295
+Iteration 70/1000 | Loss: 0.00004295
+Iteration 71/1000 | Loss: 0.00004294
+Iteration 72/1000 | Loss: 0.00004294
+Iteration 73/1000 | Loss: 0.00004294
+Iteration 74/1000 | Loss: 0.00004293
+Iteration 75/1000 | Loss: 0.00004293
+Iteration 76/1000 | Loss: 0.00004293
+Iteration 77/1000 | Loss: 0.00004292
+Iteration 78/1000 | Loss: 0.00004292
+Iteration 79/1000 | Loss: 0.00004292
+Iteration 80/1000 | Loss: 0.00004292
+Iteration 81/1000 | Loss: 0.00004292
+Iteration 82/1000 | Loss: 0.00004292
+Iteration 83/1000 | Loss: 0.00004292
+Iteration 84/1000 | Loss: 0.00004292
+Iteration 85/1000 | Loss: 0.00004292
+Iteration 86/1000 | Loss: 0.00004292
+Iteration 87/1000 | Loss: 0.00004291
+Iteration 88/1000 | Loss: 0.00004291
+Iteration 89/1000 | Loss: 0.00004291
+Iteration 90/1000 | Loss: 0.00004291
+Iteration 91/1000 | Loss: 0.00004291
+Iteration 92/1000 | Loss: 0.00004291
+Iteration 93/1000 | Loss: 0.00004291
+Iteration 94/1000 | Loss: 0.00004291
+Iteration 95/1000 | Loss: 0.00004291
+Iteration 96/1000 | Loss: 0.00004291
+Iteration 97/1000 | Loss: 0.00004291
+Iteration 98/1000 | Loss: 0.00004291
+Iteration 99/1000 | Loss: 0.00004291
+Iteration 100/1000 | Loss: 0.00004291
+Iteration 101/1000 | Loss: 0.00004290
+Iteration 102/1000 | Loss: 0.00004290
+Iteration 103/1000 | Loss: 0.00004290
+Iteration 104/1000 | Loss: 0.00004290
+Iteration 105/1000 | Loss: 0.00004290
+Iteration 106/1000 | Loss: 0.00004290
+Iteration 107/1000 | Loss: 0.00004290
+Iteration 108/1000 | Loss: 0.00004290
+Iteration 109/1000 | Loss: 0.00004290
+Iteration 110/1000 | Loss: 0.00004290
+Iteration 111/1000 | Loss: 0.00004290
+Iteration 112/1000 | Loss: 0.00004290
+Iteration 113/1000 | Loss: 0.00004290
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 113. Stopping optimization.
+Last 5 losses: [4.290385913918726e-05, 4.290385913918726e-05, 4.290385913918726e-05, 4.290385913918726e-05, 4.290385913918726e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 4.290385913918726e-05
+
+Optimization complete. Final v2v error: 5.518681049346924 mm
+
+Highest mean error: 6.539982795715332 mm for frame 62
+
+Lowest mean error: 4.839815139770508 mm for frame 131
+
+Saving results
+
+Total time: 35.94924283027649
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0014/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0014.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0014
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00514387
+Iteration 2/25 | Loss: 0.00120901
+Iteration 3/25 | Loss: 0.00112943
+Iteration 4/25 | Loss: 0.00111447
+Iteration 5/25 | Loss: 0.00110854
+Iteration 6/25 | Loss: 0.00110705
+Iteration 7/25 | Loss: 0.00110677
+Iteration 8/25 | Loss: 0.00110677
+Iteration 9/25 | Loss: 0.00110677
+Iteration 10/25 | Loss: 0.00110677
+Iteration 11/25 | Loss: 0.00110677
+Iteration 12/25 | Loss: 0.00110677
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 12. Stopping optimization.
+Last 5 losses: [0.001106772106140852, 0.001106772106140852, 0.001106772106140852, 0.001106772106140852, 0.001106772106140852]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.001106772106140852
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 4.29249334
+Iteration 2/25 | Loss: 0.00085779
+Iteration 3/25 | Loss: 0.00085779
+Iteration 4/25 | Loss: 0.00085779
+Iteration 5/25 | Loss: 0.00085779
+Iteration 6/25 | Loss: 0.00085779
+Iteration 7/25 | Loss: 0.00085779
+Iteration 8/25 | Loss: 0.00085779
+Iteration 9/25 | Loss: 0.00085779
+Iteration 10/25 | Loss: 0.00085779
+Iteration 11/25 | Loss: 0.00085779
+Iteration 12/25 | Loss: 0.00085779
+Iteration 13/25 | Loss: 0.00085779
+Iteration 14/25 | Loss: 0.00085779
+Iteration 15/25 | Loss: 0.00085779
+Iteration 16/25 | Loss: 0.00085779
+Iteration 17/25 | Loss: 0.00085779
+Iteration 18/25 | Loss: 0.00085779
+Iteration 19/25 | Loss: 0.00085779
+Iteration 20/25 | Loss: 0.00085779
+Iteration 21/25 | Loss: 0.00085779
+Iteration 22/25 | Loss: 0.00085779
+Iteration 23/25 | Loss: 0.00085779
+Iteration 24/25 | Loss: 0.00085779
+Iteration 25/25 | Loss: 0.00085779
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00085779
+Iteration 2/1000 | Loss: 0.00004367
+Iteration 3/1000 | Loss: 0.00003389
+Iteration 4/1000 | Loss: 0.00003117
+Iteration 5/1000 | Loss: 0.00002925
+Iteration 6/1000 | Loss: 0.00002857
+Iteration 7/1000 | Loss: 0.00002771
+Iteration 8/1000 | Loss: 0.00002738
+Iteration 9/1000 | Loss: 0.00002712
+Iteration 10/1000 | Loss: 0.00002706
+Iteration 11/1000 | Loss: 0.00002704
+Iteration 12/1000 | Loss: 0.00002703
+Iteration 13/1000 | Loss: 0.00002703
+Iteration 14/1000 | Loss: 0.00002703
+Iteration 15/1000 | Loss: 0.00002702
+Iteration 16/1000 | Loss: 0.00002702
+Iteration 17/1000 | Loss: 0.00002701
+Iteration 18/1000 | Loss: 0.00002700
+Iteration 19/1000 | Loss: 0.00002700
+Iteration 20/1000 | Loss: 0.00002699
+Iteration 21/1000 | Loss: 0.00002699
+Iteration 22/1000 | Loss: 0.00002698
+Iteration 23/1000 | Loss: 0.00002698
+Iteration 24/1000 | Loss: 0.00002698
+Iteration 25/1000 | Loss: 0.00002697
+Iteration 26/1000 | Loss: 0.00002697
+Iteration 27/1000 | Loss: 0.00002697
+Iteration 28/1000 | Loss: 0.00002697
+Iteration 29/1000 | Loss: 0.00002697
+Iteration 30/1000 | Loss: 0.00002697
+Iteration 31/1000 | Loss: 0.00002696
+Iteration 32/1000 | Loss: 0.00002696
+Iteration 33/1000 | Loss: 0.00002696
+Iteration 34/1000 | Loss: 0.00002695
+Iteration 35/1000 | Loss: 0.00002695
+Iteration 36/1000 | Loss: 0.00002695
+Iteration 37/1000 | Loss: 0.00002695
+Iteration 38/1000 | Loss: 0.00002695
+Iteration 39/1000 | Loss: 0.00002694
+Iteration 40/1000 | Loss: 0.00002694
+Iteration 41/1000 | Loss: 0.00002694
+Iteration 42/1000 | Loss: 0.00002694
+Iteration 43/1000 | Loss: 0.00002694
+Iteration 44/1000 | Loss: 0.00002694
+Iteration 45/1000 | Loss: 0.00002694
+Iteration 46/1000 | Loss: 0.00002694
+Iteration 47/1000 | Loss: 0.00002694
+Iteration 48/1000 | Loss: 0.00002694
+Iteration 49/1000 | Loss: 0.00002693
+Iteration 50/1000 | Loss: 0.00002693
+Iteration 51/1000 | Loss: 0.00002693
+Iteration 52/1000 | Loss: 0.00002693
+Iteration 53/1000 | Loss: 0.00002693
+Iteration 54/1000 | Loss: 0.00002693
+Iteration 55/1000 | Loss: 0.00002693
+Iteration 56/1000 | Loss: 0.00002693
+Iteration 57/1000 | Loss: 0.00002693
+Iteration 58/1000 | Loss: 0.00002692
+Iteration 59/1000 | Loss: 0.00002692
+Iteration 60/1000 | Loss: 0.00002692
+Iteration 61/1000 | Loss: 0.00002692
+Iteration 62/1000 | Loss: 0.00002692
+Iteration 63/1000 | Loss: 0.00002692
+Iteration 64/1000 | Loss: 0.00002692
+Iteration 65/1000 | Loss: 0.00002691
+Iteration 66/1000 | Loss: 0.00002691
+Iteration 67/1000 | Loss: 0.00002691
+Iteration 68/1000 | Loss: 0.00002691
+Iteration 69/1000 | Loss: 0.00002691
+Iteration 70/1000 | Loss: 0.00002691
+Iteration 71/1000 | Loss: 0.00002691
+Iteration 72/1000 | Loss: 0.00002691
+Iteration 73/1000 | Loss: 0.00002691
+Iteration 74/1000 | Loss: 0.00002690
+Iteration 75/1000 | Loss: 0.00002690
+Iteration 76/1000 | Loss: 0.00002690
+Iteration 77/1000 | Loss: 0.00002690
+Iteration 78/1000 | Loss: 0.00002690
+Iteration 79/1000 | Loss: 0.00002690
+Iteration 80/1000 | Loss: 0.00002690
+Iteration 81/1000 | Loss: 0.00002690
+Iteration 82/1000 | Loss: 0.00002690
+Iteration 83/1000 | Loss: 0.00002690
+Iteration 84/1000 | Loss: 0.00002690
+Iteration 85/1000 | Loss: 0.00002688
+Iteration 86/1000 | Loss: 0.00002688
+Iteration 87/1000 | Loss: 0.00002688
+Iteration 88/1000 | Loss: 0.00002688
+Iteration 89/1000 | Loss: 0.00002688
+Iteration 90/1000 | Loss: 0.00002688
+Iteration 91/1000 | Loss: 0.00002688
+Iteration 92/1000 | Loss: 0.00002688
+Iteration 93/1000 | Loss: 0.00002688
+Iteration 94/1000 | Loss: 0.00002688
+Iteration 95/1000 | Loss: 0.00002687
+Iteration 96/1000 | Loss: 0.00002687
+Iteration 97/1000 | Loss: 0.00002687
+Iteration 98/1000 | Loss: 0.00002687
+Iteration 99/1000 | Loss: 0.00002687
+Iteration 100/1000 | Loss: 0.00002687
+Iteration 101/1000 | Loss: 0.00002687
+Iteration 102/1000 | Loss: 0.00002687
+Iteration 103/1000 | Loss: 0.00002687
+Iteration 104/1000 | Loss: 0.00002687
+Iteration 105/1000 | Loss: 0.00002687
+Iteration 106/1000 | Loss: 0.00002686
+Iteration 107/1000 | Loss: 0.00002686
+Iteration 108/1000 | Loss: 0.00002686
+Iteration 109/1000 | Loss: 0.00002686
+Iteration 110/1000 | Loss: 0.00002686
+Iteration 111/1000 | Loss: 0.00002686
+Iteration 112/1000 | Loss: 0.00002686
+Iteration 113/1000 | Loss: 0.00002686
+Iteration 114/1000 | Loss: 0.00002686
+Iteration 115/1000 | Loss: 0.00002686
+Iteration 116/1000 | Loss: 0.00002685
+Iteration 117/1000 | Loss: 0.00002685
+Iteration 118/1000 | Loss: 0.00002685
+Iteration 119/1000 | Loss: 0.00002685
+Iteration 120/1000 | Loss: 0.00002685
+Iteration 121/1000 | Loss: 0.00002685
+Iteration 122/1000 | Loss: 0.00002685
+Iteration 123/1000 | Loss: 0.00002685
+Iteration 124/1000 | Loss: 0.00002685
+Iteration 125/1000 | Loss: 0.00002685
+Iteration 126/1000 | Loss: 0.00002685
+Iteration 127/1000 | Loss: 0.00002685
+Iteration 128/1000 | Loss: 0.00002684
+Iteration 129/1000 | Loss: 0.00002684
+Iteration 130/1000 | Loss: 0.00002684
+Iteration 131/1000 | Loss: 0.00002684
+Iteration 132/1000 | Loss: 0.00002684
+Iteration 133/1000 | Loss: 0.00002683
+Iteration 134/1000 | Loss: 0.00002683
+Iteration 135/1000 | Loss: 0.00002683
+Iteration 136/1000 | Loss: 0.00002683
+Iteration 137/1000 | Loss: 0.00002683
+Iteration 138/1000 | Loss: 0.00002683
+Iteration 139/1000 | Loss: 0.00002683
+Iteration 140/1000 | Loss: 0.00002682
+Iteration 141/1000 | Loss: 0.00002682
+Iteration 142/1000 | Loss: 0.00002682
+Iteration 143/1000 | Loss: 0.00002682
+Iteration 144/1000 | Loss: 0.00002682
+Iteration 145/1000 | Loss: 0.00002682
+Iteration 146/1000 | Loss: 0.00002681
+Iteration 147/1000 | Loss: 0.00002681
+Iteration 148/1000 | Loss: 0.00002681
+Iteration 149/1000 | Loss: 0.00002681
+Iteration 150/1000 | Loss: 0.00002681
+Iteration 151/1000 | Loss: 0.00002680
+Iteration 152/1000 | Loss: 0.00002680
+Iteration 153/1000 | Loss: 0.00002680
+Iteration 154/1000 | Loss: 0.00002680
+Iteration 155/1000 | Loss: 0.00002680
+Iteration 156/1000 | Loss: 0.00002680
+Iteration 157/1000 | Loss: 0.00002680
+Iteration 158/1000 | Loss: 0.00002680
+Iteration 159/1000 | Loss: 0.00002680
+Iteration 160/1000 | Loss: 0.00002680
+Iteration 161/1000 | Loss: 0.00002680
+Iteration 162/1000 | Loss: 0.00002680
+Iteration 163/1000 | Loss: 0.00002679
+Iteration 164/1000 | Loss: 0.00002679
+Iteration 165/1000 | Loss: 0.00002679
+Iteration 166/1000 | Loss: 0.00002679
+Iteration 167/1000 | Loss: 0.00002679
+Iteration 168/1000 | Loss: 0.00002679
+Iteration 169/1000 | Loss: 0.00002679
+Iteration 170/1000 | Loss: 0.00002679
+Iteration 171/1000 | Loss: 0.00002679
+Iteration 172/1000 | Loss: 0.00002679
+Iteration 173/1000 | Loss: 0.00002679
+Iteration 174/1000 | Loss: 0.00002679
+Iteration 175/1000 | Loss: 0.00002678
+Iteration 176/1000 | Loss: 0.00002678
+Iteration 177/1000 | Loss: 0.00002678
+Iteration 178/1000 | Loss: 0.00002678
+Iteration 179/1000 | Loss: 0.00002678
+Iteration 180/1000 | Loss: 0.00002678
+Iteration 181/1000 | Loss: 0.00002678
+Iteration 182/1000 | Loss: 0.00002678
+Iteration 183/1000 | Loss: 0.00002678
+Iteration 184/1000 | Loss: 0.00002678
+Iteration 185/1000 | Loss: 0.00002678
+Iteration 186/1000 | Loss: 0.00002678
+Iteration 187/1000 | Loss: 0.00002677
+Iteration 188/1000 | Loss: 0.00002677
+Iteration 189/1000 | Loss: 0.00002677
+Iteration 190/1000 | Loss: 0.00002677
+Iteration 191/1000 | Loss: 0.00002677
+Iteration 192/1000 | Loss: 0.00002676
+Iteration 193/1000 | Loss: 0.00002676
+Iteration 194/1000 | Loss: 0.00002676
+Iteration 195/1000 | Loss: 0.00002676
+Iteration 196/1000 | Loss: 0.00002676
+Iteration 197/1000 | Loss: 0.00002676
+Iteration 198/1000 | Loss: 0.00002676
+Iteration 199/1000 | Loss: 0.00002676
+Iteration 200/1000 | Loss: 0.00002676
+Iteration 201/1000 | Loss: 0.00002676
+Iteration 202/1000 | Loss: 0.00002676
+Iteration 203/1000 | Loss: 0.00002676
+Iteration 204/1000 | Loss: 0.00002676
+Iteration 205/1000 | Loss: 0.00002676
+Iteration 206/1000 | Loss: 0.00002676
+Iteration 207/1000 | Loss: 0.00002676
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 207. Stopping optimization.
+Last 5 losses: [2.6764155336422846e-05, 2.6764155336422846e-05, 2.6764155336422846e-05, 2.6764155336422846e-05, 2.6764155336422846e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.6764155336422846e-05
+
+Optimization complete. Final v2v error: 4.448182106018066 mm
+
+Highest mean error: 4.7632012367248535 mm for frame 108
+
+Lowest mean error: 4.251415729522705 mm for frame 51
+
+Saving results
+
+Total time: 34.84165573120117
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0015/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0015.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0015
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00467129
+Iteration 2/25 | Loss: 0.00125343
+Iteration 3/25 | Loss: 0.00118587
+Iteration 4/25 | Loss: 0.00116318
+Iteration 5/25 | Loss: 0.00115788
+Iteration 6/25 | Loss: 0.00115781
+Iteration 7/25 | Loss: 0.00115781
+Iteration 8/25 | Loss: 0.00115781
+Iteration 9/25 | Loss: 0.00115781
+Iteration 10/25 | Loss: 0.00115781
+Iteration 11/25 | Loss: 0.00115781
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 11. Stopping optimization.
+Last 5 losses: [0.0011578137055039406, 0.0011578137055039406, 0.0011578137055039406, 0.0011578137055039406, 0.0011578137055039406]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0011578137055039406
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 1.34912312
+Iteration 2/25 | Loss: 0.00086478
+Iteration 3/25 | Loss: 0.00086478
+Iteration 4/25 | Loss: 0.00086478
+Iteration 5/25 | Loss: 0.00086478
+Iteration 6/25 | Loss: 0.00086478
+Iteration 7/25 | Loss: 0.00086478
+Iteration 8/25 | Loss: 0.00086478
+Iteration 9/25 | Loss: 0.00086478
+Iteration 10/25 | Loss: 0.00086478
+Iteration 11/25 | Loss: 0.00086478
+Iteration 12/25 | Loss: 0.00086478
+Iteration 13/25 | Loss: 0.00086478
+Iteration 14/25 | Loss: 0.00086478
+Iteration 15/25 | Loss: 0.00086478
+Iteration 16/25 | Loss: 0.00086478
+Iteration 17/25 | Loss: 0.00086478
+Iteration 18/25 | Loss: 0.00086478
+Iteration 19/25 | Loss: 0.00086478
+Iteration 20/25 | Loss: 0.00086478
+Iteration 21/25 | Loss: 0.00086478
+Iteration 22/25 | Loss: 0.00086478
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 22. Stopping optimization.
+Last 5 losses: [0.000864775269292295, 0.000864775269292295, 0.000864775269292295, 0.000864775269292295, 0.000864775269292295]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.000864775269292295
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00086478
+Iteration 2/1000 | Loss: 0.00006062
+Iteration 3/1000 | Loss: 0.00004777
+Iteration 4/1000 | Loss: 0.00004408
+Iteration 5/1000 | Loss: 0.00004152
+Iteration 6/1000 | Loss: 0.00004003
+Iteration 7/1000 | Loss: 0.00003909
+Iteration 8/1000 | Loss: 0.00003875
+Iteration 9/1000 | Loss: 0.00003860
+Iteration 10/1000 | Loss: 0.00003860
+Iteration 11/1000 | Loss: 0.00003859
+Iteration 12/1000 | Loss: 0.00003858
+Iteration 13/1000 | Loss: 0.00003858
+Iteration 14/1000 | Loss: 0.00003855
+Iteration 15/1000 | Loss: 0.00003855
+Iteration 16/1000 | Loss: 0.00003855
+Iteration 17/1000 | Loss: 0.00003854
+Iteration 18/1000 | Loss: 0.00003854
+Iteration 19/1000 | Loss: 0.00003854
+Iteration 20/1000 | Loss: 0.00003854
+Iteration 21/1000 | Loss: 0.00003853
+Iteration 22/1000 | Loss: 0.00003853
+Iteration 23/1000 | Loss: 0.00003852
+Iteration 24/1000 | Loss: 0.00003852
+Iteration 25/1000 | Loss: 0.00003851
+Iteration 26/1000 | Loss: 0.00003851
+Iteration 27/1000 | Loss: 0.00003851
+Iteration 28/1000 | Loss: 0.00003851
+Iteration 29/1000 | Loss: 0.00003851
+Iteration 30/1000 | Loss: 0.00003851
+Iteration 31/1000 | Loss: 0.00003850
+Iteration 32/1000 | Loss: 0.00003850
+Iteration 33/1000 | Loss: 0.00003850
+Iteration 34/1000 | Loss: 0.00003850
+Iteration 35/1000 | Loss: 0.00003850
+Iteration 36/1000 | Loss: 0.00003850
+Iteration 37/1000 | Loss: 0.00003850
+Iteration 38/1000 | Loss: 0.00003850
+Iteration 39/1000 | Loss: 0.00003850
+Iteration 40/1000 | Loss: 0.00003850
+Iteration 41/1000 | Loss: 0.00003850
+Iteration 42/1000 | Loss: 0.00003849
+Iteration 43/1000 | Loss: 0.00003848
+Iteration 44/1000 | Loss: 0.00003847
+Iteration 45/1000 | Loss: 0.00003847
+Iteration 46/1000 | Loss: 0.00003847
+Iteration 47/1000 | Loss: 0.00003846
+Iteration 48/1000 | Loss: 0.00003846
+Iteration 49/1000 | Loss: 0.00003846
+Iteration 50/1000 | Loss: 0.00003844
+Iteration 51/1000 | Loss: 0.00003844
+Iteration 52/1000 | Loss: 0.00003843
+Iteration 53/1000 | Loss: 0.00003843
+Iteration 54/1000 | Loss: 0.00003843
+Iteration 55/1000 | Loss: 0.00003842
+Iteration 56/1000 | Loss: 0.00003842
+Iteration 57/1000 | Loss: 0.00003842
+Iteration 58/1000 | Loss: 0.00003842
+Iteration 59/1000 | Loss: 0.00003842
+Iteration 60/1000 | Loss: 0.00003842
+Iteration 61/1000 | Loss: 0.00003842
+Iteration 62/1000 | Loss: 0.00003842
+Iteration 63/1000 | Loss: 0.00003842
+Iteration 64/1000 | Loss: 0.00003842
+Iteration 65/1000 | Loss: 0.00003842
+Iteration 66/1000 | Loss: 0.00003841
+Iteration 67/1000 | Loss: 0.00003841
+Iteration 68/1000 | Loss: 0.00003841
+Iteration 69/1000 | Loss: 0.00003841
+Iteration 70/1000 | Loss: 0.00003841
+Iteration 71/1000 | Loss: 0.00003841
+Iteration 72/1000 | Loss: 0.00003841
+Iteration 73/1000 | Loss: 0.00003841
+Iteration 74/1000 | Loss: 0.00003841
+Iteration 75/1000 | Loss: 0.00003841
+Iteration 76/1000 | Loss: 0.00003841
+Iteration 77/1000 | Loss: 0.00003841
+Iteration 78/1000 | Loss: 0.00003841
+Iteration 79/1000 | Loss: 0.00003841
+Iteration 80/1000 | Loss: 0.00003841
+Iteration 81/1000 | Loss: 0.00003841
+Iteration 82/1000 | Loss: 0.00003841
+Iteration 83/1000 | Loss: 0.00003841
+Iteration 84/1000 | Loss: 0.00003841
+Iteration 85/1000 | Loss: 0.00003841
+Iteration 86/1000 | Loss: 0.00003841
+Iteration 87/1000 | Loss: 0.00003841
+Iteration 88/1000 | Loss: 0.00003841
+Iteration 89/1000 | Loss: 0.00003841
+Iteration 90/1000 | Loss: 0.00003841
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 90. Stopping optimization.
+Last 5 losses: [3.841482975985855e-05, 3.841482975985855e-05, 3.841482975985855e-05, 3.841482975985855e-05, 3.841482975985855e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 3.841482975985855e-05
+
+Optimization complete. Final v2v error: 5.253994464874268 mm
+
+Highest mean error: 5.499317169189453 mm for frame 159
+
+Lowest mean error: 4.820376396179199 mm for frame 0
+
+Saving results
+
+Total time: 28.45796251296997
+Loading the SMPL Parameters /is/cluster/sbhor/smpl_ground_truth_corr/male_36_nl_6242/0010/motion_seq.npz
+Created directory /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0010.
+Output directory: /is/cluster/fast/sbhor/star_bedlam_bomoto/male_36_nl_6242/0010
+Using device: cuda:0
+Loaded SMPL model from /is/cluster/sbhor/SMPL_models_SMPLIFYX/smpl/SMPL_NEUTRAL.pkl
+Loaded STAR model from <_io.BufferedReader name='/is/cluster/sbhor/STAR/star_1_1/star/STAR_NEUTRAL.npz'>
+Processing batch 1/1
+
+Performing pose optimization using an edge loss
+
+Iteration 1/25 | Loss: 0.00803862
+Iteration 2/25 | Loss: 0.00166226
+Iteration 3/25 | Loss: 0.00136451
+Iteration 4/25 | Loss: 0.00129784
+Iteration 5/25 | Loss: 0.00121750
+Iteration 6/25 | Loss: 0.00120223
+Iteration 7/25 | Loss: 0.00119412
+Iteration 8/25 | Loss: 0.00119251
+Iteration 9/25 | Loss: 0.00117579
+Iteration 10/25 | Loss: 0.00117557
+Iteration 11/25 | Loss: 0.00117593
+Iteration 12/25 | Loss: 0.00116421
+Iteration 13/25 | Loss: 0.00115860
+Iteration 14/25 | Loss: 0.00115680
+Iteration 15/25 | Loss: 0.00115572
+Iteration 16/25 | Loss: 0.00115888
+Iteration 17/25 | Loss: 0.00115670
+Iteration 18/25 | Loss: 0.00115515
+Iteration 19/25 | Loss: 0.00115481
+Iteration 20/25 | Loss: 0.00115460
+Iteration 21/25 | Loss: 0.00115444
+Iteration 22/25 | Loss: 0.00115441
+Iteration 23/25 | Loss: 0.00115523
+Iteration 24/25 | Loss: 0.00115470
+Iteration 25/25 | Loss: 0.00115444
+
+Performing global translation and orientation optimization using a vertex loss
+
+Iteration 1/25 | Loss: 4.11575079
+Iteration 2/25 | Loss: 0.00103195
+Iteration 3/25 | Loss: 0.00103191
+Iteration 4/25 | Loss: 0.00103191
+Iteration 5/25 | Loss: 0.00103191
+Iteration 6/25 | Loss: 0.00103191
+Iteration 7/25 | Loss: 0.00103191
+Iteration 8/25 | Loss: 0.00103191
+Iteration 9/25 | Loss: 0.00103191
+Iteration 10/25 | Loss: 0.00103191
+Iteration 11/25 | Loss: 0.00103191
+Iteration 12/25 | Loss: 0.00103191
+Iteration 13/25 | Loss: 0.00103191
+Iteration 14/25 | Loss: 0.00103191
+Iteration 15/25 | Loss: 0.00103191
+Iteration 16/25 | Loss: 0.00103191
+Iteration 17/25 | Loss: 0.00103191
+Iteration 18/25 | Loss: 0.00103191
+Iteration 19/25 | Loss: 0.00103191
+Iteration 20/25 | Loss: 0.00103191
+Iteration 21/25 | Loss: 0.00103191
+Iteration 22/25 | Loss: 0.00103191
+Iteration 23/25 | Loss: 0.00103191
+Low loss delta threshold (1e-12) for 5 consecutive iterations reached at iteration 23. Stopping optimization.
+Last 5 losses: [0.0010319106513634324, 0.0010319106513634324, 0.0010319106513634324, 0.0010319106513634324, 0.0010319106513634324]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 0.0010319106513634324
+
+Optimizing all parameters using a vertex loss
+
+Iteration 1/1000 | Loss: 0.00103191
+Iteration 2/1000 | Loss: 0.00008394
+Iteration 3/1000 | Loss: 0.00005783
+Iteration 4/1000 | Loss: 0.00004808
+Iteration 5/1000 | Loss: 0.00004353
+Iteration 6/1000 | Loss: 0.00004019
+Iteration 7/1000 | Loss: 0.00003833
+Iteration 8/1000 | Loss: 0.00003688
+Iteration 9/1000 | Loss: 0.00027061
+Iteration 10/1000 | Loss: 0.00042674
+Iteration 11/1000 | Loss: 0.00007479
+Iteration 12/1000 | Loss: 0.00004813
+Iteration 13/1000 | Loss: 0.00003792
+Iteration 14/1000 | Loss: 0.00003335
+Iteration 15/1000 | Loss: 0.00003063
+Iteration 16/1000 | Loss: 0.00002875
+Iteration 17/1000 | Loss: 0.00002763
+Iteration 18/1000 | Loss: 0.00002695
+Iteration 19/1000 | Loss: 0.00002660
+Iteration 20/1000 | Loss: 0.00002625
+Iteration 21/1000 | Loss: 0.00002604
+Iteration 22/1000 | Loss: 0.00002602
+Iteration 23/1000 | Loss: 0.00002594
+Iteration 24/1000 | Loss: 0.00002589
+Iteration 25/1000 | Loss: 0.00002588
+Iteration 26/1000 | Loss: 0.00002588
+Iteration 27/1000 | Loss: 0.00002587
+Iteration 28/1000 | Loss: 0.00002585
+Iteration 29/1000 | Loss: 0.00002585
+Iteration 30/1000 | Loss: 0.00002584
+Iteration 31/1000 | Loss: 0.00002584
+Iteration 32/1000 | Loss: 0.00002584
+Iteration 33/1000 | Loss: 0.00002578
+Iteration 34/1000 | Loss: 0.00002577
+Iteration 35/1000 | Loss: 0.00002577
+Iteration 36/1000 | Loss: 0.00002576
+Iteration 37/1000 | Loss: 0.00002576
+Iteration 38/1000 | Loss: 0.00002576
+Iteration 39/1000 | Loss: 0.00002573
+Iteration 40/1000 | Loss: 0.00002573
+Iteration 41/1000 | Loss: 0.00002572
+Iteration 42/1000 | Loss: 0.00002571
+Iteration 43/1000 | Loss: 0.00002571
+Iteration 44/1000 | Loss: 0.00002571
+Iteration 45/1000 | Loss: 0.00002570
+Iteration 46/1000 | Loss: 0.00002570
+Iteration 47/1000 | Loss: 0.00002569
+Iteration 48/1000 | Loss: 0.00002569
+Iteration 49/1000 | Loss: 0.00002569
+Iteration 50/1000 | Loss: 0.00002568
+Iteration 51/1000 | Loss: 0.00002568
+Iteration 52/1000 | Loss: 0.00002568
+Iteration 53/1000 | Loss: 0.00002568
+Iteration 54/1000 | Loss: 0.00002568
+Iteration 55/1000 | Loss: 0.00002568
+Iteration 56/1000 | Loss: 0.00002567
+Iteration 57/1000 | Loss: 0.00002567
+Iteration 58/1000 | Loss: 0.00002567
+Iteration 59/1000 | Loss: 0.00002566
+Iteration 60/1000 | Loss: 0.00002566
+Iteration 61/1000 | Loss: 0.00002566
+Iteration 62/1000 | Loss: 0.00002565
+Iteration 63/1000 | Loss: 0.00002565
+Iteration 64/1000 | Loss: 0.00002565
+Iteration 65/1000 | Loss: 0.00002565
+Iteration 66/1000 | Loss: 0.00002565
+Iteration 67/1000 | Loss: 0.00002564
+Iteration 68/1000 | Loss: 0.00002563
+Iteration 69/1000 | Loss: 0.00002563
+Iteration 70/1000 | Loss: 0.00002562
+Iteration 71/1000 | Loss: 0.00002561
+Iteration 72/1000 | Loss: 0.00002560
+Iteration 73/1000 | Loss: 0.00002560
+Iteration 74/1000 | Loss: 0.00002560
+Iteration 75/1000 | Loss: 0.00002560
+Iteration 76/1000 | Loss: 0.00002559
+Iteration 77/1000 | Loss: 0.00002559
+Iteration 78/1000 | Loss: 0.00002559
+Iteration 79/1000 | Loss: 0.00002559
+Iteration 80/1000 | Loss: 0.00002559
+Iteration 81/1000 | Loss: 0.00002559
+Iteration 82/1000 | Loss: 0.00002559
+Iteration 83/1000 | Loss: 0.00002559
+Iteration 84/1000 | Loss: 0.00002559
+Iteration 85/1000 | Loss: 0.00002559
+Iteration 86/1000 | Loss: 0.00002559
+Iteration 87/1000 | Loss: 0.00002559
+Iteration 88/1000 | Loss: 0.00002559
+Iteration 89/1000 | Loss: 0.00002558
+Iteration 90/1000 | Loss: 0.00002558
+Iteration 91/1000 | Loss: 0.00002558
+Iteration 92/1000 | Loss: 0.00002558
+Iteration 93/1000 | Loss: 0.00002558
+Iteration 94/1000 | Loss: 0.00002558
+Iteration 95/1000 | Loss: 0.00002557
+Iteration 96/1000 | Loss: 0.00002557
+Iteration 97/1000 | Loss: 0.00002557
+Iteration 98/1000 | Loss: 0.00002557
+Iteration 99/1000 | Loss: 0.00002557
+Iteration 100/1000 | Loss: 0.00002557
+Iteration 101/1000 | Loss: 0.00002556
+Iteration 102/1000 | Loss: 0.00002556
+Iteration 103/1000 | Loss: 0.00002556
+Iteration 104/1000 | Loss: 0.00002556
+Iteration 105/1000 | Loss: 0.00002556
+Iteration 106/1000 | Loss: 0.00002555
+Iteration 107/1000 | Loss: 0.00002555
+Iteration 108/1000 | Loss: 0.00002555
+Iteration 109/1000 | Loss: 0.00002555
+Iteration 110/1000 | Loss: 0.00002555
+Iteration 111/1000 | Loss: 0.00002554
+Iteration 112/1000 | Loss: 0.00002554
+Iteration 113/1000 | Loss: 0.00002554
+Iteration 114/1000 | Loss: 0.00002554
+Iteration 115/1000 | Loss: 0.00002554
+Iteration 116/1000 | Loss: 0.00002553
+Iteration 117/1000 | Loss: 0.00002553
+Iteration 118/1000 | Loss: 0.00002553
+Iteration 119/1000 | Loss: 0.00002553
+Iteration 120/1000 | Loss: 0.00002553
+Iteration 121/1000 | Loss: 0.00002552
+Iteration 122/1000 | Loss: 0.00002552
+Iteration 123/1000 | Loss: 0.00002552
+Iteration 124/1000 | Loss: 0.00002552
+Iteration 125/1000 | Loss: 0.00002552
+Iteration 126/1000 | Loss: 0.00002552
+Iteration 127/1000 | Loss: 0.00002551
+Iteration 128/1000 | Loss: 0.00002551
+Iteration 129/1000 | Loss: 0.00002551
+Iteration 130/1000 | Loss: 0.00002551
+Iteration 131/1000 | Loss: 0.00002551
+Iteration 132/1000 | Loss: 0.00002551
+Iteration 133/1000 | Loss: 0.00002550
+Iteration 134/1000 | Loss: 0.00002550
+Iteration 135/1000 | Loss: 0.00002550
+Iteration 136/1000 | Loss: 0.00002550
+Iteration 137/1000 | Loss: 0.00002550
+Iteration 138/1000 | Loss: 0.00002550
+Iteration 139/1000 | Loss: 0.00002550
+Iteration 140/1000 | Loss: 0.00002550
+Iteration 141/1000 | Loss: 0.00002550
+Iteration 142/1000 | Loss: 0.00002550
+Iteration 143/1000 | Loss: 0.00002550
+Iteration 144/1000 | Loss: 0.00002550
+Iteration 145/1000 | Loss: 0.00002550
+Iteration 146/1000 | Loss: 0.00002550
+Iteration 147/1000 | Loss: 0.00002549
+Iteration 148/1000 | Loss: 0.00002549
+Iteration 149/1000 | Loss: 0.00002549
+Iteration 150/1000 | Loss: 0.00002549
+Iteration 151/1000 | Loss: 0.00002549
+Iteration 152/1000 | Loss: 0.00002549
+Iteration 153/1000 | Loss: 0.00002549
+Iteration 154/1000 | Loss: 0.00002549
+Iteration 155/1000 | Loss: 0.00002549
+Iteration 156/1000 | Loss: 0.00002549
+Iteration 157/1000 | Loss: 0.00002549
+Iteration 158/1000 | Loss: 0.00002549
+Iteration 159/1000 | Loss: 0.00002549
+Iteration 160/1000 | Loss: 0.00002549
+Iteration 161/1000 | Loss: 0.00002549
+Iteration 162/1000 | Loss: 0.00002549
+Iteration 163/1000 | Loss: 0.00002549
+Iteration 164/1000 | Loss: 0.00002549
+Iteration 165/1000 | Loss: 0.00002549
+Iteration 166/1000 | Loss: 0.00002549
+Iteration 167/1000 | Loss: 0.00002549
+Iteration 168/1000 | Loss: 0.00002549
+Iteration 169/1000 | Loss: 0.00002549
+Iteration 170/1000 | Loss: 0.00002549
+Iteration 171/1000 | Loss: 0.00002549
+Iteration 172/1000 | Loss: 0.00002549
+Low loss delta threshold (1e-15) for 5 consecutive iterations reached at iteration 172. Stopping optimization.
+Last 5 losses: [2.549123382777907e-05, 2.549123382777907e-05, 2.549123382777907e-05, 2.549123382777907e-05, 2.549123382777907e-05]
+Last 5 loss deltas: [0.0, 0.0, 0.0, 0.0, 0.0]
+Final loss: 2.549123382777907e-05
+
+Optimization complete. Final v2v error: 4.33097505569458 mm
+
+Highest mean error: 5.913893699645996 mm for frame 106
+
+Lowest mean error: 3.5786361694335938 mm for frame 47
+
+Saving results
+
+Total time: 97.75407576560974

@@ -66,6 +66,29 @@ class MeshDirDataset(torch.utils.data.Dataset):
             ),
         }
 
+def custom_collate_fn(batch):
+    batch_output = {
+        "vertices": [],
+        "faces": [],
+        "gender": [],
+        "gender_sub": [],
+        "motion_info": [],
+        "mocap_rate": []
+    }
+    
+    for item in batch:
+        batch_output["vertices"].append(item["vertices"])
+        batch_output["faces"].append(item["faces"])
+        batch_output["gender"].append(item.get("gender", None))
+        batch_output["gender_sub"].append(item.get("gender_sub", None))
+        batch_output["motion_info"].append(item.get("motion_info", None))
+        batch_output["mocap_rate"].append(item.get("mocap_rate", None))
+    
+    # Convert lists of tensors to batched tensors
+    batch_output["vertices"] = torch.stack(batch_output["vertices"])
+    batch_output["faces"] = torch.stack(batch_output["faces"])
+    
+    return batch_output
 
 class NPZParamsFileDataset(torch.utils.data.Dataset):
     """
@@ -125,12 +148,12 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
         return len(self.npz_file_paths)
 
     def __getitem__(self, idx):
-
         npz_file_path = self.npz_file_paths[idx]
         params = dict(np.load(npz_file_path, allow_pickle=True))
 
+        params_extra = {k: v for k, v in params.items()}
         params = {k: v for k, v in params.items() if v.dtype in numpy2torch_types_to_convert}
-
+        
         for key in params.keys():
             v = params[key]
             if v.dtype in numpy_float_types:
@@ -144,12 +167,22 @@ class NPZParamsFileDataset(torch.utils.data.Dataset):
 
         with torch.no_grad():
             vertices = self.body_model.forward(betas=betas, pose=pose, trans=trans)
-
-        return {
+        
+        output = {
             "vertices": vertices,
-            "faces": self.body_model_faces,
+            "faces": self.body_model.faces,
         }
-
+        
+        if 'gender' in params_extra:
+            output["gender"] = params_extra['gender']
+        if 'gender_sub' in params_extra:
+            output["gender_sub"] = params_extra['gender_sub']
+        if 'motion_info' in params_extra:
+            output["motion_info"] = params_extra['motion_info']
+        if 'mocap_rate' in params_extra:
+            output["mocap_rate"] = params_extra['mocap_rate']
+        
+        return output
 
 def get_dataset(input_data_type: str, dataloader_batch_size: int):
     assert isinstance(input_data_type, str), "input_data_type must be a string"
