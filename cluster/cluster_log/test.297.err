@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/is/cluster/fast/sbhor/bomoto/run.py", line 52, in <module>
-    file_path = all_files[file_idx]
-IndexError: list index out of range
