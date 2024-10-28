@@ -60,8 +60,10 @@ class SMPLHWrapper(BodyModel):
                 betas: Union[torch.tensor, np.ndarray, None] = None,
                 pose: Union[torch.tensor, np.ndarray, None] = None,
                 trans: Union[torch.tensor, np.ndarray, None] = None,
+                return_full_model_output=False,
                 **kwargs):
         betas, pose, trans, kwargs = super()._preprocess_params(betas, pose, trans, **kwargs)
-        return self.model.forward(betas=betas,
-                                  transl=trans,
-                                  **SMPLHWrapper.full_pose_to_parts(pose)).vertices
+        output = self.model.forward(betas=betas,
+                                    transl=trans,
+                                    **SMPLHWrapper.full_pose_to_parts(pose))
+        return output.vertices if not return_full_model_output else output

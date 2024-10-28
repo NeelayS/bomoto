@@ -116,24 +116,6 @@ def interpolate_parameters(target_betas: np.ndarray,
                            initial_pose: np.ndarray = None,
                            initial_trans: np.ndarray = None,
                            n_frames_interp: int = 100):
-    """
-    Interpolates SMPL-X parameters using linear interpolation for betas and translation and spherical linear
-    interpolation for pose.
-
-    Args:
-        target_betas:
-        target_pose:
-        target_trans:
-        initial_betas:
-        initial_pose:
-        initial_trans:
-        n_frames_interp:
-
-    Returns:
-        interpolated SMPL-X parameters
-
-    """
-    # interp_coeffs = (np.arange(n_frames_interp).astype(np.float32)[..., None] / n_frames_interp)
     interp_coeffs = np.linspace(0, 1, n_frames_interp, dtype=np.float32)[..., None]
 
     initial_betas = target_betas if initial_betas is None else initial_betas

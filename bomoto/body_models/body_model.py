@@ -24,17 +24,17 @@ class BodyModel(ABC):
     @property
     @abstractmethod
     def num_vertices(self):
-        return NotImplementedError()
+        raise NotImplementedError()
 
     @property
     @abstractmethod
     def num_pose_params(self):
-        return NotImplementedError()
+        raise NotImplementedError()
 
     @staticmethod
     @abstractmethod
     def get_body_model_params_info():
-        return NotImplementedError()
+        raise NotImplementedError()
 
     @property
     def device(self):
@@ -68,11 +68,15 @@ class BodyModel(ABC):
             pose = torch.zeros((self.batch_size, self.num_pose_params), dtype=torch.float32, device=self.device)
         else:
             pose = torch.as_tensor(pose, dtype=torch.float32, device=self.device)
+            if pose.ndim == 1:
+                pose = pose[None, ...].repeat(self.batch_size, 1)
 
         if trans is None:
             trans = torch.zeros((self.batch_size, 3), dtype=torch.float32, device=self.device)
         else:
             trans = torch.as_tensor(trans, dtype=torch.float32, device=self.device)
+            if trans.ndim == 1:
+                trans = trans[None, ...].repeat(self.batch_size, 1)
 
         return betas, pose, trans, params2torch(kwargs, device=self.device)
 
