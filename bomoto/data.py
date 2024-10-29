@@ -67,6 +67,64 @@ class MeshDirDataset(torch.utils.data.Dataset):
         }
 
 
+class MultipleMeshDirDataset(torch.utils.data.Dataset):
+    """
+    Dataset class to load meshes stored in either .obj or .ply format from a directory.
+
+    Parameters
+    ----------
+    mesh_dir : str
+        Path to the directory containing the meshes.
+    mesh_format: str, optional
+        Format of the meshes. Can be either 'obj' or 'ply'. By default, loads meshes present in either format.
+    """
+
+    def __init__(self, mesh_dir: str, mesh_format: str = None):
+        super().__init__()
+
+        assert isinstance(
+            mesh_dir, str
+        ), "mesh_dir must be a string denoting the path to the directory containing the meshes"
+        assert os.path.isdir(
+            mesh_dir
+        ), f"mesh_dir must be a valid directory. {mesh_dir} is not a valid directory"
+
+        if mesh_format is None:
+            mesh_format = (".obj", ".ply")
+        else:
+            assert isinstance(
+                mesh_format, str
+            ), "if specified, mesh_format must be a string denoting the format of the meshes"
+            mesh_format = mesh_format.lower()
+            assert mesh_format in [
+                "obj",
+                "ply",
+            ], "mesh_format must be either 'obj' or 'ply'"
+            mesh_format = (f".{mesh_format}",)
+
+        self.mesh_paths = sorted(
+            [
+                os.path.join(mesh_dir, f)
+                for f in os.listdir(mesh_dir)
+                if any(f.endswith(ext) for ext in mesh_format)
+            ]
+        )
+
+    def __len__(self):
+        return 1
+
+    def __getitem__(self, idx):
+
+        # mesh_path = self.mesh_paths[idx]
+        meshes = [trimesh.load(mesh_path, process=False) for mesh_path in self.mesh_paths]
+        vertices = np.stack([np.array(mesh.vertices).squeeze() for mesh in meshes])
+
+        return {
+            "vertices": torch.tensor(vertices, dtype=torch.float32),
+            "faces": torch.tensor(meshes[0].faces),
+        }
+
+
 class NPZParamsFileDataset(torch.utils.data.Dataset):
     """
     Dataset class used to load parameters stored in .npz files and
