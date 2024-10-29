@@ -1,3 +1,6 @@
 [submodule "SUPR"]
 	path = SUPR
 	url = https://github.com/NeelayS/SUPR.git
+[submodule "submodules/SKEL"]
+	path = submodules/SKEL
+	url = https://github.com/MarilynKeller/SKEL

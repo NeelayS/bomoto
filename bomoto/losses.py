@@ -3,7 +3,7 @@ from typing import Union
 import numpy as np
 import torch
 
-from bomoto.utils import get_vertices_per_edge
+from .utils import get_vertices_per_edge
 
 
 def compute_v2v_error(

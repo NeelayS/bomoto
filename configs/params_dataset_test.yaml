@@ -2,7 +2,7 @@ seed: 42
 device: "cuda:0"
 log_iterations_interval: 1
 
-batch_size: 2
+batch_size: 300
 dataloader_n_workers: 0
 
 deformation_matrix_path: null
@@ -55,26 +55,27 @@ input:
   data:
 
     type: params
-    npz_files_dir: <path_to_npz_parameter_files>
+    npz_files_dir: /is/cluster/fast/gbecherini/conversion/data/smplx_neutral/InteractionsTests
+    fname_filter: null # TODO: implement
 
   body_model:
     
     type: smplx
-    path: <path_to_smplx_model>
-    gender: neutral
-    n_betas: 10
-    
+    path: /home/gbecherini/data/body_models/smplx/smplx_locked_head/SMPLX_MALE.npz
+    gender: male
+    n_betas: 300
+
     misc_args: null
 
-  source_betas_override_path: null
-  source_vtemplate_path: null
+  source_betas_path: null # overrides betas for input sequences TODO: implement
+  source_vtemplate_path: /is/cluster/fast/gbecherini/soma_work/v_templates/InteractionsTests/00201/male.ply #  sets vtemplate for input sequences TODO: implement
 
 output:
 
   body_model:
     
-    type: supr
-    path: <path_to_supr_model>
+    type: smplx
+    path: /home/gbecherini/data/body_models/smplx/smplx_locked_head/SMPLX_NEUTRAL.npz
     gender: neutral
     n_betas: 300
     
@@ -82,11 +83,9 @@ output:
 
   params_to_optimize: all
   optimize_betas_only_for_first_batch: False
-  single_set_of_betas_per_batch: True
-
-  target_betas_path: null
-  target_vtemplate_path: null
-  target_pose_path: null
+  single_set_of_betas_per_batch: False
+  target_betas_path: null # /is/cluster/fast/gbecherini/soma_work/v_templates/YOGI_2/03596/v_template_smplx_neutral_300betas.pkl
+  target_vtemplate_path: null # TODO: implement
 
   save_dir: ./results
   save_meshes: True

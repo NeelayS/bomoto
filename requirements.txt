@@ -1,8 +1,8 @@
-chumpy==0.70
-fvcore==0.1.5.post20221221
-numpy==1.23.1
-omegaconf==2.3.0
-scipy==1.11.3
-smplx==0.1.28
-trimesh==4.0.0
-tqdm==4.66.1
+chumpy~=0.70
+fvcore~=0.1.5.post20221221
+numpy~=1.23.1
+omegaconf~=2.3.0
+scipy~=1.11.3
+smplx~=0.1.28
+trimesh~=4.0.0
+tqdm~=4.66.3

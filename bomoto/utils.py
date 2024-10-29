@@ -5,6 +5,7 @@ import numpy as np
 import scipy.sparse as sp
 import torch
 import torch.backends.cudnn as cudnn
+from . import numpy_float_types
 
 
 def seed_everything(seed):
@@ -17,7 +18,6 @@ def seed_everything(seed):
 
 
 def validate_device(device: str):
-
     try:
         device = torch.device(device)
         _ = torch.tensor([1.0]).to(device)
@@ -38,7 +38,6 @@ def _col(A):
 
 
 def get_vertex_connectivity(n_vertices, faces):
-
     vpv = sp.csc_matrix((n_vertices, n_vertices))
 
     faces = faces.cpu()
@@ -61,7 +60,6 @@ def get_vertex_connectivity(n_vertices, faces):
 
 
 def get_vertices_per_edge(n_vertices, faces):
-
     vc = sp.coo_matrix(get_vertex_connectivity(n_vertices, faces))
 
     vpe = np.hstack((_col(vc.row), _col(vc.col)))
@@ -75,14 +73,16 @@ def deform_vertices(deformation_matrix, vertices):
 
 
 def read_deformation_matrix(deformation_matrix_path, device=torch.device("cpu")):
-
     assert os.path.exists(deformation_matrix_path), (
         "Deformation matrix path does not exist:" f" {deformation_matrix_path}"
     )
     with open(deformation_matrix_path, "rb") as f:
         def_transfer_setup = pickle.load(f, encoding="latin1")
 
-    if "mtx" in def_transfer_setup:
+    if isinstance(def_transfer_setup, sp.coo_matrix):
+        def_matrix = def_transfer_setup.todense()
+
+    elif "mtx" in def_transfer_setup:
         def_matrix = def_transfer_setup["mtx"]
 
         if hasattr(def_matrix, "todense"):
@@ -103,3 +103,17 @@ def read_deformation_matrix(deformation_matrix_path, device=torch.device("cpu"))
     def_matrix = torch.tensor(def_matrix, device=device, dtype=torch.float32)
 
     return def_matrix
+
+
+def params2torch(params: dict, device='cpu'):
+    params = params.copy()
+    for key in params.keys():
+        v = params[key]
+        try:
+            dtype = v.dtype
+        except AttributeError:
+            continue
+        if dtype in numpy_float_types:
+            v = v.astype(np.float32)
+        params[key] = torch.as_tensor(v).to(device)
+    return params
