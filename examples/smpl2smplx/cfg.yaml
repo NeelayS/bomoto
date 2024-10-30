@@ -55,12 +55,12 @@ input:
   data:
 
     type: params
-    npz_files_dir: /home/gbecherini/repos/bomoto/examples/smpl2smplx/sample_data
+    npz_files_dir: ./examples/smpl2smplx/sample_data
 
   body_model:
 
     type: smpl
-    path: /is/cluster/fast/gbecherini/data/body_models/smpl/SMPL_NEUTRAL.pkl
+    path: <body_models_folder_path>/smpl/SMPL_NEUTRAL.pkl
     gender: neutral
     n_betas: 10
 
@@ -74,7 +74,7 @@ output:
   body_model:
 
     type: smplx
-    path: /is/cluster/fast/gbecherini/data/body_models/smplx/smplx_locked_head/SMPLX_NEUTRAL.npz
+    path: <body_models_folder_path>/smplx/smplx_locked_head/SMPLX_NEUTRAL.npz
     gender: neutral
     n_betas: 10
 
