@@ -55,7 +55,7 @@ Given a set of meshes, fit body model parameters to them.
   - replace `output.body_model.path` with the path to your SMPL-X neutral model
 - Run the following commands
    ```bash
-   python examples/parms_for_smplx/generate_sample_data.py
+   python examples/parms_for_smplx/generate_sample_data.py --model_path <path to your SMPL-X neutral model npz file>
    python run.py --cfg examples/parms_for_smplx/cfg.yaml
    ```
 - Check the results (SMPL-X parameters and meshes in obj format) in `examples/parms_for_smplx/results`

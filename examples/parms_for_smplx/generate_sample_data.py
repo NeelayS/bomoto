@@ -2,10 +2,14 @@ import os
 import os.path as osp
 
 import numpy as np
+import torch.cuda
+
 from bomoto.body_models import BodyModel
 from bomoto.body_models import interpolate_parameters
 
 import trimesh
+
+import argparse
 
 
 def generate_smpl_params_sequence():
@@ -31,15 +35,21 @@ def generate_smpl_params_sequence():
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model_path', type=str, required=True)
+    args = parser.parse_args()
+
+    assert osp.exists(args.model_path), f'Model file not found: {args.model_path}'
+
     out_path = osp.join(osp.dirname(__file__), 'sample_data')
     betas, poses, trans = generate_smpl_params_sequence()
 
     bmargs = {
-        'model_path': '/is/cluster/fast/gbecherini/data/body_models/smplx/smplx_locked_head/SMPLX_NEUTRAL.npz',
+        'model_path': args.model_path,
         'gender': 'neutral',
         'n_betas': 300,
         'batch_size': poses.shape[0],
-        'device': 'cuda',
+        'device': 'cuda' if torch.cuda.is_available() else 'cpu',
     }
 
     body_model = BodyModel.instantiate('smplx', **bmargs)
