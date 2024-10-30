@@ -51,7 +51,6 @@ class CfgNode(_CfgNode):
 
 
 def configurable(init_func=None, *, from_config=None):
-
     """
     Decorate a function or a class's __init__ method so that it can be called
     with a :class:`CfgNode` object using a :func:`from_config` function that translates
@@ -60,9 +59,9 @@ def configurable(init_func=None, *, from_config=None):
 
     if init_func is not None:
         assert (
-            inspect.isfunction(init_func)
-            and from_config is None
-            and init_func.__name__ == "__init__"
+                inspect.isfunction(init_func)
+                and from_config is None
+                and init_func.__name__ == "__init__"
         ), "Incorrect use of @configurable. Check API documentation for examples."
 
         @functools.wraps(init_func)
@@ -118,7 +117,6 @@ def configurable(init_func=None, *, from_config=None):
 
 
 def _get_args_from_config(from_config_func, *args, **kwargs):
-
     signature = inspect.signature(from_config_func)
 
     if list(signature.parameters.keys())[0] != "cfg":
@@ -155,7 +153,6 @@ def _get_args_from_config(from_config_func, *args, **kwargs):
 
 
 def _called_with_cfg(*args, **kwargs):
-
     from omegaconf import DictConfig
 
     if len(args) and isinstance(args[0], (_CfgNode, DictConfig)):
@@ -172,7 +169,6 @@ def create_cfg_obj():
 
 
 def get_cfg(cfg_path):
-
     """
     Returns a config object for a given YAML config file.
     Parameters
