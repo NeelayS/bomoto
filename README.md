@@ -19,8 +19,8 @@ the [official website](https://pytorch.org/).
     Run these commands to install the SUPR and SKEL body models
     
     ```bash
-    cd submodules/SUPR && pip install -e . && cd ../..
-    cd submodules/SKEL && pip install -e . && cd ../..
+    cd submodules/SUPR && pip install . && cd ../..
+    cd submodules/SKEL && pip install . && cd ../..
     ```
 
 ## Usage
@@ -35,9 +35,13 @@ the [official website](https://pytorch.org/).
     ```
 
 ### Examples
-- SMPL to SMPL-X
-    
-    ```bash
-    python examples/smpl2smplx/generate_sample_data.py
-    python run.py --cfg examples/smpl2smplx/cfg.yaml
-    ```
+##### SMPL to SMPL-X
+- Modify `examples/smpl2smplx/cfg.yaml`. In particular:
+  - replace `input.body_model.path` with the path to your SMPL neutral model
+  - replace `output.body_model.path` with the path to your SMPL-X neutral model
+- Run the following commands
+   ```bash
+   python examples/smpl2smplx/generate_sample_data.py
+   python run.py --cfg examples/smpl2smplx/cfg.yaml
+   ```
+- Check the results (SMPL-X parameters and meshes in obj format) in `examples/smpl2smplx/results` 
