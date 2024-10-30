@@ -5,7 +5,7 @@ log_iterations_interval: 1
 batch_size: 100 # number of frames in the sequence
 dataloader_n_workers: 0
 
-deformation_matrix_path: ./support_data/deformation_matrices/smpl2smplx_deformation_matrix.pkl # check support_data/deformation_matrices/README.md for more information
+deformation_matrix_path: null # check support_data/deformation_matrices/README.md for more information
 vertices_mask_path: null
 
 optimization:
@@ -54,20 +54,9 @@ input:
 
   data:
 
-    type: params
-    npz_files_dir: ./examples/smpl2smplx/sample_data
-
-  body_model:
-
-    type: smpl
-    path: <body_models_folder_path>/smpl/SMPL_NEUTRAL.pkl
-    gender: neutral
-    n_betas: 10
-
-    misc_args: null
-
-  source_betas_override_path: null # overrides betas for input sequences
-  source_vtemplate_path: null # sets vtemplate for input sequences
+    type: meshes
+    mesh_dir: ./examples/parms_for_smplx/sample_data
+    mesh_format: obj # [obj, ply]
 
 output:
 
@@ -76,7 +65,7 @@ output:
     type: smplx
     path: <body_models_folder_path>/smplx/smplx_locked_head/SMPLX_NEUTRAL.npz
     gender: neutral
-    n_betas: 10
+    n_betas: 300
 
     misc_args: null
 
@@ -88,5 +77,5 @@ output:
   target_vtemplate_path: null # sets vtemplate for output sequences
   target_pose_path: null # overrides poses for output sequences
 
-  save_dir: ./examples/smpl2smplx/results
+  save_dir: ./examples/parms_for_smplx/results
   save_meshes: True # will save an obj mesh file for each frame in the sequence

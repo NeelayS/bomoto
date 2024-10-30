@@ -5,13 +5,15 @@ import numpy as np
 from bomoto.body_models import BodyModel
 from bomoto.body_models import interpolate_parameters
 
+import trimesh
+
 
 def generate_smpl_params_sequence():
     """
     Generates a simple example sequence where, in 100 frames, the body lowers the arms and moves slightly forward
     """
-    betas = np.random.rand(10) * 2 - 0.5
-    initial_pose = np.zeros((72,), dtype=np.float32)
+    betas = np.random.rand(300) * 2 - 0.5
+    initial_pose = np.zeros((165,), dtype=np.float32)
     initial_trans = np.zeros((3,), dtype=np.float32)
 
     target_pose = initial_pose.copy()
@@ -29,19 +31,28 @@ def generate_smpl_params_sequence():
 
 
 def main():
+    out_path = osp.join(osp.dirname(__file__), 'sample_data')
     betas, poses, trans = generate_smpl_params_sequence()
 
-    out_data = {
-        'betas': betas,
-        'poses': poses,
-        'trans': trans
+    bmargs = {
+        'model_path': '/is/cluster/fast/gbecherini/data/body_models/smplx/smplx_locked_head/SMPLX_NEUTRAL.npz',
+        'gender': 'neutral',
+        'n_betas': 300,
+        'batch_size': poses.shape[0],
+        'device': 'cuda',
     }
 
-    sample_motion_seq_fname = osp.join(osp.dirname(__file__), 'sample_data', 'sample_motion_seq.npz')
-    os.makedirs(osp.dirname(sample_motion_seq_fname), exist_ok=True)
-    np.savez_compressed(sample_motion_seq_fname, **out_data)
+    body_model = BodyModel.instantiate('smplx', **bmargs)
 
-    print(f'Sample motion sequence saved to {sample_motion_seq_fname}')
+    v_seq = body_model.forward(betas, poses, trans).detach().cpu().numpy()
+
+    for i, v in enumerate(v_seq):
+        mesh = trimesh.Trimesh(vertices=v, faces=body_model.faces.cpu().numpy())
+        out_fname = osp.join(out_path, f'frame_{str(i).zfill(5)}.obj')
+        os.makedirs(osp.dirname(out_fname), exist_ok=True)
+        mesh.export(out_fname)
+
+    print(f'Sample meshes saved to {out_path}')
 
 
 if __name__ == '__main__':

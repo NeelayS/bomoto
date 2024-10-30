@@ -34,7 +34,9 @@ the [official website](https://pytorch.org/).
     python run.py --cfg configs/<config_file>.yaml
     ```
 
-### Examples
+## Examples
+### Converting parameters
+Convert parameters from one body model to another.
 ##### SMPL to SMPL-X
 - Modify `examples/smpl2smplx/cfg.yaml`. In particular:
   - replace `input.body_model.path` with the path to your SMPL neutral model
@@ -45,3 +47,15 @@ the [official website](https://pytorch.org/).
    python run.py --cfg examples/smpl2smplx/cfg.yaml
    ```
 - Check the results (SMPL-X parameters and meshes in obj format) in `examples/smpl2smplx/results` 
+
+### Fitting parameters to meshes (aka `parms_for`)
+Given a set of meshes, fit body model parameters to them.
+##### Meshes to SMPL-X
+- Modify `examples/smpl2smplx/cfg.yaml`. In particular:
+  - replace `output.body_model.path` with the path to your SMPL-X neutral model
+- Run the following commands
+   ```bash
+   python examples/parms_for_smplx/generate_sample_data.py
+   python run.py --cfg examples/parms_for_smplx/cfg.yaml
+   ```
+- Check the results (SMPL-X parameters and meshes in obj format) in `examples/parms_for_smplx/results`
