@@ -6,7 +6,7 @@ A toolkit for fitting body models to meshes and converting between body models
 
 1. Clone the repository and its submodules:
     ```bash
-    git clone --recurse-submodules https://github.com/NeelayS/bomoto.git
+    git clone --recurse-submodules https://github.com/PerceivingSystems/bomoto
     ```
 
 2. Install the PyTorch version of your choice, which is compatible with your GPU, from
