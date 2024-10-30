@@ -19,7 +19,7 @@ class SUPRWrapper(BodyModel):
                  **misc_args):
         body_model = SUPR(path_model=model_path,
                           num_betas=n_betas,
-                          v_template=v_template,
+                          # v_template=v_template,
                           device=device)
         super().__init__(model=body_model)
 
