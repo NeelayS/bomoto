@@ -2,7 +2,7 @@ seed: 42
 device: "cuda:0"
 log_iterations_interval: 1
 
-batch_size: 2
+batch_size: 2 # number of frames in the sequence
 dataloader_n_workers: 0
 
 deformation_matrix_path: null
@@ -66,8 +66,8 @@ input:
     
     misc_args: null
 
-  source_betas_override_path: null
-  source_vtemplate_path: null
+  source_betas_override_path: null # overrides betas for input sequences
+  source_vtemplate_path: null # sets vtemplate for input sequences
 
 output:
 
@@ -82,11 +82,11 @@ output:
 
   params_to_optimize: all
   optimize_betas_only_for_first_batch: False
-  single_set_of_betas_per_batch: True
+  single_set_of_betas_per_batch: True # if False, it will find a different set of betas for each frame
 
-  target_betas_path: null
-  target_vtemplate_path: null
-  target_pose_path: null
+  target_betas_path: null # overrides betas for output sequences
+  target_vtemplate_path: null # sets vtemplate for output sequences
+  target_pose_path: null # overrides poses for output sequences
 
   save_dir: ./results
-  save_meshes: True
+  save_meshes: True # will save an obj mesh file for each frame in the sequence
