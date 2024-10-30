@@ -1,0 +1,92 @@
+seed: 42
+device: "cuda:0"
+log_iterations_interval: 1
+
+batch_size: 100 # number of frames in the sequence
+dataloader_n_workers: 0
+
+deformation_matrix_path: ./support_data/deformation_matrices/smpl2smplx_deformation_matrix.pkl # check support_data/deformation_matrices/README.md for more information
+vertices_mask_path: null
+
+optimization:
+
+  optimizer_params:
+    lr: 0.1
+    max_iter: 50
+    line_search_fn: strong_wolfe
+
+  edge_loss:
+    use: True
+    n_iters: 25
+    loss_reduction: mean
+    low_loss_threshold: 4.0e-12
+    low_loss_delta_threshold: 1.0e-15
+    n_consecutive_low_loss_delta_iters_threshold: 5
+    apply_rotation_angles_correction: True
+    gradient_clip: null # 1.0
+    params_regularization_weights: {} # {'global_orient': 1.0, 'pose': 1.0}  # null
+    params_regularization_iters: {} # {'global_orient': 10, 'pose': 10}  # null
+
+  global_position:
+    use: True
+    n_iters: 25
+    loss_reduction: mean
+    low_loss_threshold: 4.0e-10
+    low_loss_delta_threshold: 1.0e-12
+    n_consecutive_low_loss_delta_iters_threshold: 5
+    apply_rotation_angles_correction: True
+    gradient_clip: null # 1.0
+    params_regularization_weights: {} # {'global_orient': 1.0, 'trans': 1.0}  # null
+    params_regularization_iters: {} # {'global_orient': 10, 'trans': 10}  # null
+
+  vertex_loss:
+    n_iters: 1000
+    loss_reduction: mean
+    low_loss_threshold: 4.0e-12
+    low_loss_delta_threshold: 1.0e-15
+    n_consecutive_low_loss_delta_iters_threshold: 5
+    apply_rotation_angles_correction: True
+    gradient_clip: null # 1.0
+    params_regularization_weights: {} # {'global_orient': 1.0, 'pose': 1.0, 'trans': 10}  # null
+    params_regularization_iters: {} # {'global_orient': 10, 'pose': 10, 'trans': 10}  # null
+
+input:
+
+  data:
+
+    type: params
+    npz_files_dir: /home/gbecherini/repos/bomoto/examples/smpl2smplx/sample_data
+
+  body_model:
+
+    type: smpl
+    path: /is/cluster/fast/gbecherini/data/body_models/smpl/SMPL_NEUTRAL.pkl
+    gender: neutral
+    n_betas: 10
+
+    misc_args: null
+
+  source_betas_override_path: null # overrides betas for input sequences
+  source_vtemplate_path: null # sets vtemplate for input sequences
+
+output:
+
+  body_model:
+
+    type: smplx
+    path: /is/cluster/fast/gbecherini/data/body_models/smplx/smplx_locked_head/SMPLX_NEUTRAL.npz
+    gender: neutral
+    n_betas: 10
+
+    misc_args: null
+
+  params_to_optimize: ['betas', 'global_orient', 'pose', 'transl']
+  optimize_betas_only_for_first_batch: False
+  single_set_of_betas_per_batch: True # if False, it will optimize a different set of betas for each frame
+
+  target_betas_path: null # overrides betas for output sequences
+  target_vtemplate_path: null # sets vtemplate for output sequences
+  target_pose_path: null # overrides poses for output sequences
+
+  save_dir: ./examples/smpl2smplx/results
+  save_meshes: True # will save an obj mesh file for each frame in the sequence
