@@ -6,12 +6,7 @@ from typing import Union
 import numpy as np
 import torch
 
-try:
-    from skel.skel_model import SKEL
-except ImportError:
-    class SKEL:
-        def __init__(self, *args, **kwargs):
-            raise ImportError('SKEL is not installed')
+from skel.skel_model import SKEL
 
 from . import BodyModel
 
