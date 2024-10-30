@@ -15,8 +15,17 @@ A toolkit for fitting body models to meshes and converting between body models
 3. Install the dependencies for this repository:
 
     ```bash
-    cd bomoto && python setup.py install
-    cd SUPR && python setup.py install && cd ..
+    cd bomoto && pip install -e .
+    ```
+   ```bash
+    cd submodules/SUPR
+    pip install -e .
+    cd ../..
+    
+    cd submodules/SKEL 
+    git checkout e6b78729010ca6bda1d89032e5d709a8116bb8de
+    pip install -e .
+    cd ../..
     ```
 
 ## Usage
@@ -24,7 +33,7 @@ A toolkit for fitting body models to meshes and converting between body models
 1. Depending on whether you input data is meshes or model parameter files, choose the appropriate config file from `configs/`.
 2. Edit it to suit your needs.
 3. Run the script:
-
+l
     ```bash
     python run.py --cfg configs/<config_file>.yaml
     ```
