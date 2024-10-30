@@ -6,7 +6,13 @@ from typing import Union
 import numpy as np
 import torch
 
-from SUPR.supr.pytorch.supr import SUPR
+try:
+    from SUPR.supr.pytorch.supr import SUPR
+except ImportError:
+    class SUPR:
+        def __init__(self, *args, **kwargs):
+            raise ImportError('SUPR is not installed')
+
 from . import BodyModel
 
 
