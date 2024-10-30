@@ -1,6 +1,3 @@
-[submodule "submodules/SKEL"]
-	path = submodules/SKEL
-	url = https://github.com/MarilynKeller/SKEL
 [submodule "submodules/SUPR"]
 	path = submodules/SUPR
 	url = https://github.com/NeelayS/SUPR
