@@ -7,6 +7,7 @@ import numpy as np
 import torch
 
 from skel.skel_model import SKEL
+
 from . import BodyModel
 
 

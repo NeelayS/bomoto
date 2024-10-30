@@ -9,8 +9,8 @@ DESCRIPTION = (
     "A toolkit for fitting body models to meshes and converting between body models"
 )
 VERSION = "0.0.1"
-AUTHOR = "Neelay Shah"
-EMAIL = "neelay.shah@tuebingen.mpg.de"
+AUTHOR = "Neelay Shah, Giorgio Becherini"
+EMAIL = "neelay.shah@tuebingen.mpg.de, giorgio.becherini@tuebingen.mpg.de"
 LICENSE = "See LICENSE"
 REPOSITORY = "https://github.com/NeelayS/bomoto"
 PACKAGE = "bomoto"
